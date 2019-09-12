@@ -1,0 +1,99 @@
+/* 外层容器 */
+
+.cate-warp {
+  width: 100%;
+  padding: 30rpx;
+}
+
+/* 搜索 */
+
+.search {
+  width: 100%;
+  height: 80rpx;
+  border-radius: 8rpx;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+/* 搜索图标 */
+
+icon {
+  margin-right: 15rpx;
+}
+
+/* 热门搜索 标题 */
+
+.hot-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+
+/* 热门搜索词 */
+
+.text-list {
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* 文本标签 */
+
+.text-item {
+  padding: 8rpx 20rpx;
+  background: #ddd;
+  margin: 10rpx;
+  border-radius: 8rpx;
+  color: #666;
+}
+
+/* 循环体 */
+
+.imgs {
+  width: 100%;
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* 文本 图片 外层 */
+
+.imgs .img-item {
+  width: 48%;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  box-shadow: 0 0 10rpx #666;
+  position: relative;
+}
+
+/* 循环列表图片 */
+
+.imgs .img-item .list-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 遮罩文本 */
+
+.list-text {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 32rpx;
+}

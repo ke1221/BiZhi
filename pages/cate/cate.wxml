@@ -1,0 +1,31 @@
+<!-- 外层容器 -->
+<view class="cate-warp">
+  <!-- 搜索 -->
+  <view class="search" bindtap="toSearch">
+    <icon type="search" size="40rpx" />
+    输入关键字
+  </view>
+  <!-- 热门搜索 -->
+  <view class="hot-title">热门搜索</view>
+  <!-- 循环 -->
+  <view class="text-list">
+    <!-- 循环体 -->
+    <block wx:for="{{hotList}}" wx:key="{{index}}">
+      <!-- 具体内容 -->
+      <view class="text-item" data-name="{{item}}" bindtap="toSearch">{{item}}</view>
+    </block>
+  </view>
+  <!-- 所有分类 -->
+  <view class="hot-title">分类</view>
+  <!-- 循环列表 -->
+  <view class="imgs">
+    <!-- 循环体 -->
+    <block wx:for="{{imgList}}" wx:key="{{index}}">
+      <view class="img-item" data-name="风景" bindtap="toCateDetail">
+        <!-- 单个图片 -->
+        <image class="list-img" mode="aspectFill" src="{{item}}" />
+        <view class="list-text">风景</view>
+      </view>
+    </block>
+  </view>
+</view>

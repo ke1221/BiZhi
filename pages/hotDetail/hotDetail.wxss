@@ -1,0 +1,58 @@
+/* 外层容器 */
+
+.hot-detail {
+  width: 100%;
+  padding: 30rpx;
+}
+
+/* 顶部大图 */
+
+.hot-img {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 0 10rpx #666;
+}
+
+/* 标题 */
+
+.hot-detail .title {
+  width: 100%;
+  padding: 5rpx 10rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 描述 */
+
+.hot-detail .info {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999;
+}
+
+/* 循环体 */
+
+.imgs {
+  width: 100%;
+  padding: 20rpx 0;
+}
+
+/* 循环列表图片 */
+
+.imgs .list-img {
+  width: 210rpx;
+  height: 385rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 0 10rpx #666;
+}
+
+/* 精选下面 逢3 去掉右边距 */
+
+.imgs .list-img:nth-of-type(3n) {
+  margin-right: 0;
+}

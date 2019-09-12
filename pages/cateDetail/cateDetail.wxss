@@ -1,0 +1,18 @@
+/* 外层容器 */
+.warp{
+  width: 100%;
+  padding: 30rpx;
+}
+
+/* 图片 */
+.warp .list-img{
+  width: 210rpx;
+  margin-right: 30rpx;
+  height: 385rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 逢3 去掉右边距 */
+.warp .list-img:nth-of-type(3n){
+  margin-right: 0;
+}

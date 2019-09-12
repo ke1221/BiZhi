@@ -1,0 +1,66 @@
+/* 外层容器 */
+
+.warp {
+  width: 100%;
+  padding: 30rpx;
+}
+
+/* 搜索 */
+
+.search {
+  width: 690rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  padding-left: 30rpx;
+  position: fixed;
+  top: 30rpx;
+  left: 30rpx;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #999;
+  background: #eee;
+}
+
+/* 搜索图标 */
+
+.search icon {
+  margin-right: 15rpx;
+}
+
+/* 输入框 */
+
+.search input[type='text'] {
+  height: 80rpx;
+  width: 100%;
+}
+
+/* 空白高度 */
+
+.br {
+  width: 100%;
+  height: 80rpx;
+}
+
+/* 循环列表 */
+
+.imgs {
+  width: 100%;
+  margin: 40rpx 0 15rpx;
+}
+
+/* 图片 */
+
+.imgs .list-img {
+  width: 210rpx;
+  margin-right: 30rpx;
+  height: 385rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 逢3 去掉右边距 */
+
+.imgs .list-img:nth-of-type(3n) {
+  margin-right: 0;
+}

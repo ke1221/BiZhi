@@ -1,0 +1,89 @@
+<view class="home">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{banners.length > 1}}" autoplay="{{banners.length > 1}}" duration="500">
+    <block wx:for="{{banners}}" wx:key="{{index}}">
+      <swiper-item>
+        <image mode="aspectFill" class="swiper-img" src="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 导航 -->
+  <view class="top-nav">
+    <!-- 风景 -->
+    <view class="item" data-name="风景" bindtap="toCateDetail">
+      <text class="iconfont icon-dibudaohanglan-" />
+      <text class="info">风景</text>
+    </view>
+    <!-- 建筑 -->
+    <view class="item" data-name="建筑" bindtap="toCateDetail">
+      <text class="iconfont icon-building" />
+      <text class="info">建筑</text>
+    </view>
+    <!-- 人物 -->
+    <view class="item" data-name="人物" bindtap="toCateDetail">
+      <text class="iconfont icon-renwu-ren" />
+      <text class="info">人物</text>
+    </view>
+    <!-- 宠物 -->
+    <view class="item" data-name="宠物" bindtap="toCateDetail">
+      <text class="iconfont icon-chongwu" />
+      <text class="info">宠物</text>
+    </view>
+  </view>
+  <!-- 最新专题 -->
+  <view class="new-list">
+    <view class="l-left">最新专题</view>
+    <view class="l-right" bindtap="toHotList">
+      更多
+      <text class="iconfont icon-right" />
+    </view>
+  </view>
+  <!-- 滑动 -->
+  <scroll-view scroll-x enable-flex>
+    <!-- 循环体 -->
+    <block wx:for="{{items}}" wx:key="{{index}}">
+      <!-- 外层容器 -->
+      <view class="scr-item">
+        <!-- 图片 -->
+        <image wx:if="{{item}}" mode="center" src="{{item}}" />
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 空白 -->
+  <view class="br"></view>
+  <!-- 热门专题 -->
+  <view class="new-list">
+    <view class="l-left">热门专题</view>
+    <view class="l-right" bindtap="toHotList">
+      更多
+      <text class="iconfont icon-right" />
+    </view>
+  </view>
+  <!-- 滑动 -->
+  <scroll-view scroll-x enable-flex>
+    <!-- 循环体 -->
+    <block wx:for="{{hots}}" wx:key="{{index}}">
+      <!-- 外层容器 -->
+      <view class="scr-item">
+        <!-- 图片 -->
+        <image wx:if="{{item}}" mode="center" src="{{item}}" />
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 固定顶部 -->
+  <view class="fiexd-nav" wx:if="{{isFixd}}">
+    <view class="item {{nav == 0?'act':''}}" data-id='0' bindtap="setNav">精选</view>
+    <view class="item {{nav == 1?'act':''}}" data-id='1' bindtap="setNav">最新</view>
+  </view>
+  <!-- 精选 最新 -->
+  <view id="scroll" class="scr-top">
+    <!-- 顶部 -->
+    <view class="fiexd-nav">
+      <view class="item {{nav == 0?'act':''}}" data-id='0' bindtap="setNav">精选</view>
+      <view class="item {{nav == 1?'act':''}}" data-id='1' bindtap="setNav">最新</view>
+    </view>
+    <block wx:for="{{imgList}}" wx:key="{{index}}">
+      <image class="list-img" mode="aspectFill" id='1' bindtap="toPath" src="{{item}}" />
+    </block>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<!-- 外层容器 -->
+<view class="warp">
+  <!-- 循环列表 -->
+  <block wx:for="{{list}}" wx:key="{{index}}">
+    <!-- 单独一个 -->
+    <view class="item" data-id="1" bindtap="toHotDetail">
+      <!-- 顶部图片 -->
+      <image class="img" mode="center" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2101853777,2980701188&fm=26&gp=0.jpg" mode="aspectFill" />
+      <!-- 标题 -->
+      <view class="title">
+        这里放标题放标题放标题放标题放标题放标题
+      </view>
+      <!-- 简介 -->
+      <view class="title info">
+        日期
+      </view>
+    </view>
+  </block>
+</view>

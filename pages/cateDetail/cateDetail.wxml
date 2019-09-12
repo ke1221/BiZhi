@@ -1,0 +1,8 @@
+<!-- 外层容器 -->
+<view class="warp">
+  <!-- 循环体 -->
+  <block wx:for="{{imgList}}" wx:key="{{index}}">
+    <!-- 图片列表 -->
+    <image class="list-img" mode="aspectFill" src="{{item}}" />
+  </block>
+</view>

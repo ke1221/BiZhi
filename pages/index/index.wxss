@@ -1,0 +1,179 @@
+/* 外层容器 */
+.home{
+  width: 100%;
+  padding: 30rpx;
+}
+
+/* 空白 */
+.br{
+  height: 30rpx;
+}
+
+/* 顶部轮播 */
+swiper {
+  width: 100%;
+  height: 325rpx;
+  padding: 0;
+  background: #F9F9F9;
+  box-shadow: 0 0 8rpx #999;
+  border-radius: 8rpx;
+}
+
+/* 轮播内部 */
+swiper-item {
+  /* padding-right: 30rpx; */
+  box-sizing: border-box;
+}
+
+/* 轮播图片 */
+.swiper-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+/* 分类导航 */
+.top-nav{
+  width: 100%;
+  height: 140rpx;
+  color: #666;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+/* 单个分类 */
+.top-nav .item{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 字体图标 大小 */
+.item .iconfont{
+  font-size: 50rpx;
+}
+
+/* 文字大小 */
+.item .info{
+  line-height: 40rpx;
+  font-size: 24rpx;
+}
+
+/* 最新专题 */
+.new-list{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+}
+
+/* 标题左边 */
+.new-list .l-left{
+  color:  #333;
+}
+
+/* 标题右边 */
+.new-list .l-right{
+  color:  #666;
+}
+
+/* 滑动 */
+scroll-view{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* 滑块 */
+.scr-item{
+  width: 300rpx;
+  height: 100%;
+  background: #ccc;
+  margin-right: 30rpx;
+  flex: none;
+}
+
+/* 滑块内部 图像 */
+.scr-item image{
+  width: 100%;
+  height: 100%;
+}
+
+/* 固定导航 */
+.fiexd-nav {
+  width: 100%;
+  padding: 0 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background: #fff;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 固定导航 子项 */
+.fiexd-nav .item{
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 固定导航 选中 */
+.fiexd-nav .act{
+  font-weight: bold;
+  color: #333;
+  position: relative;
+}
+
+/* 固定导航 选中 横条 */
+.fiexd-nav .act::after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 2rpx;
+  background: #333;
+  position: absolute;
+  bottom: -3rpx;
+  left: 0;
+}
+
+/* 最新内容 或 精选 */
+.scr-top {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* tab栏 不固定 */
+.scr-top .fiexd-nav{
+  background: none;
+  position: static;
+  padding: 0 0 20rpx;
+  z-index: 0;
+}
+
+/* 精选下面 图片 */
+.scr-top .list-img{
+  width: 210rpx;
+  margin-right: 30rpx;
+  height: 385rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 精选下面 逢3 去掉右边距 */
+.scr-top .list-img:nth-of-type(3n){
+  margin-right: 0;
+}
