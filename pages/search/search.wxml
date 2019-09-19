@@ -7,8 +7,21 @@
     <!-- 输入框 -->
     <input type="text" value="{{name}}" bindconfirm="search" confirm-type="search" placeholder="搜索关键字" />
   </view>
+
+	
   <!-- 空白高度 -->
   <view class="br"></view>
+		<!-- 热门搜索 -->
+	<view class="hot-title">热门搜索</view>
+	<!-- 循环 -->
+	<view class="text-list">
+	  <!-- 循环体 -->
+	  <block wx:for="{{hotList}}" wx:key="{{index}}">
+	    <!-- 具体内容 -->
+	    <view class="text-item" bindtap="searchHot" data-name="{{item.dataName}}">{{item.dataName}}</view>
+	  </block>
+	</view>
+	
   <!-- 循环容器 -->
   <view class="imgs">
     <!-- 循环体 -->

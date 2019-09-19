@@ -64,3 +64,32 @@
 .imgs .list-img:nth-of-type(3n) {
   margin-right: 0;
 }
+
+/* 热门搜索 标题 */
+
+.hot-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+
+/* 热门搜索词 */
+
+.text-list {
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* 文本标签 */
+
+.text-item {
+  padding: 8rpx 20rpx;
+  background: #ddd;
+  margin: 10rpx;
+  border-radius: 8rpx;
+  color: #666;
+}
