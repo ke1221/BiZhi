@@ -11,7 +11,6 @@ App({
     			console.log("aaa")
     			user.loginByWeixin(res.userInfo).then(res => {
     				_this.globalData.appFlag = true
-    				_this.globalData.lemonNum = res.data.userInfo.freeSeeNum
     				if (_this.userInfoReadyCallback) {
     					_this.userInfoReadyCallback(res)
     				}
@@ -23,7 +22,6 @@ App({
     		fail:function() {
     			_this.globalData.hasLogin = false;
     			user.loginByCode().then(res => {
-    				_this.globalData.lemonNum = res.data.userInfo.freeSeeNum
     				if (_this.userInfoReadyCallback) {
     					_this.userInfoReadyCallback(res)
     				}
@@ -35,7 +33,6 @@ App({
     }).catch(() => {
     	_this.globalData.hasLogin = false;
     	user.loginByCode().then(res => {
-    		_this.globalData.lemonNum = res.data.userInfo.freeSeeNum
     		if (_this.userInfoReadyCallback) {
     			_this.userInfoReadyCallback(res)
     		}

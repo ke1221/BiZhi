@@ -19,4 +19,10 @@ module.exports = {
 	queryWallpaperDetail:WxApiRoot + 'queryWallpaperJsonDetail', // 壁纸详情
 	queryBasicDataList:WxApiRoot + 'queryBasicDataList', // 基础数据
 	queryBannerList:WxApiRoot + 'queryBannerList', // banner
+	
+	likePaper:WxApiRoot + 'insertWallpaperLike', // 点赞
+	unLikePaper:WxApiRoot + 'updateWallpaperLikeDelete', // 取消点赞
+	
+	collectPaper:WxApiRoot + 'insertWallpaperCollect', // 收藏
+	unCollectPaper:WxApiRoot + 'updateWallpaperCollectDelete', // 取消收藏
 };

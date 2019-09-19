@@ -7,15 +7,15 @@
 <!-- 底部按钮 -->
 <view class="bottom">
   <!-- 点赞 -->
-  <text wx:if="{{true}}" class="iconfont icon-like" />
+  <text wx:if="{{!isLike}}" class="iconfont icon-like" bindtap="likePaper"/>
   <!-- 点过赞 -->
-  <text wx:if="{{false}}" class="iconfont icon-like-fill" />
+  <text wx:if="{{isLike}}" class="iconfont icon-like-fill" bindtap="unlikePaper"/>
   <!-- 下载 -->
-  <text class="iconfont icon-download" />
+  <text class="iconfont icon-download" bindtap="downloadPaper"/>
   <!-- 收藏 -->
-  <text wx:if="{{true}}" class="iconfont icon-heart" />
+  <text wx:if="{{!isCollect}}" class="iconfont icon-heart" bindtap="collectPaper"/>
   <!-- 已收藏 -->
-  <text wx:if="{{false}}" class="iconfont icon-heart-fill" />
+  <text wx:if="{{isCollect}}" class="iconfont icon-heart-fill" bindtap="unCollectPaper"/>
   <!-- 转发 -->
-  <text class="iconfont icon-share" />
+  <button class="shareBtn iconfont icon-share" open-type="share"/>
 </view>

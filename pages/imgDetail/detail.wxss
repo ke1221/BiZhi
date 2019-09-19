@@ -1,32 +1,41 @@
 /* 图片容器 */
-.top-img{
-  width: 100%;
-  padding: 30rpx;
+.top-img {
+	width: 100%;
+	padding: 30rpx;
 }
 
 /* 图片高度自适应 */
-.top-img image{
-  width: 100%;
-  height: auto;
+.top-img image {
+	width: 100%;
+	height: auto;
 }
 
 /* 底部按钮 */
-.bottom{
-  width: 100%;
-  height: 100rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
+.bottom {
+	width: 100%;
+	height: 100rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #fff;
 }
 
 /* 四个按钮 */
-.bottom text{
-  width: 25%;
-  text-align: center;
+.bottom text {
+	width: 25%;
+	text-align: center;
 }
 
 /* 字体图标字体大小 */
-.bottom .iconfont{
-  font-size: 50rpx;
+.bottom .iconfont {
+	font-size: 50rpx;
+}
+
+.shareBtn {
+	border: none;
+	background-color: #fff;
+}
+
+button::after {
+	border: none;
 }
