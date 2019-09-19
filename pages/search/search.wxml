@@ -12,9 +12,10 @@
   <!-- 循环容器 -->
   <view class="imgs">
     <!-- 循环体 -->
-    <block wx:for="{{list}}" wx:key="{{index}}">
+    <block wx:for="{{paperList}}" wx:key="{{index}}">
       <!-- 图片列表 -->
-      <image class="list-img" mode="aspectFill" id='1' bindtap="toPath" src="{{item}}" />
+      <image class="list-img" mode="aspectFill" data-url="/pages/imgDetail/detail?id={{item.id}}" bindtap="pageJump" src="{{item.imgUrl}}" />
     </block>
   </view>
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
 </view>

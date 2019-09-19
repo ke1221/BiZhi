@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/imgDateil/detail",
+    "pages/imgDetail/detail",
     "pages/hot/hot",
     "pages/hotDetail/hotDetail",
     "pages/cate/cate",
     "pages/cateDetail/cateDetail",
-    "pages/search/search"
+    "pages/search/search",
+		"pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,15 +22,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+				"iconPath": "static/icon/index.png",
+				"selectedIconPath": "static/icon/index-act.png"
       },
       {
         "pagePath": "pages/cate/cate",
-        "text": "分类"
+        "text": "分类",
+				"iconPath": "static/icon/cate.png",
+				"selectedIconPath": "static/icon/cate-act.png"
       },
       {
-        "pagePath": "pages/hot/hot",
-        "text": "专题"
+        "pagePath": "pages/my/my",
+        "text": "我的",
+				"iconPath": "static/icon/my.png",
+				"selectedIconPath": "static/icon/my-act.png"
       }
     ]
   },

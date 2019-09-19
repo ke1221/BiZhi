@@ -1,7 +1,7 @@
 <!-- 外层容器 为了加边距 -->
 <view class="top-img">
   <!-- 图片 -->
-  <image src="{{src}}" mode="widthFix" />
+  <image src="{{paper.imgUrl}}" mode="widthFix" />
 </view>
 
 <!-- 底部按钮 -->

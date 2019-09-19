@@ -1,19 +1,20 @@
 <!-- 外层容器 -->
 <view class="warp">
   <!-- 循环列表 -->
-  <block wx:for="{{list}}" wx:key="{{index}}">
+  <block wx:for="{{topicList}}" wx:key="{{index}}">
     <!-- 单独一个 -->
-    <view class="item" data-id="1" bindtap="toHotDetail">
+    <view class="item" bindtap="pageJump" data-url="/pages/hotDetail/hotDetail?id={{item.id}}&name={{item.name}}">
       <!-- 顶部图片 -->
-      <image class="img" mode="center" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2101853777,2980701188&fm=26&gp=0.jpg" mode="aspectFill" />
+      <image class="img" mode="center" src="{{item.coverImg}}" mode="aspectFill" />
       <!-- 标题 -->
       <view class="title">
-        这里放标题放标题放标题放标题放标题放标题
+        {{item.name}}
       </view>
       <!-- 简介 -->
       <view class="title info">
-        日期
+       发布于：{{item.date}}
       </view>
     </view>
   </block>
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
 </view>

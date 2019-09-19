@@ -1,39 +1,39 @@
 <view class="home">
   <!-- 轮播图 -->
-  <swiper indicator-dots="{{banners.length > 1}}" autoplay="{{banners.length > 1}}" duration="500">
-    <block wx:for="{{banners}}" wx:key="{{index}}">
+  <swiper indicator-dots="{{bannerList.length > 1}}" autoplay="{{bannerList.length > 1}}" duration="500">
+    <block wx:for="{{bannerList}}" wx:key="{{index}}">
       <swiper-item>
-        <image mode="aspectFill" class="swiper-img" src="{{item}}" />
+        <image mode="aspectFill" class="swiper-img" src="{{item.bannerImg}}" />
       </swiper-item>
     </block>
   </swiper>
   <!-- 导航 -->
   <view class="top-nav">
     <!-- 风景 -->
-    <view class="item" data-name="风景" bindtap="toCateDetail">
+    <view class="item" bindtap="pageJump" data-url="/pages/cateDetail/cateDetail?id=8&name=自然风景">
       <text class="iconfont icon-dibudaohanglan-" />
-      <text class="info">风景</text>
+      <text class="info">自然风景</text>
     </view>
     <!-- 建筑 -->
-    <view class="item" data-name="建筑" bindtap="toCateDetail">
+    <view class="item" bindtap="pageJump" data-url="/pages/cateDetail/cateDetail?id=13&name=建筑空间">
       <text class="iconfont icon-building" />
-      <text class="info">建筑</text>
+      <text class="info">建筑空间</text>
     </view>
     <!-- 人物 -->
-    <view class="item" data-name="人物" bindtap="toCateDetail">
+    <view class="item" bindtap="pageJump" data-url="/pages/cateDetail/cateDetail?id=10&name=明星写真">
       <text class="iconfont icon-renwu-ren" />
-      <text class="info">人物</text>
+      <text class="info">明星写真</text>
     </view>
     <!-- 宠物 -->
-    <view class="item" data-name="宠物" bindtap="toCateDetail">
+    <view class="item" bindtap="pageJump" data-url="/pages/cateDetail/cateDetail?id=6&name=动物萌宠">
       <text class="iconfont icon-chongwu" />
-      <text class="info">宠物</text>
+      <text class="info">动物萌宠</text>
     </view>
   </view>
   <!-- 最新专题 -->
   <view class="new-list">
     <view class="l-left">最新专题</view>
-    <view class="l-right" bindtap="toHotList">
+    <view class="l-right" bindtap="pageJump" data-url="/pages/hot/hot">
       更多
       <text class="iconfont icon-right" />
     </view>
@@ -41,11 +41,11 @@
   <!-- 滑动 -->
   <scroll-view scroll-x enable-flex>
     <!-- 循环体 -->
-    <block wx:for="{{items}}" wx:key="{{index}}">
+    <block wx:for="{{newTopicList}}" wx:key="{{index}}">
       <!-- 外层容器 -->
-      <view class="scr-item">
+      <view class="scr-item" bindtap="pageJump" data-url="/pages/hotDetail/hotDetail?id={{item.id}}&name={{item.name}}">
         <!-- 图片 -->
-        <image wx:if="{{item}}" mode="center" src="{{item}}" />
+        <image  mode="aspectFill" src="{{item.coverImg}}" />
       </view>
     </block>
   </scroll-view>
@@ -54,7 +54,7 @@
   <!-- 热门专题 -->
   <view class="new-list">
     <view class="l-left">热门专题</view>
-    <view class="l-right" bindtap="toHotList">
+    <view class="l-right" bindtap="pageJump" data-url="/pages/hot/hot">
       更多
       <text class="iconfont icon-right" />
     </view>
@@ -62,11 +62,11 @@
   <!-- 滑动 -->
   <scroll-view scroll-x enable-flex>
     <!-- 循环体 -->
-    <block wx:for="{{hots}}" wx:key="{{index}}">
+    <block wx:for="{{hotTopicList}}" wx:key="{{index}}">
       <!-- 外层容器 -->
-      <view class="scr-item">
+      <view class="scr-item" bindtap="pageJump" data-url="/pages/hotDetail/hotDetail?id={{item.id}}&name={{item.name}}">
         <!-- 图片 -->
-        <image wx:if="{{item}}" mode="center" src="{{item}}" />
+        <image mode="aspectFill" src="{{item.coverImg}}" />
       </view>
     </block>
   </scroll-view>
@@ -83,7 +83,7 @@
       <view class="item {{nav == 1?'act':''}}" data-id='1' bindtap="setNav">最新</view>
     </view>
     <block wx:for="{{imgList}}" wx:key="{{index}}">
-      <image class="list-img" mode="aspectFill" id='1' bindtap="toPath" src="{{item}}" />
+      <image class="list-img" mode="aspectFill" src="{{item.imgUrl}}" data-url="/pages/imgDetail/detail?id={{item.id}}" bindtap="pageJump" />
     </block>
   </view>
 </view>

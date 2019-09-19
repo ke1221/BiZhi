@@ -1,9 +1,17 @@
 @import './utils/icon.wxss';
 page{
-  background: #f1f1f1;
+  	min-height: 100vh;
+  	background-color: #fff;
 }
 view {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+.tapTxt {
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #333;
+    width: 100%;
 }

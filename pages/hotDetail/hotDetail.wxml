@@ -1,17 +1,18 @@
 <!-- 外层容器 -->
 <view class="hot-detail">
   <!-- 顶部大图 -->
-  <image class="hot-img" mode="center" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2101853777,2980701188&fm=26&gp=0.jpg" mode="aspectFill" />
+  <image class="hot-img" mode="center" src="{{catDetail.coverImg}}" mode="aspectFill" />
   <!-- 标题 -->
-  <view class="title">这里放标题放标题放标题放标题放标题放标题</view>
+  <view class="title">{{catDetail.name}}</view>
   <!-- 简介 -->
-  <view class="title info">描述啊</view>
+  <view class="title info">{{catDetail.title}}</view>
   <!-- 循环列表 -->
   <view class="imgs">
     <!-- 循环体 -->
-    <block wx:for="{{imgList}}" wx:key="{{index}}">
+    <block wx:for="{{paperList}}" wx:key="{{index}}">
       <!-- 单个图片 -->
-      <image class="list-img" mode="aspectFill" src="{{item}}" />
+      <image class="list-img" mode="aspectFill" src="{{item.imgUrl}}" data-url="/pages/imgDetail/detail?id={{item.id}}" bindtap="pageJump"/>
     </block>
   </view>
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
 </view>

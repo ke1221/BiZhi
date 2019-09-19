@@ -1,7 +1,7 @@
 <!-- 外层容器 -->
 <view class="cate-warp">
   <!-- 搜索 -->
-  <view class="search" bindtap="toSearch">
+  <view class="search" bindtap="pageJump" data-url="/pages/search/search">
     <icon type="search" size="40rpx" />
     输入关键字
   </view>
@@ -12,7 +12,7 @@
     <!-- 循环体 -->
     <block wx:for="{{hotList}}" wx:key="{{index}}">
       <!-- 具体内容 -->
-      <view class="text-item" data-name="{{item}}" bindtap="toSearch">{{item}}</view>
+      <view class="text-item" bindtap="pageJump" data-url="/pages/search/search?name={{item.dataName}}">{{item.dataName}}</view>
     </block>
   </view>
   <!-- 所有分类 -->
@@ -20,11 +20,11 @@
   <!-- 循环列表 -->
   <view class="imgs">
     <!-- 循环体 -->
-    <block wx:for="{{imgList}}" wx:key="{{index}}">
-      <view class="img-item" data-name="风景" bindtap="toCateDetail">
+    <block wx:for="{{catList}}" wx:key="{{index}}">
+      <view class="img-item" bindtap="pageJump" data-url="/pages/cateDetail/cateDetail?id={{item.id}}&name={{item.name}}">
         <!-- 单个图片 -->
-        <image class="list-img" mode="aspectFill" src="{{item}}" />
-        <view class="list-text">风景</view>
+        <image class="list-img" mode="aspectFill" src="{{item.coverImg}}" />
+        <view class="list-text">{{item.name}}</view>
       </view>
     </block>
   </view>

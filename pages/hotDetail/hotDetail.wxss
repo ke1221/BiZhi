@@ -31,6 +31,7 @@
   font-size: 28rpx;
   font-weight: 400;
   color: #999;
+	word-break:break-all;
 }
 
 /* 循环体 */

@@ -1,25 +1,97 @@
-// pages/hotDetail/hotDetail.js
+var app = getApp()
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+var user = require('../../utils/user.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 图片列表
-    imgList: [
-      'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=638764894,1505370130&fm=26&gp=0.jpg',
-      'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3875584598,1908577370&fm=115&gp=0.jpg',
-      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1430843920,4115652154&fm=115&gp=0.jpg',
-      'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4059581680,1644363311&fm=26&gp=0.jpg',
-      'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3088321516,3689870712&fm=26&gp=0.jpg'
-    ]
+	paperList:[],
+	catDetail:{},
+    pageNum: 1,
+    pageSize: 10,
+    pageFlag:true,
   },
-
- 
+  onLoad(e){
+	var _this = this
+    let name = e.name;
+		var id = e.id
+    wx.setNavigationBarTitle({
+      title: name
+    }),
+	_this.setData({
+		id:id
+	})
+	_this.setData({
+	  paperList:[],
+	  pageNum:1,
+	  pageFlag:true
+	})
+	_this.getPaper();
+	_this.getCatDetail();
+  },
+  getPaper:function(){
+  	var _this = this
+  	wx.showLoading({
+  	  title: '加载中',
+  	})
+  	util.request(api.queryPaperList,{pageNum:_this.data.pageNum,topicId:_this.data.id}).then(function(res) {
+  		setTimeout(function() {
+  		    wx.hideLoading();
+  		}, 300)
+  	  if (res.errno === 0) {
+  			var paperListNew = _this.data.paperList.concat(res.data.list)
+  			_this.setData({
+  				paperList:paperListNew
+  			})
+  			//判断是不是最后一页
+  			if(res.data.isLastPage){
+  				_this.setData({
+  					pageFlag : false
+  				})
+  			}else{
+  				_this.setData({
+  					pageNum : _this.data.pageNum+1
+  				})
+  			}
+  	  }
+  	});
+  },
+  getCatDetail:function(){
+  	var _this = this
+  	util.request(api.queryTopicDetail,{id:_this.data.id}).then(function(res) {
+  	  if (res.errno === 0) {
+  			_this.setData({
+  				catDetail:res.data
+  			})
+  	  }
+  	});
+  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
-  }
+  },
+	// 上拉加载
+	onReachBottom() {
+		var _this = this
+		if(_this.data.pageFlag){
+			_this.getPaper();
+		}else{
+			wx.showToast({
+	            title: "没有更多了",
+	            icon: "loading",
+	            duration: 500
+	        }) 
+		}
+	},
+	pageJump: function(a) {
+		var t = a.currentTarget.dataset;
+		wx.navigateTo({
+			url: t.url
+		});
+	},
 })

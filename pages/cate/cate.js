@@ -1,4 +1,8 @@
 // pages/cate/cate.js
+var app = getApp()
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+var user = require('../../utils/user.js');
 Page({
 
   /**
@@ -6,45 +10,45 @@ Page({
    */
   data: {
     // 热门搜索词
-    hotList: [
-      '一','两个','三个字','成吉思汗','这是五个字',
-      '一','两个','三个字','成吉思汗','这是五个字',
-    ],
-    // 分类列表
-    imgList: [
-      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3638429004,1717840478&fm=26&gp=0.jpg',
-      'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3369374146,2273666090&fm=26&gp=0.jpg',
-      'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=551180330,2986440005&fm=26&gp=0.jpg',
-      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1403936986,4231638334&fm=26&gp=0.jpg',
-      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3930436285,1263327733&fm=26&gp=0.jpg'
-    ],
-    
+    hotList: [],
+		catList:[],
   },
-  // 跳转搜索页
-  toSearch(e){
-    let name = e.currentTarget.dataset.name || e.target.dataset.name;
-    if(name){
-      wx.navigateTo({
-        url: '/pages/search/search?name=' + name,
-      });
-      return;
-    }
-    wx.navigateTo({
-      url: '/pages/search/search',
-    });
-  },
-  // 跳转分类
-  toCateDetail(e){
-    let name = e.currentTarget.dataset.name || e.target.dataset.name;
-    wx.navigateTo({
-      url: '/pages/cateDetail/cateDetail?name=' + name,
-    });
-  },
+	onLoad:function(e){
+		var _this = this
+		_this.getCatList();
+		_this.getHotSearchList();
+	},
+	getCatList:function(){
+		var _this = this
+		util.request(api.queryCatList).then(function(res) {
+		  if (res.errno === 0) {
+				_this.setData({
+					catList:res.data
+				})
+		  }
+		});
+	},
+	getHotSearchList:function(){
+		var _this = this
+		util.request(api.queryBasicDataList,{type:'paperHotSearch'}).then(function(res) {
+		  if (res.errno === 0) {
+				_this.setData({
+					hotList:res.data
+				})
+		  }
+		});
+	},
   
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  }
+		
+  },
+	 pageJump: function(a) {
+		var t = a.currentTarget.dataset;
+		wx.navigateTo({
+			url: t.url
+		});
+	},
 })
