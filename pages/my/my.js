@@ -9,6 +9,8 @@ Page({
   },
 	onLoad:function(e){
 		var _this = this
+		let user = wx.getStorageSync('userInfo');
+		console.log(user)
 	},
   /**
    * 用户点击右上角分享

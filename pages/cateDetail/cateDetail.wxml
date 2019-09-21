@@ -1,3 +1,12 @@
+<view class="fiexd">
+  <scroll-view class="sy" scroll-x >
+    <block wx:for="{{navs}}" wx:key="{{index}}">
+      <view class="nav-item {{act == index?'item-act':''}}" id="{{index}}" bindtap="setNav">{{item}}</view>
+    </block>
+  </scroll-view>
+</view>
+<!-- 空白 -->
+<view class="kb"></view>
 <!-- 外层容器 -->
 <view class="warp">
   <!-- 循环体 -->

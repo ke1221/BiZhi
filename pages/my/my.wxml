@@ -1,0 +1,44 @@
+<!-- 外层容器 -->
+<view class="warp">
+  <view class="user">
+    <!-- 头像 -->
+    <image class="" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1297959701,2505728653&fm=26&gp=0.jpg" mode="aspectFill" />
+    <!-- 昵称 -->
+    <view class="nike-name">微信昵称</view>
+  </view>
+  <!-- 导航 -->
+  <view class="navs">
+    <!-- 收藏 -->
+    <view class="item">
+      <view class="li">
+        <text class="iconfont icon-heart"></text>
+        我的收藏
+      </view>
+      <text class="iconfont icon-right"></text>
+    </view>
+    <!-- 分享 -->
+    <view class="item">
+      <view class="li">
+        <text class="iconfont icon-share"></text>
+        分享好友
+      </view>
+      <text class="iconfont icon-right"></text>
+    </view>
+    <!-- 反馈 -->
+    <view class="item">
+      <view class="li">
+        <text class="iconfont icon-guestbook"></text>
+        意见反馈
+      </view>
+      <text class="iconfont icon-right"></text>
+    </view>
+    <!-- 关于 -->
+    <view class="item">
+      <view class="li">
+        <text class="iconfont icon-guanyu"></text>
+        关于我们
+      </view>
+      <text class="iconfont icon-right"></text>
+    </view>
+  </view>
+</view>

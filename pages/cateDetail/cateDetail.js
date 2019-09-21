@@ -8,12 +8,22 @@ Page({
    * 页面的初始数据
    */
   data: {
+		navs:[
+			'国产',
+			'日韩',
+			'欧美',
+			'网红',
+			'自拍',
+			'道具',
+		],
 	paperList:[],
     pageNum: 1,
     pageSize: 10,
-    pageFlag:true,
+		pageFlag:true,
+		act: 1
   },
   onLoad(e){
+		// return;
 	var _this = this
     let name = e.name;
 		var id = e.id
@@ -82,4 +92,11 @@ Page({
 			url: t.url
 		});
 	},
+	// 切换导航
+	setNav(e){
+		let id = e.currentTarget.id || e.target.id;
+		this.setData({
+			act: id
+		})
+	}
 })

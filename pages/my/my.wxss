@@ -1,0 +1,58 @@
+.warp{
+  width: 100%;
+  padding: 30rpx;
+}
+
+.user{
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border-bottom: 1rpx solid #eee; */
+}
+
+.user image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 15rpx #666;
+}
+
+.user .nike-name{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-top: 30rpx;
+}
+
+.navs {
+  width: 100%;
+  padding: 30rpx 10rpx;
+}
+
+.navs .item{
+  width: 100%;
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+}
+
+.navs .item:last-child{
+  border: none;
+}
+
+.item .li{
+  font-size: 32rpx;
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item .li .iconfont {
+  font-size: 40rpx;
+  margin-right: 15rpx;
+}
