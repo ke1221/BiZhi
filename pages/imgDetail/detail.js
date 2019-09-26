@@ -12,17 +12,29 @@ Page({
 		paper: {},
 		isLike:false,
 		isCollect:false,
+		hasLogin:false
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad(e) {
-		var _this = this
-		let id = e.id;
+		var _this = this;
+		var id = e.id;
 		_this.setData({
 			id: id
 		})
+		if (app.globalData.appFlag) {
+			_this.setData({
+				hasLogin: app.globalData.hasLogin,
+			})
+		} else {
+			app.userInfoReadyCallback = res => {
+				_this.setData({
+					hasLogin: app.globalData.hasLogin,
+				})
+			}
+		}
 		_this.getPaper()
 	},
 	getPaper: function() {
@@ -93,7 +105,55 @@ Page({
 	},
 	// 下载
 	downloadPaper:function(){
-		
+		var _this = this
+		wx.getSetting({
+			success (res) {
+				console.log(res.authSetting)
+				console.log(res.authSetting["scope.writePhotosAlbum"])
+				if(res.authSetting["scope.writePhotosAlbum"] == false){
+					wx.openSetting({
+					  success (res) {
+						
+					  }
+					})
+				}else{
+					var imgUrl = _this.data.paper.imgUrl
+					var imgUrlNew = imgUrl.replace("http://","https://")
+					wx.downloadFile({
+					  url: imgUrlNew , 
+					  success (res) {
+						if (res.statusCode === 200) {
+						  wx.saveImageToPhotosAlbum({
+						  	filePath:res.tempFilePath,
+						  	success(re) { 
+						  		console.log(re)
+						  	}
+						  })
+						}
+					  }
+					})
+				}
+			}
+		})
+	},
+	wxLogin: function(e) {
+		var _this = this
+		if (e.detail.userInfo == undefined) {
+			console.log(e)
+			app.globalData.hasLogin = false;
+			util.showErrorToast('微信登录失败1');
+			return;
+		}
+		user.loginByWeixin(e.detail.userInfo).then(res => {
+			_this.setData({
+				hasLogin:true
+			})
+			app.globalData.hasLogin = true;
+			_this.getPaper()
+		}).catch((err) => {
+			app.globalData.hasLogin = false;
+			util.showErrorToast('微信登录失败2');
+		});
 	},
 	/**
 	 * 用户点击右上角分享

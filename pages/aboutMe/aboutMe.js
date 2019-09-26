@@ -5,11 +5,22 @@ var api = require('../../config/api.js');
 var user = require('../../utils/user.js');
 Page({
 
-	data: {},
+	data: {
+		aboutMe:"",
+	},
 	onLoad: function(e) {
 		var _this = this
-		let user = wx.getStorageSync('userInfo');
-		console.log(user)
+		_this.getAboutMe()
+	},
+	getAboutMe:function(){
+		var _this = this
+		util.request(api.queryBasicDataList,{type:'aboutMe'}).then(function(res) {
+		  if (res.errno === 0) {
+				_this.setData({
+					aboutMe:res.data[0].abstractCna
+				})
+		  }
+		});
 	},
 	/**
 	 * 用户点击右上角分享

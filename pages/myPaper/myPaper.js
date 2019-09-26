@@ -3,56 +3,40 @@ var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 var user = require('../../utils/user.js');
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		// 是否有传指定值
-		name: '',
-		hotList:[],
+		// 图片详情
+		id: '',
 		paperList: [],
-		catDetail: {},
+		hasLogin:false,
 		pageNum: 1,
 		pageSize: 10,
 		pageFlag: true,
 	},
+
+	/**
+	 * 生命周期函数--监听页面加载
+	 */
 	onLoad(e) {
 		var _this = this
+		var id = e.id;
 		_this.setData({
-			paperList: [],
-			pageNum: 1,
-			pageFlag: true
+			id: id,
+			hasLogin:app.globalData.hasLogin
 		})
-		_this.getHotSearchList();
-		let name = e.name || '';
-		if (name) {
-			this.setData({
-				name
-			})
-			_this.searchPaper();
-		}
+		_this.getPaper()
 	},
-	getHotSearchList: function() {
-		var _this = this
-		util.request(api.queryBasicDataList, {
-			type: 'paperHotSearch'
-		}).then(function(res) {
-			if (res.errno === 0) {
-				_this.setData({
-					hotList: res.data
-				})
-			}
-		});
-	},
-	searchPaper: function() {
+	getPaper: function() {
 		var _this = this
 		wx.showLoading({
 			title: '加载中',
 		})
-		util.request(api.queryPaperList, {
+		util.request(api.queryMyWallpaperList, {
 			pageNum: _this.data.pageNum,
-			name: _this.data.name
+			catId: _this.data.id,
+			cat2Id: _this.data.cat2Id
 		}).then(function(res) {
 			setTimeout(function() {
 				wx.hideLoading();
@@ -73,39 +57,6 @@ Page({
 					})
 				}
 			}
-		});
-	},
-	// 搜索事件
-	search(e) {
-		var _this = this
-		// 输入的值
-		let val = e.detail.value;
-		_this.setData({
-			name: val,
-			paperList: [],
-			pageNum: 1,
-			pageFlag: true
-		})
-		// 这里应该执行搜索
-		_this.searchPaper()
-	},
-	searchHot(e){
-		var _this = this
-		var name = e.currentTarget.dataset.name
-		_this.setData({
-			name: name,
-			paperList: [],
-			pageNum: 1,
-			pageFlag: true
-		})
-		// 这里应该执行搜索
-		_this.searchPaper()
-	},
-	// 跳转详情
-	toPath(e) {
-		let id = e.currentTarget.id || e.target.id;
-		wx.navigateTo({
-			url: '/pages/imgDateil/detail?id=' + id,
 		});
 	},
 	/**

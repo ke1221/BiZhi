@@ -1,11 +1,3 @@
-<view class="fiexd">
-  <scroll-view class="sy" scroll-x >
-		<view class="nav-item {{'' == cat2Id?'item-act':''}}" id="" bindtap="setNav">全部</view>
-    <block wx:for="{{cat2List}}" wx:key="{{item.id}}">
-      <view class="nav-item {{item.id == cat2Id?'item-act':''}}" id="{{item.id}}" bindtap="setNav">{{item.name}}</view>
-    </block>
-  </scroll-view>
-</view>
 <!-- 空白 -->
 <view class="kb"></view>
 <!-- 外层容器 -->

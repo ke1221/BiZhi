@@ -7,15 +7,18 @@
 <!-- 底部按钮 -->
 <view class="bottom">
   <!-- 点赞 -->
-  <text wx:if="{{!isLike}}" class="iconfont icon-like" bindtap="likePaper"/>
+  <!-- <text wx:if="{{!isLike}}" class="iconfont icon-like" bindtap="likePaper"/> -->
+	<button class="shareBtn iconfont icon-like" open-type="getUserInfo" bindgetuserinfo="wxLogin" wx:if="{{!hasLogin}}"></button>
+	<text wx:if="{{hasLogin && !isLike}}" bindtap="likePaper" class="btn_start iconfont icon-like"  />
   <!-- 点过赞 -->
-  <text wx:if="{{isLike}}" class="iconfont icon-like-fill" bindtap="unlikePaper"/>
+  <text wx:if="{{hasLogin && isLike}}" class="iconfont icon-like-fill" bindtap="unlikePaper"/>
   <!-- 下载 -->
   <text class="iconfont icon-download" bindtap="downloadPaper"/>
   <!-- 收藏 -->
-  <text wx:if="{{!isCollect}}" class="iconfont icon-heart" bindtap="collectPaper"/>
+	<button class="shareBtn iconfont icon-heart" open-type="getUserInfo" bindgetuserinfo="wxLogin" wx:if="{{!hasLogin}}"></button>
+  <text wx:if="{{hasLogin && !isCollect}}" class="iconfont icon-heart" bindtap="collectPaper"/>
   <!-- 已收藏 -->
-  <text wx:if="{{isCollect}}" class="iconfont icon-heart-fill" bindtap="unCollectPaper"/>
+  <text wx:if="{{hasLogin && isCollect}}" class="iconfont icon-heart-fill" bindtap="unCollectPaper"/>
   <!-- 转发 -->
   <button class="shareBtn iconfont icon-share" open-type="share"/>
 </view>

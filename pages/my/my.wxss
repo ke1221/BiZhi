@@ -13,7 +13,8 @@
   /* border-bottom: 1rpx solid #eee; */
 }
 
-.user image{
+.user .userAvatarUrl{
+	overflow:hidden; 
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
@@ -34,6 +35,7 @@
 
 .navs .item{
   width: 100%;
+	height: 106rpx;
   padding: 30rpx 0;
   display: flex;
   align-items: center;
@@ -55,4 +57,12 @@
 .item .li .iconfont {
   font-size: 40rpx;
   margin-right: 15rpx;
+}
+.shareBtn {
+	border: none;
+	background-color: #fff;
+}
+
+button::after {
+	border: none;
 }

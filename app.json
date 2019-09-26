@@ -7,7 +7,9 @@
     "pages/cate/cate",
     "pages/cateDetail/cateDetail",
     "pages/search/search",
-		"pages/my/my"
+		"pages/my/my",
+		"pages/myPaper/myPaper",
+		"pages/aboutMe/aboutMe"
   ],
   "window": {
     "backgroundTextStyle": "light",

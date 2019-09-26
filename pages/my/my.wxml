@@ -2,14 +2,19 @@
 <view class="warp">
   <view class="user">
     <!-- 头像 -->
-    <image class="" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1297959701,2505728653&fm=26&gp=0.jpg" mode="aspectFill" />
+		<view  class="userAvatarUrl">
+			<open-data type="userAvatarUrl"></open-data> 
+		</view>
+    <!-- <image class="userAvatarUrl" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1297959701,2505728653&fm=26&gp=0.jpg" mode="aspectFill" /> -->
     <!-- 昵称 -->
-    <view class="nike-name">微信昵称</view>
+    <view class="nike-name">
+			<open-data type="userNickName"></open-data> 
+		</view>
   </view>
   <!-- 导航 -->
   <view class="navs">
     <!-- 收藏 -->
-    <view class="item">
+    <view class="item"  data-url="/pages/myPaper/myPaper" bindtap="pageJump">
       <view class="li">
         <text class="iconfont icon-heart"></text>
         我的收藏
@@ -17,23 +22,23 @@
       <text class="iconfont icon-right"></text>
     </view>
     <!-- 分享 -->
-    <view class="item">
-      <view class="li">
-        <text class="iconfont icon-share"></text>
-        分享好友
-      </view>
-      <text class="iconfont icon-right"></text>
-    </view>
+		<button class="item shareBtn" open-type="share">
+			 <view class="li">
+			  <text class="iconfont icon-share"></text>
+			  分享好友
+			</view>
+			<text class="iconfont icon-right"></text>
+		</button>
     <!-- 反馈 -->
-    <view class="item">
+    <button class="item shareBtn" open-type="contact">
       <view class="li">
         <text class="iconfont icon-guestbook"></text>
         意见反馈
       </view>
       <text class="iconfont icon-right"></text>
-    </view>
+    </button>
     <!-- 关于 -->
-    <view class="item">
+    <view class="item" data-url="/pages/aboutMe/aboutMe" bindtap="pageJump">
       <view class="li">
         <text class="iconfont icon-guanyu"></text>
         关于我们

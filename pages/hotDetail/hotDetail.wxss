@@ -9,7 +9,7 @@
 
 .hot-img {
   width: 100%;
-  height: 300rpx;
+  height: 320rpx;
   border-radius: 8rpx;
   margin-bottom: 20rpx;
   box-shadow: 0 0 10rpx #666;
