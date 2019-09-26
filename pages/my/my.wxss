@@ -1,6 +1,32 @@
 .warp{
   width: 100%;
   padding: 30rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.bgimg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -88;
+  transition: all .5s;
+}
+
+.kb{
+  height: 80rpx;
+}
+
+.zhe{
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -55;
 }
 
 .user{
@@ -10,7 +36,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* border-bottom: 1rpx solid #eee; */
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8rpx;
 }
 
 .user .userAvatarUrl{
@@ -19,18 +46,20 @@
   height: 200rpx;
   border-radius: 50%;
   box-shadow: 0 0 15rpx #666;
+  color: #fff;
 }
 
 .user .nike-name{
   font-size: 36rpx;
   font-weight: bold;
-  color: #333;
+  color: #fff;
   margin-top: 30rpx;
 }
 
 .navs {
   width: 100%;
   padding: 30rpx 10rpx;
+  color: #fff;
 }
 
 .navs .item{
@@ -40,7 +69,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1rpx solid #eee;
+  border-bottom: 1rpx solid #777;
+  position: relative;
 }
 
 .navs .item:last-child{
@@ -49,7 +79,6 @@
 
 .item .li{
   font-size: 32rpx;
-  color: #777;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -59,8 +88,14 @@
   margin-right: 15rpx;
 }
 .shareBtn {
-	border: none;
-	background-color: #fff;
+  border: none;
+  /* background: none; */
+  color: #fff;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 button::after {

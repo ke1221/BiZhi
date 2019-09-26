@@ -1,5 +1,8 @@
 <!-- 外层容器 -->
 <view class="warp">
+  <!-- 空白高度 -->
+  <view class="kb"></view>
+  <!-- 信息 -->
   <view class="user">
     <!-- 头像 -->
 		<view  class="userAvatarUrl">
@@ -22,21 +25,23 @@
       <text class="iconfont icon-right"></text>
     </view>
     <!-- 分享 -->
-		<button class="item shareBtn" open-type="share">
+    <view class="item">
 			 <view class="li">
 			  <text class="iconfont icon-share"></text>
 			  分享好友
 			</view>
 			<text class="iconfont icon-right"></text>
-		</button>
+      <button class="shareBtn" open-type="share"></button>
+      </view>
     <!-- 反馈 -->
-    <button class="item shareBtn" open-type="contact">
+    <view class="item">
       <view class="li">
         <text class="iconfont icon-guestbook"></text>
         意见反馈
       </view>
       <text class="iconfont icon-right"></text>
-    </button>
+      <button class="shareBtn" open-type="contact"></button>
+    </view>
     <!-- 关于 -->
     <view class="item" data-url="/pages/aboutMe/aboutMe" bindtap="pageJump">
       <view class="li">
@@ -46,4 +51,9 @@
       <text class="iconfont icon-right"></text>
     </view>
   </view>
+  
 </view>
+<!-- 遮罩 -->
+<view class="zhe"></view>
+<!-- 背景图片 -->
+<image class="bgimg" mode="aspectFill" src="{{bgUrl}}" />

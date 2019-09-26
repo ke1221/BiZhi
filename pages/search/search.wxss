@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: flex-start;
   color: #999;
-  background: #eee;
+  /* background: #eee; */
 }
 
 /* 搜索图标 */
@@ -87,9 +87,10 @@
 /* 文本标签 */
 
 .text-item {
-  padding: 8rpx 20rpx;
-  background: #ddd;
+  padding: 5rpx 30rpx;
+  background: rgba(0, 0, 0, 0.4);
   margin: 10rpx;
   border-radius: 8rpx;
-  color: #666;
+  font-size: 28rpx;
+  color: #fff;
 }

@@ -5,15 +5,14 @@ var api = require('../../config/api.js');
 var user = require('../../utils/user.js');
 Page({
 
-	data: {},
+	data: {
+		bgUrl: '/images/bg4.jpg',
+	},
 	onLoad: function(e) {
 		var _this = this
 		let user = wx.getStorageSync('userInfo');
-		console.log(user)
 	},
-	/**
-	 * 用户点击右上角分享
-	 */
+	
 	onShareAppMessage: function() {
 		var that = this;
 		// 设置菜单中的转发按钮触发转发事件时的转发内容
