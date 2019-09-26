@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: flex-start;
   color: #999;
-  /* background: #eee; */
+  background: #fff;
 }
 
 /* 搜索图标 */

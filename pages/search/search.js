@@ -129,7 +129,7 @@ Page({
 		} else {
 			wx.showToast({
 				title: "没有更多了",
-				icon: "loading",
+				icon: "none",
 				duration: 500
 			})
 		}
