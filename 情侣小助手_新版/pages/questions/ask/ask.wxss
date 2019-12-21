@@ -1,0 +1,74 @@
+.stripes {
+  min-height: 100vh;
+  width: 750rpx;
+  float: left;
+  
+  margin: 0rpx;
+  
+  -webkit-background-size: 50px 50px;
+  -moz-background-size: 50px 50px;
+  background-size: 50px 50px; /* Controls the size of the stripes */
+  
+  -moz-box-shadow: 1px 1px 8px gray;
+  -webkit-box-shadow: 1px 1px 8px gray;
+  box-shadow: 1px 1px 8px gray;
+}
+    
+.angled {
+  background-color: #faf8f0;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0,
+              color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+              color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+              color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+              to(transparent));
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+}
+.title{
+  margin: 50rpx 50rpx 50rpx 100rpx;
+  font-size: 60rpx;
+  /*color: #ffcccc;*/
+}
+.question{
+  height: 300rpx;
+  margin: 0 50rpx;
+}
+.answer_btn{
+  width: 200rpx;
+  background-color: #ffcccc;
+}
+.answer{
+  text-align: center;
+  margin: 50rpx 50rpx;
+  width: 650rpx;
+  height: 100rpx;
+}
+.pre_btn,.next_btn{
+  width: 225rpx;
+  display: inline-block;
+  margin-left: 100rpx; 
+  background-color: #ffcccc;
+}
+.pre_btn{
+  
+}
+.next_btn{
+  
+}
+.section__title{
+  display: inline;
+}
+.picker{
+  display: inline;
+}
+.section{
+  margin: 150rpx 0 30rpx 200rpx;
+  font-size: 42rpx;
+}

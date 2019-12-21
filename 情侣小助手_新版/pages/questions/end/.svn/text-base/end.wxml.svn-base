@@ -1,0 +1,8 @@
+<view class="main" style="width:{{pageW}}px;height:{{pageH}}px">
+    <image class="sharePic" src="/image/share.jpg" ></image>
+    <view class="dealBox">
+        <view bindtap="poster" class="btn" wx:if="{{show_pic==''&&shenhe==1}}">重新生成海报</view>
+        <button class="btn" openType="share" plain="true">邀请Ta答题</button>
+    </view>
+    <view bindtap="pageJump" class="goHome" data-url="/pages/questions/index/index">返回首页</view>
+</view>

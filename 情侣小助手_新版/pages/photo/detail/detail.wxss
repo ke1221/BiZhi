@@ -1,0 +1,43 @@
+/**index.wxss**/
+
+text {
+  word-break: break-all; 
+}
+
+.main {
+  height: 100%;
+}
+.title_image{
+	height: 350rpx;
+	width: 100%;
+}
+.image-container {
+  background-color: #f2f2f2
+}
+.image_view{
+	display: inline;
+	width: 218rpx;
+	height: 218rpx;
+	padding-left:24rpx ;
+}
+.image{
+	width: 218rpx;
+	height: 218rpx;
+	border-radius: 12rpx;
+}
+.upload{
+	position: absolute;
+	bottom: 0rpx;
+}
+.chooes_btn{
+	margin: 20rpx 30rpx;
+	background-color: #ffcccc;
+	color: #fff2f2;
+}
+.tapTxt {
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #333;
+    width: 100%;
+}

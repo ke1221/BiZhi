@@ -1,0 +1,104 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"uglifyFileName": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.0",
+	"appid": "wx172393293edf9f02",
+	"projectname": "%E6%83%85%E4%BE%A3%E5%B0%8F%E5%8A%A9%E6%89%8B_%E6%96%B0%E7%89%88",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "情侣转发",
+					"pathName": "pages/index/index",
+					"query": "userId= 423",
+					"scene": 1007
+				},
+				{
+					"id": 3,
+					"name": "土味情话",
+					"pathName": "pages/earthyWords/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "亲戚计算",
+					"pathName": "pages/relation/relation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "土味情话详情",
+					"pathName": "pages/earthyWords/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/chatBox/chatBox",
+					"pathName": "pages/chatBox/chatBox",
+					"query": "userId=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/remday/detail/detail",
+					"pathName": "pages/remday/detail/detail",
+					"query": "userId= 5084",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "纪念日",
+					"pathName": "pages/remday/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "相册列表",
+					"pathName": "pages/photo/list/list",
+					"scene": null
+				}
+			]
+		}
+	}
+}

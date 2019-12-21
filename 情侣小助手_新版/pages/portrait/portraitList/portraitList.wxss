@@ -1,0 +1,30 @@
+/**index.wxss**/
+
+text {
+  word-break: break-all; 
+}
+
+.main {
+  height: 100%;
+  padding-top:12rpx ;
+}
+.image-container {
+  background-color: #f2f2f2
+}
+.image_view{
+	display: inline;
+	width: 234rpx;
+	height: 234rpx;
+	padding-left:12rpx ;
+}
+.image{
+	width: 234rpx;
+	height: 234rpx;
+}
+.tapTxt {
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #333;
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+<view class="angled stripes">
+	<view class="title">第{{1+i}}题</view>
+	<view class="question">{{riddles[i].question}} </view>
+	<view class="sel_btn">
+		<button class="answer_btn" bindtap="answerBtn">查看答案</button>
+	</view>
+	<view class="answer">
+		<text style="display:{{answerFlag}}">{{riddles[i].nswes}}</text>
+	</view>
+	<button class="pre_btn" bindtap="pre">上一个</button>
+	<button class="next_btn" bindtap="next">下一个</button>
+	<view class="section">
+<!-- 	  <view class="section__title">普通选择器</view> -->
+	  <picker bindchange="bindPickerChange" value="{{i}}" range="{{riddles}}" range-key="index">
+	    <view class="picker">
+	      选择题目：第{{(i+1)}}题
+	    </view>
+	  </picker>
+	</view>
+</view>

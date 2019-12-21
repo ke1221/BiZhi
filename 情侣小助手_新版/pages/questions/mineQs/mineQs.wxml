@@ -1,0 +1,15 @@
+<view class="container" style="height:{{deviceHei}}px">
+    <view class="content">
+        <view class="questionBox" wx:for="{{userSetQsList}}" wx:key="item.itemId">
+            <view class="question">Q{{index+1}}: {{item.question}}</view>
+            <view>
+	            <view class="radioIcon radioIconRight"></view>
+	            <text>{{item.userAnswer}}</text>
+            </view> 
+            <view wx:if="{{isAnswer == 1 && item.loverAnswer != item.userAnswer}}">
+	            <view class="radioIcon radioIconWrong"></view>
+	            <text>{{item.loverAnswer}}</text>
+           </view>
+        </view>
+    </view>
+</view>

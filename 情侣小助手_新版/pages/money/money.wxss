@@ -1,0 +1,16 @@
+.contain{
+  width: 700rpx;
+  background-color: #eee;
+  margin: 50rpx 25rpx 0 25rpx;
+  box-shadow: 10px 10px 5px #888888;
+}
+.about_xcx{
+  width: 600rpx;
+  padding: 50rpx;
+  text-align:center;
+}
+.moneyImg{
+  width: 600rpx;
+  height: 600rpx;
+  margin: 50rpx;
+}

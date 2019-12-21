@@ -1,0 +1,22 @@
+<view class="chat_box"> 
+    <!-- <view class="containerBox" style="">
+       <view wx:key="{{index}}" wx:for="{{allContentList}}">
+            <view wx:key="{{index}}"  wx:if="{{item.from == 'ai'}}" class="textBox fl" style="">{{item.value}}</view>
+             <view wx:key="{{index}}"  wx:if="{{item.from == 'user'}}" class="textBox fr">{{item.value}}</view>
+       </view>
+    </view> -->
+	
+	<scroll-view scroll-y='true'  class="chat_area"  scroll-into-view="{{intoView}}" >
+		<view class="containerBox" style="">
+	      <view wx:key="{{index}}" wx:for="{{allContentList}}" wx:for-index="idx" id="a{{idx+1}}">
+	           <view wx:key="{{index}}"  wx:if="{{item.from == 'ai'}}" class="textBox fl" style="">{{item.value}}</view>
+				<view wx:key="{{index}}"  wx:if="{{item.from == 'user'}}" class="textBox fr">{{item.value}}</view>
+	      </view>
+		  </view>
+	</scroll-view>
+	
+    <view class="handleBox">
+        <input  class="input_submit" placeholder="点击输入，开始聊天吧" value="{{inputTemp}}" bindinput="bindKeyInput"/>
+        <button type="submit" class="btn_submit"  bindtap="submitTo">发送</button>
+    </view>
+</view>

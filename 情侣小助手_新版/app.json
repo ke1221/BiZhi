@@ -1,0 +1,82 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/login/index",
+		"pages/time/time",
+		"pages/chatBox/chatBox",
+		"pages/photo/list/list",
+		"pages/photo/add/add",
+		"pages/photo/detail/detail",
+
+		"pages/remday/add/add",
+		"pages/remday/list/list",
+		"pages/remday/edit/edit",
+		"pages/remday/detail/detail",
+
+		"pages/aboutMe/aboutMe",
+
+		"pages/portrait/groupList/groupList",
+		"pages/portrait/portraitList/portraitList",
+
+		"pages/loversLife/topicInfo/topicInfo",
+		"pages/loversLife/topicList/topicList",
+
+		"pages/constellation/list/list",
+		"pages/constellation/detail/detail",
+
+		"pages/removeLover/removeLover",
+
+		"pages/money/money",
+		"pages/secret/add/add",
+		"pages/secret/list/list",
+		"pages/secret/detail/detail",
+		"pages/secret/edit/edit",
+
+		"pages/riddle/riddle/riddle",
+		"pages/riddle/riddleCat/riddleCat",
+
+		"pages/doodle/doodle",
+		"pages/questions/index/index",
+		"pages/questions/userRecord/userRecord",
+		"pages/questions/setQuestion/setQuestion",
+		"pages/questions/answerRecord/answerRecord",
+		"pages/questions/mineQs/mineQs",
+		"pages/questions/end/end",
+		"pages/questions/ask/ask",
+		"pages/questions/answer/answer",
+
+		"pages/we/index",
+
+		"pages/relation/relation",
+
+		"pages/earthyWords/detail/detail",
+		"pages/earthyWords/list/list"
+
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#ffcccc",
+		"navigationBarTitleText": "我们的时间",
+		"navigationBarTextStyle": "white",
+		"onReachBottomDistance": 50
+	},
+	"tabBar": {
+		"color": "#B9B7B7",
+		"selectedColor": "#ffcccc",
+		"backgroundColor": "white",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "时光",
+				"iconPath": "static/images/tiemIc.png",
+				"selectedIconPath": "static/images/timeIc-act.png"
+			},
+			{
+				"pagePath": "pages/we/index",
+				"text": "我们",
+				"iconPath": "static/images/hert.png",
+				"selectedIconPath": "static/images/hert-act.png"
+			}
+		]
+	},
+	"sitemapLocation": "sitemap63.json"
+}

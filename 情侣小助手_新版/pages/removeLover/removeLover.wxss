@@ -1,0 +1,17 @@
+.contain{
+  width:100%;
+  min-height: 100vh;
+}
+.back_img{
+  width: 100%;
+  min-height: 100vh;
+}
+.removeBtn{
+  text-align: center;
+  width: 600rpx;
+  position: absolute;
+  bottom: 200rpx;
+  left: 75rpx;
+  border-radius: 30rpx;
+  /*background-color: */
+}

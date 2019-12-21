@@ -1,0 +1,97 @@
+var app = getApp();
+
+Page({
+    data: {
+        deviceHei: "",
+        userSetQsAswer: [],
+        curQuestion: [],
+        curAswer: "",
+        author: "",
+        curQsNum: 1,
+        curQsInListNum: 0,
+        selectList: [],
+        appDialog_flag: 0,
+        appDialog_list: [],
+        appSwiper_flag: 0,
+        appSwiper_list: [],
+    },
+    radioChange: function(e) {
+        var _this = this
+        var answerid = e.currentTarget.dataset.value
+        var selectList = _this.data.selectList
+        var curQsNum = _this.data.curQsNum
+        var userSetQsAswer={"questionId":_this.data.curQuestion.questionid,"userAId":answerid}
+        
+        _this.data.userSetQsAswer.push(userSetQsAswer)
+        if(curQsNum == 2){
+        	wx.navigateTo({
+			  url: '/pages/questions/end/end'
+			})
+        }else{
+        	_this.setData({
+	        	curQsNum:curQsNum+1,
+	        	curQuestion:selectList[curQsNum]
+	        })
+        }
+    },
+    get_num: function() {
+        for (var t = this, e = t.data.userSetQsAswer, a = t.data.selectList, s = 0; s < a.length; s++) {
+            for (var i = !0, n = 0; n < e.length; n++) if (i && a[s].subjectId == e[n].subjectId) {
+                i = !1;
+                break;
+            }
+            if (i) return s;
+        }
+    },
+    newQsBtn: function() {
+        var t = this, e = t.data.selectList;
+        t.data.curQsInListNum;
+        e.push(e.slice(0, 1)[0]), e.splice(0, 1), t.setData({
+            tempQuestion: e[0].question,
+            tempAswer: e[0].answer,
+            author: e[0].author
+        });
+    },
+    onLoad: function(e) {
+        wx.showLoading({
+            title: "加载中..."
+        });
+        var _this = this
+    	app.promiseGet(app.globalData.URL+'/questions/getQuestionsRandomTen',_this).then((res)=>{
+	  		console.log(res.data)
+	  		setTimeout(function() {
+                wx.hideLoading();
+            }, 500)
+			_this.setData({
+				selectList:res.data,
+				curQuestion:res.data[0]
+			})
+		})
+        wx.getSystemInfo({
+            success: function(t) {
+            	console.log(t)
+                _this.setData({
+                    deviceHei: t.windowHeight
+                });
+            }
+        });
+    },
+    onReady: function() {},
+    jumpApp: function(t) {
+        e.jumpApp(t);
+    },
+    onShow: function() {
+    },
+    onHide: function() {},
+    onUnload: function() {},
+    onPullDownRefresh: function() {},
+    onReachBottom: function() {},
+    onShareAppMessage: function() {
+        return {
+            title: "你是我的默契好友吗？",
+            desc: e.globalData.appName,
+            path: "/pages/index/index"
+        };
+    },
+    tochange: function() {}
+});

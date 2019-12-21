@@ -1,0 +1,23 @@
+<view class="container" style="height:{{deviceHei}}px">
+    <image class="bgImg" src="/images/bg.png"></image>
+    <view class="content">
+        <view class="questionBox">
+            <view class="question">{{curQsNum}}/10: {{curQuestion.question}}</view>
+            <form bindsubmit="formSubmit" reportSubmit="true">
+                <radio-group class="radio-group">
+                    <label class="radio " wx:for="{{curQuestion.answers }}" wx:key="select">
+                        <button bindtap="radioChange" class="formbtn" data-value="{{item.answerid}}" formType="submit">
+                            <radio bindtap="radioChange" checked="" data-value="{{item.answerid}}" style="display:none" value="{{item.answerid}}"></radio>
+                            <view bindtap="radioChange" class="radioIcon" data-value="{{item.answerid}}"></view>
+                            <text>{{item.answer}}</text>
+                        </button>
+                    </label>
+                </radio-group>
+            </form>
+        </view>
+        <view class="qsProvider" wx:if="{{author}}">当前题目由{{author}}提供</view>
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <button bindtap="newQsBtn" class="newQsBtn" formType="submit">换一题</button>
+        </form>
+    </view>
+</view>

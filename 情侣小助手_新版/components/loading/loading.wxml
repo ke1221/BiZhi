@@ -1,0 +1,5 @@
+<view class="loading-none {{themeColor}}-loading-none" wx:if="{{!num}}">{{type==='noData'?msg||'记录被删除了':'暂时还没有内容呦～'}}</view>
+<view class="loading-text {{themeColor}}-loading-text {{hasMore?'loading-on':'loading-done'}}" hidden="{{author&&!hasMore||hideNum&&hideNum<7}}" wx:else>
+    <span>
+        <view class="loading-on-girl"></view>{{hasMore?'加载中...':'已经到底啦'}}</span>
+</view>

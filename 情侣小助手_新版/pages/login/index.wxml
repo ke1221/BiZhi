@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="contain">
+	<view  class="drawer_box"  >  
+
+		<!--drawer content-->  
+		<!-- <view class="drawer_title">欢迎使用情侣小天地</view>   -->
+		<!-- <view class="drawer_content">   -->
+			<!-- <image src='../../images/StartPage.png'/> -->
+		   <!--  <view class="top grid">  
+		      <label class="title col-0">标题</label>  
+		      <input class="input_base input_h30 col-1" name="rName" value="可自行定义内容"></input>  
+		  </view>   -->
+
+		    <!-- <view class="top bottom grid">  
+		      <label class="title col-0">备注</label>  
+		      <input class="input_base input_h30 col-1" name="bz"></input>  
+		  </view>   -->
+			<button class="btn_ok bottom" open-type="getUserInfo" bindgetuserinfo="wxLogin">开始使用</button> 
+		<!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>   -->
+		<!-- </view> -->
+	</view> 
+</view>

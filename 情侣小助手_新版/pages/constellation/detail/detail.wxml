@@ -1,0 +1,180 @@
+<view class="contain">
+	<!-- 星座名 图片 -->
+	<view class="c_header">
+		<view class="c_img">
+			<image class="c_image" src="{{constellationList[astroid].pic}}"/>
+		</view>
+		<view class="c_info">
+			<text class="c_name">{{constellationList[astroid].astroname}}</text>
+			<text class="c_date_title">{{constellationList[astroid].date}}</text>
+		</view>
+	</view>
+	<view class="c_select">
+		<block wx:for="{{ buttons }}" wx:key="{{item.id}}">
+			<button bindtap="select_c" data-id="{{item.id}}" class="sel_btn">{{item.value}}</button>
+		</block>
+	</view>
+	<view class="c_body">
+	
+		<view style="display:{{seldate[0] ?'block':'none' }}">
+			<text class="c_date">{{constellation.day.time}}</text>
+			<view class="c_score">
+				<view class="c_score_item">综合运势:<block wx:for="{{today.summary}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">爱情运势:<block wx:for="{{today.love}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">财富运势:<block wx:for="{{today.money}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">事业学业:<block wx:for="{{today.career}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">幸运颜色: {{constellation.day.lucky_color}}</view>
+				<view class="c_score_item">幸运数字: {{constellation.day.lucky_num}}</view>
+				<view class="c_score_item">速配星座: {{constellation.day.grxz}}</view>
+				<view class="c_score_item">幸运方向: {{constellation.day.lucky_direction}}</view>
+				<view class="c_score_item_time">幸运时间: {{constellation.day.lucky_time}}</view>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/ZH.png" class="luck_img"/>
+				<text class="c_details_title">综合运势</text>
+				<text class="c_details_content">{{constellation.day.general_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/JQ.png" class="luck_img"/>
+				<text class="c_details_title">财富运势</text>
+				<text class="c_details_content">{{constellation.day.money_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/SY.png" class="luck_img"/>
+				<text class="c_details_title">事业学业</text>
+				<text class="c_details_content">{{constellation.day.work_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/AQ.png" class="luck_img"/>
+				<text class="c_details_title">爱情运势</text>
+				<text class="c_details_content">{{constellation.day.love_txt}}</text>
+			</view>
+		</view>
+		<!-- 明日 -->
+		<view style="display:{{seldate[1] ?'block':'none' }}">
+			<text class="c_date">{{constellation.tomorrow.time}}</text>
+			<view class="c_score">
+				<view class="c_score_item">综合运势:<block wx:for="{{tomorrow.summary}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">爱情运势:<block wx:for="{{tomorrow.love}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">财富运势:<block wx:for="{{tomorrow.money}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">事业学业:<block wx:for="{{tomorrow.career}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">幸运颜色: {{constellation.tomorrow.lucky_color}}</view>
+				<view class="c_score_item">幸运数字: {{constellation.tomorrow.lucky_num}}</view>
+				<view class="c_score_item">速配星座: {{constellation.tomorrow.grxz}}</view>
+				<view class="c_score_item">幸运方向: {{constellation.tomorrow.lucky_direction}}</view>
+				<view class="c_score_item_time">幸运时间: {{constellation.tomorrow.lucky_time}}</view>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/ZH.png" class="luck_img"/>
+				<text class="c_details_title">综合运势</text>
+				<text class="c_details_content">{{constellation.tomorrow.general_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/JQ.png" class="luck_img"/>
+				<text class="c_details_title">财富运势</text>
+				<text class="c_details_content">{{constellation.tomorrow.money_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/SY.png" class="luck_img"/>
+				<text class="c_details_title">事业学业</text>
+				<text class="c_details_content">{{constellation.tomorrow.work_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/AQ.png" class="luck_img"/>
+				<text class="c_details_title">爱情运势</text>
+				<text class="c_details_content">{{constellation.tomorrow.love_txt}}</text>
+			</view>
+		</view>
+		<!-- 本周 -->
+		<view style="display:{{seldate[2] ?'block':'none' }}">
+			<text class="c_date">{{constellation.week.time}}</text>
+			<view class="c_score">
+				<view class="c_score_item">综合运势:<block wx:for="{{week.summary}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">爱情运势:<block wx:for="{{week.love}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">财富运势:<block wx:for="{{week.money}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">事业学业:<block wx:for="{{week.career}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">幸运颜色: {{constellation.week.lucky_color}}</view>
+				<view class="c_score_item">幸运数字: {{constellation.week.lucky_num}}</view>
+				<view class="c_score_item">速配星座: {{constellation.week.grxz}}</view>
+				<view class="c_score_item">幸运方向: {{constellation.week.lucky_direction}}</view>
+				<view class="c_score_item_time">幸运日: {{constellation.week.lucky_day}}</view>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/ZH.png" class="luck_img"/>
+				<text class="c_details_title">综合运势</text>
+				<text class="c_details_content">{{constellation.week.general_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/JQ.png" class="luck_img"/>
+				<text class="c_details_title">财富运势</text>
+				<text class="c_details_content">{{constellation.week.money_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/SY.png" class="luck_img"/>
+				<text class="c_details_title">事业学业</text>
+				<text class="c_details_content">{{constellation.week.work_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/AQ.png" class="luck_img"/>
+				<text class="c_details_title">爱情运势</text>
+				<text class="c_details_content">{{constellation.week.love_txt}}</text>
+			</view>
+		</view>
+		<!-- 本月 -->
+		<view style="display:{{seldate[3] ?'block':'none' }}">
+			<text class="c_date">{{constellation.month.time}}</text>
+			<view class="c_score">
+				<view class="c_score_item">综合运势:<block wx:for="{{month.summary}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">爱情运势:<block wx:for="{{month.love}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">财富运势:<block wx:for="{{month.money}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">事业学业:<block wx:for="{{month.career}}" wx:key="{{this}}"><image class="c_score_img" src="{{item?'/static/images/wuxingH.png' :'/static/images/wuxingB.png'}}"/></block></view>
+				<view class="c_score_item">速配星座: {{constellation.month.grxz}}</view>
+				<view class="c_score_item">幸运方向: {{constellation.month.lucky_direction}}</view>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/ZH.png" class="luck_img"/>
+				<text class="c_details_title">综合运势</text>
+				<text class="c_details_content">{{constellation.month.general_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/JQ.png" class="luck_img"/>
+				<text class="c_details_title">财富运势</text>
+				<text class="c_details_content">{{constellation.month.money_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/SY.png" class="luck_img"/>
+				<text class="c_details_title">事业学业</text>
+				<text class="c_details_content">{{constellation.month.work_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/AQ.png" class="luck_img"/>
+				<text class="c_details_title">爱情运势</text>
+				<text class="c_details_content">{{constellation.month.love_txt}}</text>
+			</view>
+		</view>
+		<!-- 本年 -->
+		<view style="display:{{seldate[4] ?'block':'none' }}">
+			<text class="c_date">{{constellation.year.time}}</text>
+			<view class="c_details">
+				<image src="/static/images/ZH.png" class="luck_img"/>
+				<text class="c_details_title">综合运势</text>
+				<text class="c_details_content">{{constellation.year.general_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/JQ.png" class="luck_img"/>
+				<text class="c_details_title">财富运势</text>
+				<text class="c_details_content">{{constellation.year.money_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/SY.png" class="luck_img"/>
+				<text class="c_details_title">事业学业</text>
+				<text class="c_details_content">{{constellation.year.work_txt}}</text>
+			</view>
+			<view class="c_details">
+				<image src="/static/images/AQ.png" class="luck_img"/>
+				<text class="c_details_title">爱情运势</text>
+				<text class="c_details_content">{{constellation.year.love_txt}}</text>
+			</view>
+		</view>
+	</view>
+</view>

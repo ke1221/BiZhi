@@ -1,0 +1,7 @@
+<view class="contain">
+	<view wx:for="{{constellationList}}" wx:key="{{item.astroid}}" class='c_list' 
+			bindtap="pageJump" data-url="/pages/constellation/detail/detail?astroid={{item.astroid}}">
+		<image src='{{item.pic}}' class='c_img'/>
+		<text class='c_text'>{{item.astroname}}</text>
+	</view>
+</view>

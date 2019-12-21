@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class="container">
+	
+	<view class="time">
+		<view class="item">
+			<view class="title">
+				<text>我的时间</text>
+			</view>
+			<view class="time-item">
+				<view class="hms">
+					<text>{{ localHours }}:</text>
+					<text>{{ localMinutes }}:</text>
+					<text>{{ localseconds }}</text>
+				</view>
+				<view class="mdd">
+					<text>{{ localMonth }}月</text>
+					<text>{{ localDate }}日      </text>
+					<text>{{ localDay }}</text>
+				</view>
+			</view>
+		</view>
+		<view class="item">
+			<view class="title">
+				<text>你的时间</text>
+			</view>
+			<view class="time-item">
+				<view class="hms">
+					<text>{{ targetHours }}:</text>
+					<text>{{ targetMinutes }}:</text>
+					<text>{{ targetseconds }}</text>
+				</view>
+				<view class="mdd">
+					<text>{{ targetMonth }}月</text>
+					<text>{{ targetDate }}日</text>
+					<text>{{ targetDay }}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="sections">
+		<view class="section">
+	  	<picker mode="selector" bindchange="myCityChange" value="{{myCityindex}}" range="{{cities[0]}}">
+	    	<view class="picker">
+	      		我的城市：{{cities[0][myCityindex]}}
+	    	</view>
+	  	</picker>
+		</view>
+		<view class="section">
+		  	<picker mode="selector" bindchange="youCityChange" value="{{youCityindex}}" range="{{cities[0]}}">
+		    	<view class="picker">
+		      		你的城市：{{cities[0][youCityindex]}}
+		    	</view>
+		  	</picker>
+		</view>
+	</view>
+</view>

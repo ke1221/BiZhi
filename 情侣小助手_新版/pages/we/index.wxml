@@ -1,0 +1,61 @@
+<view class="page">
+    <view class="title">
+    	<view class="user">
+    		<view class="imageFrame">
+    			<image src="{{ userInfo.avatarUrl }}" class="userImage"></image>
+    		</view>
+    		<text class="userName">{{ userInfo.nickName }}</text>
+    	</view>
+    	<block wx:if="{{ loverInfo != null && loverInfo != ''}}">
+    		<view class="user">
+    				<view class="imageFrame" bindtap="pageJump" data-url="/pages/removeLover/removeLover">
+    					<image src="{{ loverInfo.avatarUrl }}" class="userImage"></image>
+    				</view>
+    				<text class="userName">{{ loverInfo.nickName }}</text>
+    		</view>
+    	</block>
+    	<block wx:if="{{ loverInfo ==null || loverInfo == ''}}">
+    		<view class="user" bindtap="onShareAppMessage">
+    			<view class="imageFrame">
+    				<image src="/static/images/xin.jpg" class="userImage"></image>
+    			</view>
+    			<button class="userName2" open-type="share">抓住他</button>
+    		</view>
+    	</block>
+    </view>
+	<view class="page__bd" wx:for="{{menus}}" wx:key="{{item.catName}}">
+	    <view class="sub-title">{{item.catName}}</view>
+	    <view class="wux-grids wux-grids--bordered wux-grids--bordered">
+			<view wx:for="{{item.menu}}" wx:for-item="menu" bindtap="pageJump" data-lover="{{menu.lover}}" data-url="{{menu.url}}" hover-class="wux-grid--hover" style="width: 33.333333333333336%" class="wux-grid wux-grid wux-grid--bordered wux-grid--bordered">
+				<view class="wux-grid__content wux-grid__content">
+					<view class="wux-grid__inner wux-grid__inner">
+						<view class="wux-grid__hd wux-grid__hd">
+							<image src="{{menu.imgUrl}}" class="wux-grid__thumb wux-grid__thumb"></image>
+						</view>
+						<view class="wux-grid__bd wux-grid__bd">
+							<view class="wux-grid__label wux-grid__label">{{menu.name}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="page__bd" >
+	    <view class="sub-title">系 统</view>
+	    <view class="wux-grids wux-grids--bordered wux-grids--bordered">
+			<view  hover-class="wux-grid--hover" style="width: 33.333333333333336%" class="wux-grid wux-grid wux-grid--bordered wux-grid--bordered">
+				<view class="wux-grid__content wux-grid__content">
+					<view class="wux-grid__inner wux-grid__inner">
+						<view class="wux-grid__hd wux-grid__hd">
+							<image src="https://img.yuzktyu.top/YimkRe3i5XnaTfwfzQjnCjKW.png" class="wux-grid__thumb wux-grid__thumb"></image>
+						</view>
+						<view class="wux-grid__bd wux-grid__bd">
+							<view class="wux-grid__label wux-grid__label">联系我</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<button style="width: 220rpx;height: 210rpx; position: absolute;left: 40rpx; top: 1840rpx; opacity:0;" open-type="contact"></button>
+</view>
