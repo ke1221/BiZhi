@@ -96,6 +96,13 @@
 					"id": -1,
 					"name": "相册列表",
 					"pathName": "pages/photo/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/index",
 					"scene": null
 				}
 			]

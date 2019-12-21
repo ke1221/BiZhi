@@ -1,4 +1,6 @@
-<view class="box">
+ <image src="./images/1576560744098.webp" class="aaa"/>
+
+<!-- <view class="box">
   <view class="primary">
     <image src="./images/img_17582_0_0.png" class="layer" />
     
@@ -114,4 +116,4 @@
   <image src="./images/img_17582_0_31.png" class="icon-24" />
   <image src="./images/img_17582_0_33.png" class="icon-25" />
 </view>
-<login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>
+<login bindlogin="loginDialog" showLogin="{{showLogin}}"></login> -->
