@@ -1,0 +1,193 @@
+<!-- 底部背景图片 -->
+<image class="index-bg" src="/images/index/test.jpg" mode="aspectFill" />
+<view class="index" style="transform:translateY(-{{index*80}}%);">
+  <!-- 第一页 -->
+  <view class="one">
+    <!-- 顶部空白 -->
+    <view class="index-top"></view>
+    <!-- 内容区域 -->
+    <view class="index-conter">
+      <!-- 底部背景图片 -->
+      <image class="index-conter-bg" src="/images/index/bgImg.png" mode="aspectFit" />
+      <!-- 左边 -->
+      <view class="conter-left">
+        <!-- 左侧心 -->
+        <image class="conter-left-left" src="/images/index/xin.png" mode="aspectFit" />
+        <!-- 右侧内容 -->
+        <view class="conter-left-right">
+          <!-- 顶部 -->
+          <view class="left-right-top">
+            <!-- 天数 -->
+            <view class="right-top-t">
+              108
+              <text>天</text>
+            </view>
+            <text class="right-top-bot">我们已相爱</text>
+          </view>
+          <!-- 底部头像 -->
+          <view class="left-right-bot">
+            <image class="right-bot-left" src="/images/index/tx.png" mode="aspectFit" />
+            <image class="right-bot-right" src="/images/index/tx.png" mode="aspectFit" />
+          </view>
+        </view>
+      </view>
+      <!-- 右边 -->
+      <view class="conter-right">
+        <!-- 签到 -->
+        <view class="conter-right-item">
+          <!-- 左侧图标 -->
+          <view class="right-item-icon">
+            <image class="item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          </view>
+          <!-- 右侧内容 -->
+          <view class="right-item-right">
+            <text class="item-right-num">18</text>
+            <text class="item-right-text">签到</text>
+          </view>
+        </view>
+        <!-- 恩爱值 -->
+        <view class="conter-right-item">
+          <!-- 左侧图标 -->
+          <view class="right-item-icon">
+            <image class="item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          </view>
+          <!-- 右侧内容 -->
+          <view class="right-item-right">
+            <text class="item-right-num">128</text>
+            <text class="item-right-text">恩爱值</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 底部功能 -->
+    <view class="index-bottom" hidden="{{index == 1}}">
+      <!-- 左侧功能 -->
+      <view class="bottom-left">
+        <!-- 第一排 -->
+        <view class="bottom-left-top">
+          <!-- 纪念日 -->
+          <view class="bottom-left-top-item item-l">
+            <image class="bottom-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">纪念日</text>
+              <text>Anniversary</text>
+            </view>
+          </view>
+          <!-- 土味情话 -->
+          <view class="bottom-left-top-item">
+            <image class="bottom-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">土味情话</text>
+              <text>Love words</text>
+            </view>
+          </view>
+        </view>
+        <!-- 第二排 -->
+        <view class="bottom-left-center">
+          <text class="bottom-left-center-c"></text>
+        </view>
+        <!-- 第三排 -->
+        <view class="bottom-left-top">
+          <!-- 相册 -->
+          <view class="bottom-left-top-item  item-l">
+            <image class="bottom-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">相册</text>
+              <text>Album</text>
+            </view>
+          </view>
+          <!-- 土味情话 -->
+          <view class="bottom-left-top-item">
+            <image class="bottom-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">小日记</text>
+              <text>diary</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 右侧占位 -->
+      <view class="bottom-right" bindtap="showMore">
+        <text class="bottom-right-text">更多</text>
+      </view>
+    </view>
+  </view>
+  <!-- 第二页 -->
+  <view class="two">
+    <!-- 右侧悬浮按钮 -->
+    <view class="two-float" bindtap="showMore">
+      <text class="two-float-text">我们</text>
+    </view>
+    <!-- 情侣 -->
+    <view class="two-menu">
+      <text class="menu-title">情侣</text>
+      <!-- 列表 -->
+      <view class="menu-item-list">
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+      </view>
+    </view>
+    <!-- 工具 -->
+    <view class="two-menu">
+      <text class="menu-title">情侣</text>
+      <!-- 列表 -->
+      <view class="menu-item-list">
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+      </view>
+    </view>
+    <!-- 运势 -->
+    <view class="two-menu">
+      <text class="menu-title">运势</text>
+      <!-- 列表 -->
+      <view class="menu-item-list">
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">星族运势</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
