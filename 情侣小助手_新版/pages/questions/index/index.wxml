@@ -1,0 +1,85 @@
+<block wx:if="{{true}}">
+    <!--<import src="/pages/ad.wxml"></import>-->
+    <view class="container" style="height:{{deviceHei}}px">
+        <image class="bgImg" src="https://img.yuzktyu.top/bKKH2Kd3RxMkYz7ssWed5eQB.png"></image>
+        <view catchtap="helpShow" class="helpIcon {{appCorr.flag?'hasAppCorrHelp':''}}">
+            <image src="https://img.yuzktyu.top/7PeiibDwGBtB7jzXGQSZdAEX.png"></image>
+        </view>
+        <view bindtap="pageJump" class="appCorrHelp" data-url="{{appCorr.url}}" style="{{appCorr.style}}" wx:if="{{appCorr.flag}}">
+            <text>{{appCorr.content}}</text>
+            <text>查看详情>></text>
+        </view>
+        <view class="content">
+            <image class="logoTitle" src="https://img.yuzktyu.top/HDMwWfSAQaWYDHk3d2GPPsDc.png"></image>
+            <view class="userGroup" style="  display: flex;flex-direction: row;">
+                <view class="userInfo">
+                   
+                    <image src="{{ userInfo.avatarUrl }}" class="avatar"></image>
+                    <text class="nickname">{{ userInfo.nickName }}</text>
+                </view>
+                 <view class="userInfo">
+                    <image src="{{ loverInfo.avatarUrl }}" class="avatar"></image>
+                    <text class="nickname">{{ loverInfo.nickName }}</text>
+                </view>
+            </view>
+            
+
+            <form bindsubmit="formSubmit" reportSubmit="true">
+               <!-- <button bindtap="pageJump" class="goQuesSetBtn" data-url="/pages/questions/setQuestion/setQuestion" >开始出题</button> -->
+				<image src="https://img.yuzktyu.top/FZpdGZRHyJZreHDyc24DtZz8.png" bindtap="pageJump" class="goQuesSetBtn" data-url="/pages/questions/setQuestion/setQuestion" />
+            </form>
+            <view class="footerBtnGroup">
+               
+                    <image src="https://img.yuzktyu.top/ZzSYzHAPXBfbPYwXJycMbZzB.png" bindtap="pageJump" class="footerBtn" data-url="/pages/questions/userRecord/userRecord"  />
+               
+                    <image src="https://img.yuzktyu.top/EDA4GXD5fDHHtffstF8iHzmz.png" bindtap="pageJump" class="footerBtn" data-url="/pages/questions/answerRecord/answerRecord"   style="border-right:none;" />
+               
+            </view>
+        </view>
+        <modal noCancel bindconfirm="helpShow" confirmText="确定" hidden="{{modalHidden}}" title="玩法介绍">
+    共有10道题，请勾选出最适合自己的答案，出完后分享给Ta作答，看Ta能否答对你的正确选项，测试Ta对你的了解程度。
+    </modal>
+    </view>
+</block>
+<block wx:else>
+    <import src="/pages/ad.wxml"></import>
+    <view class="container" style="height:{{deviceHei}}px">
+        <image class="bgImg" src="/image/indexBg.png"></image>
+        <view catchtap="helpShow" class="helpIcon {{appCorr.flag?'hasAppCorrHelp':''}}">
+            <image src="/image/help.png"></image>
+        </view>
+        <view class="appCorrHelp" wx:if="{{appCorr.flag}}">
+            <text>限量免费开放公众号关联小程序</text>
+            <text bindtap="pageJump" data-url="/pages/appCorrHelp/appCorrHelp">查看详情>></text>
+        </view>
+        <view class="content">
+            <image class="logoTitle" src="/image/indexTitle.png"></image>
+            <view class="userInfo">
+                <open-data class="avatar" type="userAvatarUrl"></open-data>
+                <open-data class="nickname" type="userNickName"></open-data>
+            </view>
+            <button bindgetuserinfo="bindgetuserinfo" class="goQuesSetBtn" openType="getUserInfo">开始出题</button>
+            <view class="footerBtnGroup">
+                <button bindgetuserinfo="bindgetuserinfo" class="footerBtn" data-url="/pages/userRecord/userRecord" openType="getUserInfo" plain="true" style="border-right:none;">出题记录</button>
+                <button bindgetuserinfo="bindgetuserinfo" class="footerBtn" data-url="/pages/answerRecord/answerRecord" openType="getUserInfo" plain="true">答题记录</button>
+                <button class="footerBtn bnt2" data-url="/pages/contact/contact" hoverClass="none" plain="true" style="border-right:none;" wx:if="{{contact_btn==1&&isAuth}}">联系客服
+        </button>
+                <button class="footerBtn bnt2" hoverClass="none" openType="contact" plain="true" sessionFrom="moqi-wxapp" style="border-right:none;" wx:if="{{contact_btn!=1&&isAuth}}">联系客服
+        </button>
+                <button bindgetuserinfo="bindgetuserinfo" class="footerBtn bnt2" hoverClass="none" openType="getUserInfo" plain="true" style="border-right:none;" wx:else>联系客服</button>
+                <button class="footerBtn" data-url="/pages/payDetail/payDetail" plain="true" style="border-right:none;border-left:1rpx solid #6c5519;" wx:if="{{detail_btn==1}}">付费详情</button>
+            </view>
+            <navigator class="goQuesSetBtn2" hidden="{{xyShow==0}}" style="{{xyStyle}}" url="/pages/games/games">{{xyText}}</navigator>
+        </view>
+        <modal noCancel bindconfirm="helpShow" confirmText="确定" hidden="{{modalHidden}}" title="玩法介绍">
+      从题库中随机选择10道题，并勾选出最适合自己的答案，出完后分享给好友作答，看好友能否答对你的正确选项，测试你和好友之间的默契值。
+    </modal>
+        <image class="tousu_img" src="/image/tousu.png"></image>
+        <navigator class="" url="/pages/userComplain/userComplain">
+            <form bindsubmit="formSubmit" reportSubmit="true">
+                <button class="tstxt tousu " formType="submit">投诉</button>
+            </form>
+        </navigator>
+        <template is="adindex" data="{{appDialog_flag:appDialog_flag,appDialog_list:appDialog_list,appSwiper_flag:appSwiper_flag,appSwiper_list:appSwiper_list,appGdt_flag:appGdt_flag,appGdt_style:appGdt_style,appGdt_id:appGdt_id}}"></template>
+    </view>
+</block>

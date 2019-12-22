@@ -1,0 +1,8 @@
+<view class="main">
+	<image class="title_image" src="{{ imgUrl }}" mode="aspectFill"></image>
+  <button bindtap='didPressChooesImage' class="chooes_btn">选择图片</button>
+	<view wx:for="{{ images }}" class="image_view" wx:key="item.id">
+  	<image class="image" src="{{ item.url }}" mode ="aspectFill" bindtap ="imgYu" data-src ="{{item.url}}" data-id ="{{item.photoId}}" bindlongpress ="deleteImg"></image>
+  </view>
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+</view>

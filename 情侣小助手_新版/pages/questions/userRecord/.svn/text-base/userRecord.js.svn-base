@@ -1,0 +1,99 @@
+var app = getApp();
+
+Page({
+    data: {
+        recordList: [],
+        friendAnswerRecord: {},
+        friendAnswerPop: !1,
+        appDialog_flag: 0,
+        appDialog_list: [],
+        appSwiper_flag: 0,
+        appSwiper_list: [],
+        appGdt_flag: 0,
+        appGdt_style: "",
+        appGdt_id: "",
+        default_name: "匿名",
+        default_avatar: "/image/person.png",
+        payStatus: 0,
+        answerId: null,
+        nowPage: 0,
+        pageSize: 10,
+    },
+    onShow: function() {
+    	var _this = this
+    	_this.setData({
+            userInfo:app.globalData.userInfo,
+            loverInfo:app.globalData.loverInfo
+        })
+    },
+    pageJump: function(a) {
+        var t = a.currentTarget.dataset;
+        wx.navigateTo({
+            url: t.url
+        });
+    },
+    onLoad: function(a) {
+        //this.requestFunc();
+    },
+    onReachBottom: function() {
+        var a = Math.ceil(parseInt(this.data.totalRows) / parseInt(this.data.pageSize));
+        0 == a || a <= this.data.nowPage ? wx.showToast({
+            title: "没有更多了",
+            icon: "loading",
+            duration: 500
+        }) : this.requestFunc();
+    },
+    jumpApp: function(a) {
+        t.jumpApp(a);
+    },
+    bindchange: function(a) {
+        this.setData({
+            payPrice: a.detail.value
+        });
+    },
+    radioChange: function() {
+        var t = this.data.answerId, e = this;
+        if (null == t) return !1;
+        var n = a.get_url("UserR3/pay");
+        wx.request({
+            url: n,
+            method: "POST",
+            data: {
+                answerId: t,
+                payPrice: e.data.payPrice
+            },
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function(a) {
+                if ("200" == a.data.rt) {
+                    var t = {
+                        timeStamp: a.data.msg.timeStamp + "",
+                        nonceStr: a.data.msg.nonceStr,
+                        package: a.data.msg.package,
+                        signType: "MD5",
+                        paySign: a.data.msg.paySign
+                    };
+                    e.wxpayNovel(t);
+                } else wx.showToast({
+                    title: "操作超时",
+                    imageUrl: "./image/info.png"
+                });
+            }
+        });
+    },
+    onShareAppMessage: function(a) {
+        var e = this, n = {};
+        return n.answerId = e.data.answerId, n.shareType = "checkPeople_info", wx.showShareMenu({
+            withShareTicket: !0
+        }), {
+            title: "你是我的默契好友吗？",
+            desc: t.globalData.appName,
+            path: "/pages/index/index",
+            imageUrl: t.globalData.shareImg,
+            success: function(s) {
+                "button" == a.from && t.dealShareInfo(n, e.ShareCallBack);
+            }
+        };
+    },
+});

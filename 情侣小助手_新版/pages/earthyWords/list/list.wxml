@@ -1,0 +1,8 @@
+<view class="body">
+	<view class="item" wx:for="{{earthyWordsList}}" wx:key="{{item.id}}" bindtap="pageJump" data-url="/pages/earthyWords/detail/detail?id={{item.id}}">
+		<image class="l_img" mode="aspectFill" src="{{item.imgUrl}}"></image>
+		<text class="l_text">{{item.date}}</text>
+	</view>
+	
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+</view>

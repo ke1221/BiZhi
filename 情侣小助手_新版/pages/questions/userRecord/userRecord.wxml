@@ -1,0 +1,76 @@
+<view class="container">
+    <view wx:if="{{true}}">
+        <view class="recordBox">
+            <view class="quesCont">
+                <view class="tapTxt">共出题{{recordList.length}}次</view>
+            </view>
+            
+             <view class="recordList" wx:for="{{recordList}}" wx:key="item.askId" bindtap="pageJump" data-url="/pages/questions/mineQs/mineQs?askId={{item.askId}}&isAnswer={{item.isAnswer}}">
+             	<view class="record-title">
+             		
+             		<image src="{{ userInfo.avatarUrl }}" class="avatar"></image>
+	                <view class="createTime">{{item.date}}
+	                    <!-- <image bindtap="delActivity" class="showQs" data-key="1" data-askid="{{item.askid}}" data-url="/pages/questions/mineQs/mineQs?askid={{item.askid}}" src="/image/close.png"></image> -->
+	                </view>
+             	</view>
+                <view class="havaAnswer" wx:if="{{item.isAnswer == 1}}">你的Ta已经作答啦~</view>
+                <view class="noAnswer" wx:else>你的Ta还没有作答哦~</view>
+            </view>
+            <!--<view class="recordList" data-key="{{index}}" data-sn="{{item.sn}}" wx:for="{{recordList}}" wx:key="recordList">
+                <view class="createTime">{{item.recordCreatTime}}
+      
+                <text bindtap="pageJump" class="showQs1" data-url="/pages/mineQs/mineQs?sn={{item.sn}}">查看此题</text>
+                    <image bindtap="delActivity" class="showQs" data-key="{{index}}" data-sn="{{item.sn}}" data-url="/pages/mineQs/mineQs?sn={{item.sn}}" src="/image/close.png"></image>
+                </view>
+                <view bindtap="pageJump" data-url="/pages/share/share?sn={{item.sn}}" wx:if="{{item.friendList.length!=0}}">
+                    <template is="friendInfoList" data="{{...item,default_info:default_info}}" wx:for="{{item.friendList}}" wx:key="friendInfoList"></template>
+                </view>
+                <view class="noAnswer" wx:else>此套题暂时还没有人作答哦~</view>
+            </view>-->
+        </view>
+        <view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+    </view>
+    <view class="noRecord" wx:else>
+        <image class="noRecordImg" src="/image/noRecord.png"></image>
+        <view class=" tapTxt">还没有出题哦</view>
+    </view>
+</view>
+<view class="popBg" wx:if="{{false}}">
+    <view class="friendAnswerPop">
+        <view bindtap="showFriendAswer" class="close">×</view>
+        <image class="headPic" src="{{payStatus==1?friendAnswerRecord.friendAvatar:default_avatar}}"></image>
+        <view bindtap="startPay" class="friendName changePay" hidden="{{payStatus==1}}" style="color:#fff">{{pay_tip}}</view>
+        <view class="friendName" hidden="{{payStatus==0}}">{{friendAnswerRecord.friendName}}的答题记录</view>
+        <view class="friendAnswerBox">
+            <scroll-view class="friendAnswer" wx:for="{{friendAnswerRecord.friendAnswerList}}" >
+                <view class="question">Q{{index+1}}:{{item.question}}</view>
+                <view class="answerBox {{item.isRight?'isRight':''}}">
+                    <view class="radioIcon"></view>
+                    <text>{{item.answer}}</text>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<view class="popBg" hidden="{{true}}">
+    <view class="pay_group">
+        <view bindtap="close_radio" class="radio_cancel">x</view>
+        <view class="radio_tit">温馨提示</view>
+        <radio-group bindchange="bindchange">
+            <block wx:for="{{payLayer}}" wx:key="idx">
+                <radio checked="{{index==0}}" class="pay_radio" value="{{item.price}}">{{item.title}}</radio>
+                <view class="radio_tip">{{item.desc}}</view>
+            </block>
+        </radio-group>
+        <button bindtap="radioChange" class="radio_btn">好哒</button>
+    </view>
+</view>
+<view class="popBg" hidden="{{true}}">
+    <view class="lockModal">
+        <text bindtap="closePop" class="close">×</text>
+        <view class="title">{{shareTitle}}</view>
+        <view class="text" style="{{shareStyle}}">{{shareTip}}</view>
+        <button class="shareBtn" openType="share" wx:if="{{shareButton==2}}">好哒</button>
+        <button bindtap="jumpApp2" class="shareBtn" wx:if="{{shareButton==3}}">好哒</button>
+    </view>
+</view>

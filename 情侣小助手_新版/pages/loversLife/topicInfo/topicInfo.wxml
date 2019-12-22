@@ -1,0 +1,9 @@
+<!-- 主题页 -->
+<view>
+	<view>
+		<text>2018-08-04 12:23:43</text>
+		<navigator >
+			<image src="../../images/2048.png" mode="scaleToFill" class="topic_img"></image>
+		</navigator>
+	</view>
+</view>

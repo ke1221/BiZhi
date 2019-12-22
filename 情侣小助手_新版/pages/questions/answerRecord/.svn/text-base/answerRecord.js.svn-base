@@ -1,0 +1,314 @@
+var e = getApp();
+
+Page({
+    data: {
+        userinfoGroup: {
+            userName: "",
+            userPic: "",
+            giveOutMoney: "",
+            giveOutCount: "",
+            questionSetCount: ""
+        },
+        recordList: [],
+        friendAnswerRecord: {},
+        friendAnswerPop: !1,
+        appDialog_flag: 0,
+        appDialog_list: [],
+        appSwiper_flag: 0,
+        appSwiper_list: [],
+        appGdt_flag: 0,
+        appGdt_style: "",
+        appGdt_id: "",
+        tmp_friendid: null,
+        tmp_answerid: null,
+        is_answer: !1,
+        default_head: "",
+        default_name: "",
+        payPrice: 100,
+        payTip: "1元查看正确答案",
+        ispay: 0,
+        totalRows: 0,
+        nowPage: 0,
+        pageSize: 10,
+        answerNums: 0,
+        sharePop: !0,
+        shareTip: "",
+        shareTitle: "",
+        shareButton: "",
+        shareStyle: ""
+    },
+    showFriendAswer: function(e) {
+        var t = this, n = e.currentTarget.dataset;
+        if (void 0 == n.friendid) return t.setData({
+            friendAnswerPop: !t.data.friendAnswerPop
+        }), 1 == t.data.ispay && t.setData({
+            is_answer: 1
+        }), !1;
+        t.setData({
+            tmp_friendid: n.friendid,
+            tmp_answerid: n.answer,
+            is_answer: n.show,
+            default_head: n.head,
+            default_name: n.name,
+            ispay: n.show
+        });
+        var s = a.get_url("AnswerRecord/GetMyans");
+        wx.request({
+            url: s,
+            method: "POST",
+            data: {
+                friendId: n.friendid,
+                sn: n.sn
+            },
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function(a) {
+                200 == a.data.code ? t.setData({
+                    friendAnswerRecord: a.data.friendAnswerRecord,
+                    friendAnswerPop: !t.data.friendAnswerPop
+                }) : wx.showModal({
+                    title: "提示",
+                    content: "您的答题正在整理中，稍后查看哦！",
+                    showCancel: !1,
+                    success: function(a) {}
+                });
+            }
+        });
+    },
+    pageJump: function(a) {
+        var e = a.currentTarget.dataset;
+        wx.navigateTo({
+            url: e.url
+        });
+    },
+    requestFunc: function() {
+        var e = !(arguments.length > 0 && void 0 !== arguments[0]) || arguments[0], t = this, n = [];
+        if (wx.showLoading(), e ? t.setData({
+            nowPage: parseInt(t.data.nowPage) + 1
+        }) : t.setData({
+            nowPage: 1,
+            recordList: []
+        }), wx.getStorageSync("user_identity")) {
+            var s = a.get_url("AnswerRecord/IndexByPage"), i = t.data.nowPage;
+            wx.request({
+                url: s,
+                method: "POST",
+                data: {
+                    nowPage: i
+                },
+                header: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                success: function(a) {
+                    if (200 == a.statusCode) {
+                        t.data.userinfoGroup.userPic = wx.getStorageSync("avatar"), t.data.userinfoGroup.userName = wx.getStorageSync("name");
+                        for (var e = 0, s = (n = t.data.recordList.concat(a.data.recordList)).length; e < s; e++) {
+                            var i = 0;
+                            for (var r in n[e].friendList) n[e].friendList[r].index = ++i;
+                        }
+                        t.setData({
+                            userinfoGroup: a.data.userinfoGroup,
+                            recordList: n,
+                            payPrice: a.data.payInfo.payPrice,
+                            payTip: a.data.payInfo.payTip,
+                            totalRows: a.data.totalRows,
+                            pageSize: a.data.pageSize,
+                            answerNums: a.data.answerNums
+                        }), setTimeout(function() {
+                            wx.hideLoading(), wx.stopPullDownRefresh();
+                        }, 2e3);
+                    } else wx.showToast({
+                        title: "请求失败",
+                        icon: "loading",
+                        duration: 5e3
+                    });
+                }
+            });
+        }
+    },
+    onLoad: function(a) {
+       // this.requestFunc();
+    },
+    onReachBottom: function() {
+        var a = Math.ceil(parseInt(this.data.totalRows) / parseInt(this.data.pageSize));
+        0 == a || a <= this.data.nowPage ? wx.showToast({
+            title: "没有更多了",
+            icon: "loading",
+            duration: 500
+        }) : this.requestFunc();
+    },
+    jumpApp: function(a) {
+        e.jumpApp(a);
+    },
+    onShow: function() {
+        var _this = this
+        _this.setData({
+            userInfo:app.globalData.userInfo,
+            loverInfo:app.globalData.loverInfo
+        })
+    },
+    startPay: function(e) {
+        var t = this;
+        a.loadShare(t.payFunc, t.shareFunc, t.jumpFunc);
+    },
+    wxpayNovel: function(a) {
+        var e = this;
+        wx.requestPayment({
+            timeStamp: a.timeStamp,
+            nonceStr: a.nonceStr,
+            package: a.package,
+            signType: a.signType,
+            paySign: a.paySign,
+            success: function(a) {
+                switch (a.errMsg) {
+                  case "requestPayment:ok":
+                    wx.showToast({
+                        title: "支付成功",
+                        duration: 1200,
+                        complete: function() {
+                            e.setData({
+                                is_answer: 1,
+                                ispay: 1
+                            }), e.requestFunc(!1);
+                        }
+                    });
+                    break;
+
+                  case "requestPayment:fail cancel":
+                    wx.showToast({
+                        title: "您取消了支付",
+                        icon: "loading",
+                        duration: 2e3
+                    });
+                    break;
+
+                  case "requestPayment:fail":
+                  default:
+                    wx.showToast({
+                        title: "支付失败",
+                        icon: "loading",
+                        duration: 2e3
+                    });
+                }
+            },
+            fail: function(a) {
+                wx.showToast({
+                    title: "支付取消",
+                    icon: "loading",
+                    duration: 1200
+                });
+            },
+            complete: function(a) {
+                "requestPayment:cancel" == a.errMsg && wx.showToast({
+                    title: "您取消了支付",
+                    icon: "loading",
+                    duration: 2e3
+                });
+            }
+        });
+    },
+    getMine1: function() {
+        this.setData({
+            is_answer: 0
+        });
+    },
+    getMine2: function() {
+        1 == this.data.ispay && this.setData({
+            is_answer: 1
+        });
+    },
+    payFunc: function() {
+        console.log("pay");
+        var e = this.data.tmp_friendid, t = this.data.tmp_answerid, n = this.data.payPrice, s = this;
+        if (null == e || null == t) return wx.showToast({
+            title: "操作超时"
+        }), !1;
+        var i = a.get_url("AnswerRecord/Pay");
+        wx.request({
+            url: i,
+            method: "POST",
+            data: {
+                friendid: e,
+                answerid: t,
+                payPrice: n
+            },
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function(a) {
+                if ("200" == a.data.rt) {
+                    console.log(a.data.msg);
+                    var e = {
+                        timeStamp: a.data.msg.timeStamp + "",
+                        nonceStr: a.data.msg.nonceStr,
+                        package: a.data.msg.package,
+                        signType: "MD5",
+                        paySign: a.data.msg.paySign
+                    };
+                    s.wxpayNovel(e);
+                } else wx.showToast({
+                    title: "操作超时",
+                    imageUrl: "./image/info.png"
+                });
+            }
+        });
+    },
+    shareFunc: function() {
+        console.log("share");
+        var a = this;
+        a.setData({
+            shareTip: e.globalData.shareTip,
+            shareTitle: e.globalData.shareTitle,
+            shareButton: e.globalData.shareButton,
+            shareStyle: e.globalData.shareStyle,
+            sharePop: !a.data.sharePop,
+            friendAnswerPop: !a.data.friendAnswerPop
+        });
+    },
+    jumpFunc: function() {
+        console.log("jump");
+        var a = this;
+        a.setData({
+            shareTip: e.globalData.shareTip,
+            shareTitle: e.globalData.shareTitle,
+            shareButton: e.globalData.shareButton,
+            shareStyle: e.globalData.shareStyle,
+            sharePop: !a.data.sharePop,
+            friendAnswerPop: !a.data.friendAnswerPop
+        });
+    },
+    ShareCallBack: function() {
+        var a = this;
+        this.setData({
+            sharePop: !a.data.sharePop,
+            friendAnswerPop: !a.data.friendAnswerPop,
+            is_answer: 1,
+            ispay: 1
+        }), a.requestFunc(!1);
+    },
+    closePop: function() {
+        var a = this;
+        this.setData({
+            sharePop: !a.data.sharePop,
+            friendAnswerPop: !a.data.friendAnswerPop
+        });
+    },
+    onShareAppMessage: function(a) {
+        var t = this, n = {};
+        return n.answerId = this.data.tmp_answerid, n.shareType = "checkAnswer_info", wx.showShareMenu({
+            withShareTicket: !0
+        }), {
+            title: "你是我的默契好友吗？",
+            desc: e.globalData.appName,
+            path: "/pages/index/index",
+            imageUrl: e.globalData.shareImg,
+            success: function(s) {
+                "button" == a.from && e.dealShareInfo(n, t.ShareCallBack);
+            }
+        };
+    },
+    jumpApp2: function() {
+        e.jumpApp2(e.globalData.jumpData);
+    }
+});

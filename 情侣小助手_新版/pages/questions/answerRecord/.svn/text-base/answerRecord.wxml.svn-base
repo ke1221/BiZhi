@@ -1,0 +1,98 @@
+<template name="friendInfoList">
+    <view catchtap="showFriendAswer" class="friendInfo" data-answer="{{id}}" data-friendid="{{friendId}}" data-head="{{friendAvatar}}" data-name="{{friendName}}" data-show="{{is_show}}" data-sn="{{sn}}">
+        <view class="friendPic ">
+            <text class="{{index==1?'firstScore':index==2?'secondScore':index==3?'thirdScore':''}}">{{index}}</text>
+            <image src="{{friendAvatar}}"></image>
+        </view>
+        <view class="leftLine">
+            <view class="friendName">
+                <text>{{friendName}}</text>
+                <text class="answerCount">（我答了{{answerCount}}次）</text>
+            </view>
+            <view>{{tapTxt}}</view>
+        </view>
+        <view class="rightLine">
+            <view class="compDegree">{{degree}}</view>
+        </view>
+    </view>
+</template>
+
+<view class="container">
+     <view >
+        <view class="recordBox">
+            <view class="quesCont">
+                <view class="tapTxt">共答题3次</view>
+                <view bindtap="pageJump" class="tapTxt" data-url="/pages/index/index">返回首页</view>
+            </view>
+            <view class="recordList" >
+                <view class="record-title">
+                    <image src="{{ userInfo.avatarUrl }}" class="avatar"></image>
+                    <view class="createTime">2018-09-09 14:14:13</view>
+                </view>
+                <view class="havaAnswer" wx:if="{{true}}">你已经作答啦~</view>
+                <view class="noAnswer" wx:else>你还没有作答哦~</view>
+            </view>
+        </view>
+        <view class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+    </view> 
+    <!-- <view class="noRecord">
+        <image class="noRecordImg" src="/image/noRecord.png"></image>
+        <view class=" tapTxt">你的Ta还没有出题哦</view>
+    </view> -->
+</view>
+
+<!-- <view class="container">
+    <view wx:if="{{recordList.length}}">
+        <view class="recordBox">
+            <view class="quesCont">
+                <view class="tapTxt">共答题{{answerNums}}次</view>
+                <view bindtap="pageJump" class="tapTxt" data-url="/pages/index/index">返回首页</view>
+            </view>
+            <view class="recordList" wx:for="{{recordList}}" wx:key="recordList">
+                <view class="createTime">{{item.recordCreatTime}}
+          
+        </view>
+                <view bindtap="pageJump" data-url="/pages/share/share?sn={{item.sn}}" wx:if="{{item.friendList.length!=0}}">
+                    <template is="friendInfoList" data="{{...item}}" wx:for="{{item.friendList}}" wx:key="friendInfoList"></template>
+                </view>
+                <view class="noAnswer" wx:else>此套题暂时还没有人作答哦~</view>
+            </view>
+        </view>
+        <view class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+    </view>
+    <view class="noRecord" wx:else>
+        <image class="noRecordImg" src="/image/noRecord.png"></image>
+        <view class=" tapTxt">你的Ta还没有出题哦</view>
+    </view>
+</view> -->
+
+
+<!-- <view class="popBg" wx:if="{{friendAnswerPop&&friendAnswerRecord.friendAnswerList.length!=0}}">
+    <view class="friendAnswerPop">
+        <view bindtap="showFriendAswer" class="close">×</view>
+        <image class="headPic" data-src="{{is_answer}}" src="{{is_answer==1?default_head:userinfoGroup.userPic}}"></image>
+        <view class="friendName">{{is_answer==1?default_name+'的正确答案':'我的回答'}}</view>
+        <view bindtap="startPay" class="getcorrect correct_btn1" data-payPrice="{{payPrice}}" wx:if="{{is_answer==0&&ispay==0}}">{{payTip}}</view>
+        <view bindtap="getMine1" class="getcorrect correct_btn1" wx:if="{{is_answer==1}}">我的回答</view>
+        <view bindtap="getMine2" class="getcorrect correct_btn2" wx:if="{{is_answer==0&&ispay==1}}">偷看答案</view>
+        <view class="friendAnswerBox">
+            <scroll-view class="friendAnswer" wx:for="{{friendAnswerRecord.friendAnswerList}}" >
+                <view class="question">Q{{index+1}}:{{item.question}}</view>
+                <view class="answerBox {{is_answer==1?'isRight':item.isRight?'isRight':''}}">
+                    <view class="radioIcon"></view>
+                    <text>{{is_answer==1?item.rightAns:item.answer}}</text>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<view class="popBg" hidden="{{sharePop}}">
+    <view class="lockModal">
+        <text bindtap="closePop" class="close">×</text>
+        <view class="title">{{shareTitle}}</view>
+        <view class="text" style="{{shareStyle}}">{{shareTip}}</view>
+        <button class="shareBtn" openType="share" wx:if="{{shareButton==2}}">好哒</button>
+        <button bindtap="jumpApp2" class="shareBtn" wx:if="{{shareButton==3}}">好哒</button>
+    </view>
+</view>
+ -->

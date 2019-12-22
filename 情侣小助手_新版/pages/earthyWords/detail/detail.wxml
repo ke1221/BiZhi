@@ -1,0 +1,40 @@
+<view class="body">
+	<view class="containe" wx:if="{{!loading}}">
+		<view class="p-b-xxl">
+			<view class="one-img block">
+				<image alt="" mode="aspectFill" class="img-full" src="{{earthyWords.imgUrl}}"></image>
+			</view>
+			<view class="wrapper">
+				<view class="block clearfix">
+					<!-- <text class="pull-left">{{oneInfo.volume}}</text> -->
+					<text class="pull-right">{{earthyWords.title}}{{earthyWords.imgSource?' | '+earthyWords.imgSource:''}}
+					</text>
+				</view>
+				<view class="text-center m-t">
+					<text class="one-day">
+						{{earthyWords.day}}
+					</text>
+					<text class="one-date m-t">
+						{{earthyWords.date}}
+					</text>
+				</view>
+				<text class="block one-line"></text>
+				<view class="one-forward">
+					<rich-text nodes="{{earthyWords.honeyWords}}"></rich-text>
+
+					<!-- <text>{{earthyWords.honeyWords}}</text> -->
+				</view>
+				<text class="text-muted font-xs one-words-info m-t block text-center">
+					{{earthyWords.shareUserName}}
+				</text>
+			</view>
+			<view  class="one-footer" >
+				<button bindtap="getOneDetails" class="{{earthyWords.prev == null ?'text-muted':''}}" data-id="{{earthyWords.prev}}"
+				>上一篇</button>
+				<image src="/static/images/earthyList.png" class="r_list" bindtap="pageJump" data-url="/pages/earthyWords/list/list"></image>
+				<button bindtap="getOneDetails" class="{{earthyWords.next == null ?'text-muted':''}}" data-id="{{earthyWords.next}}"
+				>下一篇</button>
+			</view>
+		</view>
+	</view>
+</view>

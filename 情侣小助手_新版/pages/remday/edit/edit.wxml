@@ -1,0 +1,38 @@
+<!--<view class="details">
+	<view class="note_details">
+		<input class="subject" placeholder="" bindinput="inputDayName" value="{{ dayname }}" maxlength="10"></input>
+		<view class="date">
+		  <view class="section__title">日期选择器</view>
+		  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+		    <view class="picker">
+		      日期: {{date}}
+		    </view>
+		  </picker>
+		</view>
+		<textarea maxlength='2000' class="content" placeholder="" bindinput="inputContent" value="{{ content }}">
+		</textarea>
+		<button bindtap="saveData" class="saveButton">保存</button>
+		<button bindtap="delData" class="delButton">删除</button>
+	</view>
+</view>-->
+
+<view class="details">
+	<view class="note_details">
+		<view class="form_date">
+			<input class="dayName" maxlength="10" bindinput="inputDayName" value="{{ dayname }}"></input>
+			<view class="date">
+			  <!--<view class="section__title">日期选择器</view>-->
+			  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+			    <view class="picker">
+			      选择日期: {{date}}
+			    </view>
+			  </picker>
+			</view>
+			<!--<text class='date'>所在位置</text>-->
+			<textarea maxlength='2000' class="content" bindinput="inputContent" value="{{ content }}">
+			</textarea>
+		</view>
+		<button bindtap="delData" class="delButton">删除</button>
+		<button bindtap="saveData" class="saveButton">保存</button>
+	</view>
+</view>

@@ -1,0 +1,6 @@
+<view class="main">
+	<view wx:for="{{ portraitList }}" class="image_view" wx:key="item.id">
+  	<image class="image" src="{{ item.img }}" mode ="aspectFill" bindtap ="imgYu" data-src ="{{item.img}}" data-id ="{{item.id}}"></image>
+  </view>
+  <view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+</view>

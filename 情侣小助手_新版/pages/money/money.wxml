@@ -1,0 +1,6 @@
+<view class="contain">
+	<view class="about_xcx">
+		<text>{{about}} </text>
+	</view>
+	<image src='https://img.yuzktyu.top/GbfcXa7pQA5sQ8JW6XWjBjsc.png' class="moneyImg" mode='scaleToFill' bindtap='imgYu' data-src="https://img.yuzktyu.top/GbfcXa7pQA5sQ8JW6XWjBjsc.png"></image>
+</view>

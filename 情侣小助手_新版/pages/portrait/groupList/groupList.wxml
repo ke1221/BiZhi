@@ -1,0 +1,10 @@
+<view>
+	<block wx:for="{{ portraitList }}" wx:for-item="items" wx:key="items.id">
+		<view class="portrait_List" bindtap="pageJump" data-url="/pages/portrait/portraitList/portraitList?id={{items.id}}">
+			<image mode="scaleToFill" src="{{items.img}}" class="img_list"></image>
+			<text class="text_list">{{items.name}}</text>
+			<text class="to_list">></text>
+		</view>
+	</block>
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+</view>

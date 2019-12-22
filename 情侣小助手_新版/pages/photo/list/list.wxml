@@ -1,0 +1,26 @@
+<view class="mobileListBorder">
+     <scroll-view scroll-y="true"  style="height:90%;" bindscrolltolower="lower">
+        <view class="main">
+			<view wx:if="{{albumList==null || albumList==''}}" class="subMain">
+			    <view class="subMainImage">
+			        <image src="/static/images/background-down.png" class="downImage"/>
+			        <image src="/static/images/background-up.png" class="upImage"/>
+			        <image class="images" src="https://img.yuzktyu.top/wtKGp8cP4Ekt2k8NtHkdeSXG.jpg" />
+			        <image src="/static/images/collectready.png" class="collectImage" />
+			    </view>
+			</view> 
+            <view wx:for="{{albumList}}" wx:for-item="items" wx:key="{{items.albumId}}" class="subMain">
+                <view class="subMainImage">
+                    <image src="/static/images/background-down.png" class="downImage"/>
+                    <image src="/static/images/background-up.png" class="upImage"/>
+                    <image class="images" data-albumId="{{items.albumId}}" src="{{items.cover}}" bindtap="pageJump" data-url="/pages/photo/detail/detail?albumId={{items.albumId}}" bindlongpress ="editAlbum"/>
+                    <image src="/static/images/collectready.png" class="collectImage" />
+                </view>
+                <view class="subMainText">{{items.albumname}}</view>
+            </view>
+        </view>
+		<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+    </scroll-view>
+</view>
+
+<button bindtap="pageJump" class="newSchedule" data-url="/pages/photo/add/add"><image src="/static/images/Plus.png" class="butImg"></image></button>

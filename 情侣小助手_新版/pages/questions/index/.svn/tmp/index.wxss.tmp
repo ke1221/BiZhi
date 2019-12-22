@@ -1,0 +1,747 @@
+<<<<<<< .mine
+.container {
+    position: relative;
+    padding: 0;
+}
+image {
+    border: none;
+    width: 100%;
+    vertical-align: middle;
+}
+.bgImg {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.appCorrHelp {
+    position: relative;
+    width: 100%;
+    height: 50rpx;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: #fff9e3;
+    font-size: 22rpx;
+    color: #3f310c;
+    padding: 0 10rpx 0 35rpx;
+    box-sizing: border-box;
+    letter-spacing: 3rpx;
+}
+
+.appCorrHelp text:last-child {
+    color: #b90000;
+}
+
+.content {
+    position: relative;
+    box-sizing: border-box;
+    padding: 40rpx 0 0 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.logoTitle {
+    width: 400rpx;
+    height: 300rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.userInfo {
+    text-align: center;
+}
+
+.avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 75rpx;
+    box-sizing: border-box;
+    border: 4rpx solid #fff;
+    margin: 20rpx auto 10rpx;
+    display: block;
+    overflow: hidden;
+}
+
+.nickName {
+    font-size: 32rpx;
+    color: #3f310c;
+    display: block;
+    overflow: hidden;
+}
+
+.goQuesSetBtn {
+    width: 230rpx;
+    height: 75rpx;
+    background: #fffcf9;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.18);
+    border-radius: 56rpx;
+    font-size: 32rpx;
+    color: #6e4f29;
+    text-align: center;
+    margin-top: 20rpx;
+    line-height: 75rpx;
+}
+
+.helpIcon {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    z-index: 6;
+    top: 22rpx;
+    right: 23rpx;
+}
+
+.helpIcon.hasAppCorrHelp {
+    top: 60rpx;
+}
+
+.helpIcon image {
+    width: 35rpx;
+    height: 35rpx;
+    border-radius: 50%;
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    z-index: 5;
+}
+
+.footerBtnGroup {
+    height: 60rpx;
+    width: 700rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30rpx;
+    border-radius: 10rpx;
+    margin-left: 25rpx;
+}
+
+.footerBtn {
+    font-size: 30rpx;
+    color: #6c5519;
+    border: none;
+    padding: 0;
+    display: inline-block;
+    width: 180rpx;
+    text-align: center;
+    height: 35rpx;
+    line-height: 35rpx;
+}
+
+.footerBtn:nth-child(2) {
+    border-left: 2rpx solid #6c5519;
+}
+
+button.footerBtn {
+    color: #6c5519;
+    height: 35rpx;
+    line-height: 35rpx;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    margin-top: 3px;
+    border-right: 1rpx solid #6c5519;
+}
+
+.service[plain] {
+    display: block;
+    width: 150rpx;
+    height: 50rpx;
+    margin: 15rpx auto 0;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    color: #6e4f29;
+    text-align: center;
+    border: none;
+    padding: 0;
+    letter-spacing: 1rpx;
+}
+
+.jumpApp {
+    width: 30%;
+    position: absolute;
+    bottom: 200rpx;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90rpx;
+    border-top-left-radius: 45rpx;
+    border-bottom-left-radius: 45rpx;
+    background: #fff0b4;
+    box-sizing: border-box;
+    padding: 5px 10rpx;
+    z-index: 20;
+}
+
+.appAvatar {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+}
+
+.appName {
+    width: 65%;
+    line-height: 35rpx;
+    overflow: hidden;
+    font-size: 25rpx;
+    color: #3f310c;
+    text-align: center;
+}
+
+.tousu {
+    font-size: 25rpx;
+    padding: 10rpx;
+    width: 100rpx;
+    background: #64db79;
+    border-radius: 8rpx;
+    right: 20rpx;
+    text-align: right;
+    color: #fff;
+    top: 130rpx;
+    z-index: 2;
+    position: absolute;
+    line-height: 1.4;
+}
+
+.tousu_img {
+    position: absolute;
+    width: 35rpx;
+    height: 35rpx;
+    right: 85rpx;
+    top: 140rpx;
+    z-index: 3;
+}
+
+.tan_gif {
+    position: absolute;
+    z-index: 100;
+    bottom: 400rpx;
+    right: 0rpx;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.goQuesSetBtn2 {
+    width: 400rpx;
+    height: 75rpx;
+    background: #fffcf9;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.18);
+    border-radius: 56rpx;
+    color: red;
+    text-align: center;
+    margin-top: 67rpx;
+    margin-left: 175rpx;
+    line-height: 75rpx;
+=======
+.container {
+    position: relative;
+    padding: 0;
+}
+image {
+    border: none;
+    width: 100%;
+    vertical-align: middle;
+}
+.bgImg {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.appCorrHelp {
+    position: relative;
+    width: 100%;
+    height: 50rpx;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: #fff9e3;
+    font-size: 22rpx;
+    color: #3f310c;
+    padding: 0 10rpx 0 35rpx;
+    box-sizing: border-box;
+    letter-spacing: 3rpx;
+}
+
+.appCorrHelp text:last-child {
+    color: #b90000;
+}
+
+.content {
+    position: relative;
+    box-sizing: border-box;
+    padding: 40rpx 0 0 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.logoTitle {
+    width: 400rpx;
+    height: 300rpx;
+    display: block;
+    margin: 0 auto;
+}
+.userGroup{
+    display: flex;
+    flex-direction: row;
+}
+.userInfo {
+    text-align: center;
+    flex: 1;
+}
+
+.avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 75rpx;
+    box-sizing: border-box;
+    border: 4rpx solid #fff;
+    margin: 20rpx auto 10rpx;
+    display: block;
+    overflow: hidden;
+}
+
+.nickName {
+    font-size: 32rpx;
+    color: #3f310c;
+    display: block;
+    overflow: hidden;
+}
+
+.goQuesSetBtn {
+    width: 230rpx;
+    height: 75rpx;
+    background: #fffcf9;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.18);
+    border-radius: 56rpx;
+    font-size: 32rpx;
+    color: #6e4f29;
+    text-align: center;
+    margin-top: 80rpx;
+    line-height: 75rpx;
+}
+
+.helpIcon {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    z-index: 6;
+    top: 22rpx;
+    right: 23rpx;
+}
+
+.helpIcon.hasAppCorrHelp {
+    top: 60rpx;
+}
+
+.helpIcon image {
+    width: 35rpx;
+    height: 35rpx;
+    border-radius: 50%;
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    z-index: 5;
+}
+
+.footerBtnGroup {
+    height: 80rpx;
+    width: 700rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80rpx;
+    border-radius: 20rpx;
+    margin-left: 25rpx;
+}
+
+.footerBtn {
+    font-size: 48rpx;
+    color: #6c5519;
+    border: none;
+    padding: 0;
+    display: inline-block;
+    width: 330rpx;
+    text-align: center;
+    height: 35rpx;
+    line-height: 35rpx;
+}
+
+.footerBtn:nth-child(2) {
+    border-left: 2rpx solid #6c5519;
+}
+
+button.footerBtn {
+    color: #6c5519;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    margin-top: 3px;
+    border-right: 1rpx solid #6c5519;
+}
+
+.service[plain] {
+    display: block;
+    width: 150rpx;
+    height: 50rpx;
+    margin: 15rpx auto 0;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    color: #6e4f29;
+    text-align: center;
+    border: none;
+    padding: 0;
+    letter-spacing: 1rpx;
+}
+
+.jumpApp {
+    width: 30%;
+    position: absolute;
+    bottom: 200rpx;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90rpx;
+    border-top-left-radius: 45rpx;
+    border-bottom-left-radius: 45rpx;
+    background: #fff0b4;
+    box-sizing: border-box;
+    padding: 5px 10rpx;
+    z-index: 20;
+}
+
+.appAvatar {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+}
+
+.appName {
+    width: 65%;
+    line-height: 35rpx;
+    overflow: hidden;
+    font-size: 25rpx;
+    color: #3f310c;
+    text-align: center;
+}
+
+.tousu {
+    font-size: 25rpx;
+    padding: 10rpx;
+    width: 100rpx;
+    background: #64db79;
+    border-radius: 8rpx;
+    right: 20rpx;
+    text-align: right;
+    color: #fff;
+    top: 130rpx;
+    z-index: 2;
+    position: absolute;
+    line-height: 1.4;
+}
+
+.tousu_img {
+    position: absolute;
+    width: 35rpx;
+    height: 35rpx;
+    right: 85rpx;
+    top: 140rpx;
+    z-index: 3;
+}
+
+.tan_gif {
+    position: absolute;
+    z-index: 100;
+    bottom: 400rpx;
+    right: 0rpx;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.goQuesSetBtn2 {
+    width: 400rpx;
+    height: 75rpx;
+    background: #fffcf9;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.18);
+    border-radius: 56rpx;
+    color: red;
+    text-align: center;
+    margin-top: 67rpx;
+    margin-left: 175rpx;
+    line-height: 75rpx;
+>>>>>>> .r12
+.container {
+    position: relative;
+    padding: 0;
+}
+image {
+    border: none;
+    width: 100%;
+    vertical-align: middle;
+}
+.bgImg {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.appCorrHelp {
+    position: relative;
+    width: 100%;
+    height: 50rpx;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: #fff9e3;
+    font-size: 22rpx;
+    color: #3f310c;
+    padding: 0 10rpx 0 35rpx;
+    box-sizing: border-box;
+    letter-spacing: 3rpx;
+}
+
+.appCorrHelp text:last-child {
+    color: #b90000;
+}
+
+.content {
+    position: relative;
+    box-sizing: border-box;
+    padding: 40rpx 0 0 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.logoTitle {
+    width: 400rpx;
+    height: 300rpx;
+    display: block;
+    margin: 0 auto;
+}
+.userGroup{
+    display: flex;
+    flex-direction: row;
+}
+.userInfo {
+    text-align: center;
+    flex: 1;
+}
+
+.avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 75rpx;
+    box-sizing: border-box;
+    border: 4rpx solid #fff;
+    margin: 20rpx auto 10rpx;
+    display: block;
+    overflow: hidden;
+}
+
+.nickName {
+    font-size: 32rpx;
+    color: #3f310c;
+    display: block;
+    overflow: hidden;
+}
+
+.goQuesSetBtn {
+    width: 230rpx;
+    height: 75rpx;
+    background: #fffcf9;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.18);
+    border-radius: 56rpx;
+    font-size: 32rpx;
+    color: #6e4f29;
+    text-align: center;
+    margin-top: 80rpx;
+    line-height: 75rpx;
+}
+
+.helpIcon {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    z-index: 6;
+    top: 22rpx;
+    right: 23rpx;
+}
+
+.helpIcon.hasAppCorrHelp {
+    top: 60rpx;
+}
+
+.helpIcon image {
+    width: 35rpx;
+    height: 35rpx;
+    border-radius: 50%;
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    z-index: 5;
+}
+
+.footerBtnGroup {
+    height: 80rpx;
+    width: 700rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80rpx;
+    border-radius: 20rpx;
+    margin-left: 25rpx;
+}
+
+.footerBtn {
+    font-size: 48rpx;
+    color: #6c5519;
+    border: none;
+    padding: 0;
+    display: inline-block;
+    width: 330rpx;
+    text-align: center;
+    height: 35rpx;
+    line-height: 35rpx;
+}
+
+.footerBtn:nth-child(2) {
+    border-left: 2rpx solid #6c5519;
+}
+
+button.footerBtn {
+    color: #6c5519;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    margin-top: 3px;
+    border-right: 1rpx solid #6c5519;
+}
+
+.service[plain] {
+    display: block;
+    width: 150rpx;
+    height: 50rpx;
+    margin: 15rpx auto 0;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    color: #6e4f29;
+    text-align: center;
+    border: none;
+    padding: 0;
+    letter-spacing: 1rpx;
+}
+
+.jumpApp {
+    width: 30%;
+    position: absolute;
+    bottom: 200rpx;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90rpx;
+    border-top-left-radius: 45rpx;
+    border-bottom-left-radius: 45rpx;
+    background: #fff0b4;
+    box-sizing: border-box;
+    padding: 5px 10rpx;
+    z-index: 20;
+}
+
+.appAvatar {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+}
+
+.appName {
+    width: 65%;
+    line-height: 35rpx;
+    overflow: hidden;
+    font-size: 25rpx;
+    color: #3f310c;
+    text-align: center;
+}
+
+.tousu {
+    font-size: 25rpx;
+    padding: 10rpx;
+    width: 100rpx;
+    background: #64db79;
+    border-radius: 8rpx;
+    right: 20rpx;
+    text-align: right;
+    color: #fff;
+    top: 130rpx;
+    z-index: 2;
+    position: absolute;
+    line-height: 1.4;
+}
+
+.tousu_img {
+    position: absolute;
+    width: 35rpx;
+    height: 35rpx;
+    right: 85rpx;
+    top: 140rpx;
+    z-index: 3;
+}
+
+.tan_gif {
+    position: absolute;
+    z-index: 100;
+    bottom: 400rpx;
+    right: 0rpx;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.goQuesSetBtn2 {
+    width: 400rpx;
+    height: 75rpx;
+    background: #fffcf9;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.18);
+    border-radius: 56rpx;
+    color: red;
+    text-align: center;
+    margin-top: 67rpx;
+    margin-left: 175rpx;
+    line-height: 75rpx;
+}

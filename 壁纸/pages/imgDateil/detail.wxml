@@ -1,0 +1,21 @@
+<!-- 外层容器 为了加边距 -->
+<view class="top-img">
+  <!-- 图片 -->
+  <image src="{{src}}" mode="widthFix" />
+</view>
+
+<!-- 底部按钮 -->
+<view class="bottom">
+  <!-- 点赞 -->
+  <text wx:if="{{true}}" class="iconfont icon-like" />
+  <!-- 点过赞 -->
+  <text wx:if="{{false}}" class="iconfont icon-like-fill" />
+  <!-- 下载 -->
+  <text class="iconfont icon-download" />
+  <!-- 收藏 -->
+  <text wx:if="{{true}}" class="iconfont icon-heart" />
+  <!-- 已收藏 -->
+  <text wx:if="{{false}}" class="iconfont icon-heart-fill" />
+  <!-- 转发 -->
+  <text class="iconfont icon-share" />
+</view>

@@ -1,0 +1,29 @@
+var app = getApp();
+
+Page({
+    data: {
+        activity_id: "",
+        activity_sn: "",
+        userSetQsList: [],
+    },
+    onLoad: function(a) {
+        var _this = this, i = a.sn;
+        //userSetQsList: t.data.userSetQsList
+        wx.getSystemInfo({
+            success: function(t) {
+                e.setData({
+                    deviceHei: t.windowHeight
+                });
+            }
+        });
+    },
+    onReady: function() {},
+    onShow: function() {
+    	
+    },
+    onHide: function() {},
+    onUnload: function() {},
+    onPullDownRefresh: function() {},
+    onReachBottom: function() {},
+    onShareAppMessage: function() {}
+});

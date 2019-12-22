@@ -1,0 +1,34 @@
+
+<view>
+    <textarea class="textstyle" disabled="true" maxlength="34" value="{{screenData}}"></textarea>
+</view>
+<view>
+    <textarea class="result-style" disabled="true" style="text-align:right" value="{{result}}"></textarea>
+</view>
+<view class="body-view">
+      男
+      <switch bindchange="switchChange"></switch>
+      女
+	   <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="hc_btn" data-id="{{id13}}">互查</view>
+  </view>
+<view class="second">
+    <view class="btnGroup">
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id1}}">夫</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id2}}">妻</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id3}}">X</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal-orange" data-id="{{id4}}">AC</view>
+    </view>
+    <view class="btnGroup">
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id5}}">父</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id6}}">母</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id7}}">兄</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id8}}">弟</view>
+    </view>
+    <view class="btnGroup">
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id9}}">姐</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id10}}">妹</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id11}}">子</view>
+        <view bindtap="clickButton" hover-class="buttonHoverOperation" hover-stay-time="100" class="item normal" data-id="{{id12}}">女</view>
+    </view>
+	<ad unit-id="adunit-7d9a2a4afb3fd78f" ad-intervals="30"></ad>
+</view>

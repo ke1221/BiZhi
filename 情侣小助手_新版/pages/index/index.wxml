@@ -1,0 +1,119 @@
+ <image src="./images/1576560744098.webp" class="aaa"/>
+
+<!-- <view class="box">
+  <view class="primary">
+    <image src="./images/img_17582_0_0.png" class="layer" />
+    
+    <view class="block-11">
+      <view class="block-9">
+        <view class="block-6">
+          <image src="./images/img_17582_0_27.png" class="icon-8" />
+          <image src="./images/img_17582_0_34.png" class="icon-9" />
+        </view>
+        <view class="block-8">
+          <view class="group-3">
+            <text class="num">108</text>
+            <text class="tian">天</text>
+          </view>
+          <view class="block-7">
+            <image src="./images/img_17582_0_32.png" class="icon-10" />
+            <text class="we-have-fallen-love">我们已相爱</text>
+          </view>
+        </view>
+        <image src="./images/img_17582_0_35.png" class="icon-11" />
+      </view>
+      <image src="./images/img_17582_0_36.png" class="icon-12" />
+      <view class="view-3">
+        <view class="list">
+          <view class="row-1">
+            <view class="container">
+              <view class="outer">
+                <view class="wrap">
+                  <image src="./images/img_17582_0_19.png" class="large-icon" />
+                  <image src="./images/img_17582_0_23.png" class="icon-13" />
+                </view>
+              </view>
+            </view>
+            <text class="sign">签到</text>
+            <text class="num-2">18</text>
+          </view>
+          <view class="row-2">
+            <view class="block-10">
+              <view class="outer-2">
+                <view class="wrap-2">
+                  <image src="./images/img_17582_0_20.png" class="large-icon-2" />
+                  <image src="./images/img_17582_0_21.png" class="icon-14" />
+                  <image src="./images/img_17582_0_22.png" class="icon-15" />
+                </view>
+              </view>
+            </view>
+            <text class="love-value">恩爱值</text>
+            <text class="num-3">128</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="long-bg-wrap">
+      <image src="./images/img_17582_0_14.png" class="floor-bg" />
+      <image src="./images/img_17582_0_15.png" class="long-bg" />
+    </view>
+  </view>
+  <view class="bg-wrap">
+    <image src="./images/img_17582_0_16.png" class="bg" />
+    <view class="block-19">
+      <view class="block-15">
+        <view class="block-12">
+          <image src="./images/img_17582_0_37.png" class="mark-3" />
+          <image src="./images/img_17582_0_38.png" class="large-icon-3" />
+          <view class="group-4">
+            <text class="memorial-day">纪念日</text>
+            <text class="anniversary">Anniversary</text>
+          </view>
+        </view>
+        <view class="block-14">
+          <image src="./images/img_17582_0_41.png" class="icon-16" />
+          <image src="./images/img_17582_0_42.png" class="large-icon-4" />
+          <view class="block-13">
+            <text class="rustic-love-story">土味情话</text>
+            <text class="love-words">Love words</text>
+          </view>
+        </view>
+      </view>
+      <view class="view-4">
+        <view class="block-17">
+          <view class="group-5">
+            <image src="./images/img_17582_0_39.png" class="icon-17" />
+            <image src="./images/img_17582_0_40.png" class="icon-18" />
+          </view>
+          <view class="block-16">
+            <text class="photo-album">相册</text>
+            <text class="album">Album</text>
+          </view>
+        </view>
+        <view class="color-2" />
+        <view class="block-18">
+          <image src="./images/img_17582_0_43.png" class="icon-19" />
+          <image src="./images/img_17582_0_44.png" class="large-icon-5" />
+          <view class="group-6">
+            <text class="small-diary">小日记</text>
+            <text class="diary">diary</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="view-5">
+      <image src="./images/img_17582_0_45.png" class="icon-20" />
+      <text class="more">更多</text>
+    </view>
+  </view>
+  <image src="./images/img_17582_0_17.png" class="pic" />
+  <image src="./images/img_17582_0_18.png" class="avator" />
+  <image src="./images/img_17582_0_28.png" class="icon-21" />
+  <view class="view-6">
+    <image src="./images/img_17582_0_29.png" class="icon-22" />
+    <image src="./images/img_17582_0_30.png" class="icon-23" />
+  </view>
+  <image src="./images/img_17582_0_31.png" class="icon-24" />
+  <image src="./images/img_17582_0_33.png" class="icon-25" />
+</view>
+<login bindlogin="loginDialog" showLogin="{{showLogin}}"></login> -->

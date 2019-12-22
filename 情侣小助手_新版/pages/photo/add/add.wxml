@@ -1,0 +1,19 @@
+<view class="details">
+	<view class="note_details">
+		<view class="form_date">
+			<input class="dayName" maxlength="10" placeholder="请输入相册名..." bindinput="inputAlbumName" value="{{ albumName }}"></input>
+			<!-- <view class="permissions">
+				<text>相册权限:</text>
+				<radio-group class="radio-group" bindchange="radioChange">
+				  <label class="radio" wx:for="{{items}}">
+				    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+				  </label>
+				</radio-group>
+			</view> -->
+			
+			<textarea class="albumDesc" placeholder="相册描述..." bindinput="inputContent" value="{{ albumDesc }}">
+			</textarea>
+		</view>
+		<button  size="default" bindtap="saveData" class="newButton">新建</button>
+	</view>
+</view>

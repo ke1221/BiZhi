@@ -1,0 +1,19 @@
+<view class="details">
+	<view class="note_details">
+		<view class="form_date">
+			<input class="dayName" maxlength="10" placeholder="纪念日名称..." bindinput="inputDayName" value="{{ dayName }}"></input>
+			<view class="date">
+			  <!--<view class="section__title">日期选择器</view>-->
+			  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+			    <view class="picker">
+			      选择日期: {{date}}
+			    </view>
+			  </picker>
+			</view>
+			<!--<text class='date'>所在位置</text>-->
+			<textarea class="content" placeholder="内容..." bindinput="inputContent" value="{{ content }}">
+			</textarea>
+		</view>
+		<button  size="default" bindtap="saveData" class="newButton">新建</button>
+	</view>
+</view>

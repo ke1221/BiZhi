@@ -1,0 +1,38 @@
+<template name="friendInfoList">
+    <view catchtap="showFriendAswer" class="friendInfo" data-answer="{{id}}" data-friendid="{{friendId}}" data-head="{{friendAvatar}}" data-name="{{friendName}}" data-show="{{is_show}}" data-sn="{{sn}}">
+        <view class="friendPic ">
+            <text class="{{index==1?'firstScore':index==2?'secondScore':index==3?'thirdScore':''}}">{{index}}</text>
+            <image src="{{friendAvatar}}"></image>
+        </view>
+        <view class="leftLine">
+            <view class="friendName">
+                <text>{{friendName}}</text>
+                <text class="answerCount">（我答了{{answerCount}}次）</text>
+            </view>
+            <view>{{tapTxt}}</view>
+        </view>
+        <view class="rightLine">
+            <view class="compDegree">{{degree}}</view>
+        </view>
+    </view>
+</template>
+
+<view class="container">
+     <view >
+        <view class="recordBox">
+            <view class="quesCont">
+                <view class="tapTxt">Ta共出题{{recordList.length}}次</view>
+            </view>
+            <view class="recordList" wx:for="{{recordList}}" wx:key="{{item.askid}}" 
+				data-url="{{item.isAnswer==1?'/pages/questions/mineQs/mineQs':'/pages/questions/answer/answer'}}?askId={{item.askId}}&isAnswer={{item.isAnswer}}" bindtap="pageJump">
+                <view class="record-title">
+                    <image src="{{ userInfo.avatarUrl }}" class="avatar"></image>
+                    <view class="createTime">{{item.date}}</view>
+                </view>
+                <view class="havaAnswer" wx:if="{{item.isAnswer == 1}}">你已经作答啦~</view>
+                <view class="noAnswer" wx:else>你还没有作答哦~</view>
+            </view>
+        </view>
+        <view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">没有更多记录了</view>
+    </view> 
+</view>

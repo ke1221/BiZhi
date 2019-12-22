@@ -1,0 +1,8 @@
+<view class="login-wrap" hidden="{{!showLogin}}">
+    <image class="login-img" lazyLoad="true" src="https://shp.qpic.cn/zero/0/6f38e5b582493018.png/0"></image>
+    <view class="login-text">该功能需登录后使用</view>
+    <view class="login-btn-wrap">
+        <view bindtap="cancelLogin" class="login-cancel">暂不登录</view>
+        <button bindgetuserinfo="onGotUserInfo" class="login-btn" lang="zh_CN" openType="getUserInfo">微信登录</button>
+    </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="container" style="height:{{deviceHei}}px">
+    <view class="content">
+        <view class="questionBox" wx:for="{{userSetQsList}}" wx:key="userSetQs">
+            <view class="question">Q{{index+1}}: {{item.question}}</view>
+            <view class="radioIcon"></view>
+            <text>{{item.answer}}</text>
+        </view>
+    </view>
+    <view class="dealBox">
+        <button bindtap="pageJump" class="btn" plain="true">当前题目再发一次</button>
+    </view>
+</view>

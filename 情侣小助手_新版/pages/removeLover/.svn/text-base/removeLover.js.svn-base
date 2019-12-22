@@ -1,0 +1,41 @@
+var app = getApp()
+Page({ 
+  data: { 
+    showModalStatus: false ,
+    img:''
+  }, 
+  onLoad: function(){
+    var _this = this
+    app.promiseGet(app.globalData.URL+'/image/getImg?imgName=removeImg',_this).then((res)=>{
+      console.log(res.data)
+      var i = Math.floor(Math.random()*res.data.length)
+      _this.setData({
+         img:res.data[i]
+       })
+    })
+  },
+  removeBtn:function(e){
+    var _this = this
+    wx.showModal({
+        title: '确定要解除么',
+        confirmText:'确定',
+        cancelText:'算了',
+        content: '',
+        success: function(res) {
+          if (res.confirm) {
+            app.promiseGet(app.globalData.URL+'/user/removeLover?openid='+getApp().globalData.openid,_this).then((res)=>{
+              app.promiseGet(app.globalData.URL+'/user/getLover?openId='+app.globalData.openid,_this).then((res)=>{
+                  app.globalData.loverInfo = res.data
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                })
+            })
+          
+          } else if (res.cancel) {
+            
+          }
+        }
+    })
+  }
+})
