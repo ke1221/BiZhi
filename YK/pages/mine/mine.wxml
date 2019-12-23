@@ -1,2 +1,78 @@
-<!--pages/mine.wxml-->
-<text>pages/mine.wxml</text>
+<view class="user">
+  <!-- 头像 昵称 -->
+  <view class="user-head">
+    <view class="head-warp">
+      <image class="head-img" src="/images/index/tx.png" mode="aspectFill" />
+    </view>
+    <text class="head-name">网名网名网名网名网名</text>
+  </view>
+  <!-- 统计 -->
+  <view class="statistics">
+    <!-- 金币 -->
+    <view class="statis-item">
+      <text class="statis-item-left">金币</text>
+      <text class="statis-item-right">25</text>
+    </view>
+    <!-- 签到 -->
+    <view class="statis-item">
+      <text class="statis-item-left">签到</text>
+      <text class="statis-item-right">5</text>
+    </view>
+    <!-- 恩爱 -->
+    <view class="statis-item">
+      <text class="statis-item-left">恩爱值</text>
+      <text class="statis-item-right">1125</text>
+    </view>
+  </view>
+  <!-- 状态 -->
+  <view class="status">
+    <!-- 动态 -->
+    <view class="status-item">
+      <text class="status-text">动态</text>
+      <text class="status-num">18</text>
+    </view>
+    <!-- 动态 -->
+    <view class="status-item">
+      <text class="status-text">粉丝</text>
+      <text class="status-num">18</text>
+    </view>
+    <!-- 动态 -->
+    <view class="status-item">
+      <text class="status-text">关注</text>
+      <text class="status-num">18</text>
+    </view>
+  </view>
+</view>
+
+<!-- 菜单 -->
+<view class="menu">
+  <view class="menu-item">
+    <text class="menu-text">个人资料</text>
+    <image class="menu-img" src="/images/icon/right.png" mode="aspectFill" />
+  </view>
+
+  <view class="menu-item">
+    <text class="menu-text">另一半</text>
+    <image class="menu-img" src="/images/icon/right.png" mode="aspectFill" />
+  </view>
+
+  <view class="menu-item">
+    <text class="menu-text">个性设置</text>
+    <image class="menu-img" src="/images/icon/right.png" mode="aspectFill" />
+  </view>
+
+  <view class="menu-item">
+    <text class="menu-text">推荐给好友</text>
+    <image class="menu-img" src="/images/icon/right.png" mode="aspectFill" />
+  </view>
+
+  <view class="menu-item">
+    <text class="menu-text">意见反馈</text>
+    <image class="menu-img" src="/images/icon/right.png" mode="aspectFill" />
+  </view>
+
+  <view class="menu-item">
+    <text class="menu-text">关于我们</text>
+    <image class="menu-img" src="/images/icon/right.png" mode="aspectFill" />
+  </view>
+</view>
