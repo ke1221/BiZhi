@@ -105,6 +105,12 @@
 					"pathName": "pages/test/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加纪念日",
+					"pathName": "pages/remday/add/add",
+					"scene": null
 				}
 			]
 		}

@@ -19,22 +19,22 @@
           <view class="left-right-top">
             <!-- 天数 -->
             <view class="right-top-t">
-				<block wx:if="{{!hasLover}}">0</block>
-				<block wx:if="{{hasLover}}">0</block>
+              <block wx:if="{{!hasLover}}">0</block>
+              <block wx:if="{{hasLover}}">0</block>
               <text>天</text>
             </view>
             <text class="right-top-bot">我们已相爱</text>
           </view>
           <!-- 底部头像 -->
           <view class="left-right-bot">
-			  <view  class="right-bot-left">
-			  	<open-data type="userAvatarUrl"></open-data> 
-			  </view>
+            <view class="right-bot-left">
+              <open-data type="userAvatarUrl"></open-data>
+            </view>
             <!-- <image class="right-bot-left" src="{{userInfo.avatarUrl}}" mode="aspectFit" /> -->
             <image wx:if="{{hasLover}}" class="right-bot-right right-bot-right-btn" src="{{loverInfo.avatarUrl}}" mode="aspectFit" />
-			<button wx:if="{{!hasLover}}" open-type="share" class="right-bot-right right-bot-right-btn">
-				<image class="right-bot-right right-bot-right-img" src="/static/images/index/tx.png" mode="aspectFit" />
-			</button>
+            <button wx:if="{{!hasLover}}" open-type="share" class="right-bot-right right-bot-right-btn">
+              <image class="right-bot-right-img" src="/static/images/index/tx.png" mode="aspectFit" />
+            </button>
           </view>
         </view>
       </view>
@@ -96,7 +96,7 @@
         <!-- 第三排 -->
         <view class="bottom-left-top">
           <!-- 相册 -->
-          <view class="bottom-left-top-item  item-l" bindtap="pageJumpHasLover" data-url="/pages/photo/list/list1">
+          <view class="bottom-left-top-item  item-l" bindtap="pageJumpHasLover" data-url="/pages/photo/list/list">
             <image class="bottom-item-icon" src="/static/images/index/album.png" mode="aspectFit" />
             <view class="bottom-item-text">
               <text class="bottom-item-text-title">相册</text>
@@ -104,7 +104,7 @@
             </view>
           </view>
           <!-- 土味情话 -->
-          <view class="bottom-left-top-item" bindtap="pageJumpHasLover" data-url="/pages/secret/list/list1">
+          <view class="bottom-left-top-item" bindtap="pageJumpHasLover" data-url="/pages/secret/list/list">
             <image class="bottom-item-icon" src="/static/images/index/diary.png" mode="aspectFit" />
             <view class="bottom-item-text">
               <text class="bottom-item-text-title">小日记</text>

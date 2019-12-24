@@ -108,10 +108,12 @@ page {
   position: relative;
 }
 .right-bot-right-btn {
-	right: 15rpx;
+  right: 15rpx;
+  padding: 0;
 }
 .right-bot-right-img {
-	right: 35rpx;
+  width: 110rpx;
+  height: 110rpx;
 }
 .conter-right {
   width: 246rpx;

@@ -8,11 +8,61 @@ Page({
 		date:'',
 		content:'',
 		key:'',
-		month_date:''
+		month_date:'',
+		// 类型
+		type: [
+			{
+				id: 1,
+				name: '在一起'
+			},
+			{
+				id: 2,
+				name: '生日'
+			},
+			{
+				id: 3,
+				name: '倒数日'
+			},
+			{
+				id: 99,
+				name: '其他'
+			}
+		],
+		// 选择下标
+		index: 0,
+		// 置顶
+		checked: true,
+		// 多行
+		textarea: '',
+		// 加锁
+		locked: false,
 	},
 	onLoad(option){
 		var _this = this
 	
+	},
+	// 类型选择
+	onTypeChange(e){
+		console.log(e)
+		let index = e.detail.value;
+	
+	},
+	// 置顶
+	onSwitch(e){
+		let checked = e.detail.value;	
+		this.setData({
+			checked
+		})
+	},
+	// 多行文本 确认
+	onConfirm(e){
+		// console.log(e)
+	},
+	onTextArea(e){
+		let textarea = e.detail.value; 
+		this.setData({
+			textarea
+		})
 	},
 	inputDayName:function(e){
 		this.setData({
