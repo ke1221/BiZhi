@@ -47,7 +47,7 @@
 					"id": 1,
 					"name": "情侣转发",
 					"pathName": "pages/index/index",
-					"query": "userId= 423",
+					"query": "forwardType=bindLover&userId=1",
 					"scene": 1007
 				},
 				{
@@ -103,6 +103,7 @@
 					"id": -1,
 					"name": "test",
 					"pathName": "pages/test/index",
+					"query": "",
 					"scene": null
 				}
 			]

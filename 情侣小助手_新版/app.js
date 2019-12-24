@@ -4,6 +4,7 @@ var user = require('./utils/user.js');
 
 App({
 	globalData: {
+		appFlag:false,
 		loverUserId: "",
 		userInfo: null,
 		loverInfo: null,

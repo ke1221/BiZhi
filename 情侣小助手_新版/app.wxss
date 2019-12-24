@@ -1,5 +1,15 @@
 /**app.wxss**/
-.body {
+view {
+  margin: 0;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+image {
+  display: block;
+}
+/* .body {
 font-family:"PingFangSC-Light",sans-serif,"Source Sans Pro","Helvetica Neue",Helvetica,Arial;
 font-size:28rpx;
 -webkit-font-smoothing:antialiased;
@@ -99,7 +109,7 @@ background-color:transparent;
 .cu-form-group textarea[disabled],
 .cu-form-group textarea[disabled] .placeholder {
 	color: transparent;
-}
+} */
 
 .tapTxt {
     text-align: center;

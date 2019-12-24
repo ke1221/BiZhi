@@ -110,7 +110,7 @@ function redirect(url) {
 function showErrorToast(msg) {
 	wx.showToast({
 		title: msg,
-		image: '/static/icon/icon_error.png'
+		image: '/static/images/icon/icon_error.png'
 	})
 }
 

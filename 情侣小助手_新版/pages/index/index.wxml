@@ -1,119 +1,202 @@
- <image src="./images/1576560744098.webp" class="aaa"/>
-
-<!-- <view class="box">
-  <view class="primary">
-    <image src="./images/img_17582_0_0.png" class="layer" />
-    
-    <view class="block-11">
-      <view class="block-9">
-        <view class="block-6">
-          <image src="./images/img_17582_0_27.png" class="icon-8" />
-          <image src="./images/img_17582_0_34.png" class="icon-9" />
-        </view>
-        <view class="block-8">
-          <view class="group-3">
-            <text class="num">108</text>
-            <text class="tian">天</text>
-          </view>
-          <view class="block-7">
-            <image src="./images/img_17582_0_32.png" class="icon-10" />
-            <text class="we-have-fallen-love">我们已相爱</text>
-          </view>
-        </view>
-        <image src="./images/img_17582_0_35.png" class="icon-11" />
-      </view>
-      <image src="./images/img_17582_0_36.png" class="icon-12" />
-      <view class="view-3">
-        <view class="list">
-          <view class="row-1">
-            <view class="container">
-              <view class="outer">
-                <view class="wrap">
-                  <image src="./images/img_17582_0_19.png" class="large-icon" />
-                  <image src="./images/img_17582_0_23.png" class="icon-13" />
-                </view>
-              </view>
+<!-- 底部背景图片 -->
+<image class="index-bg" src="https://img.yuzktyu.top/imgLibrary/1577175052080008070.png" mode="aspectFill" />
+<view class="index" style="transform:translateY(-{{index*80}}%);">
+  <!-- 第一页 -->
+  <view class="one">
+    <!-- 顶部空白 -->
+    <view class="index-top"></view>
+    <!-- 内容区域 -->
+    <view class="index-conter">
+      <!-- 底部背景图片 -->
+      <image class="index-conter-bg" src="/static/images/index/bgImg.png" mode="aspectFit" />
+      <!-- 左边 -->
+      <view class="conter-left">
+        <!-- 左侧心 -->
+        <image class="conter-left-left" src="/static/images/index/xin.png" mode="aspectFit" />
+        <!-- 右侧内容 -->
+        <view class="conter-left-right">
+          <!-- 顶部 -->
+          <view class="left-right-top">
+            <!-- 天数 -->
+            <view class="right-top-t">
+				<block wx:if="{{!hasLover}}">0</block>
+				<block wx:if="{{hasLover}}">0</block>
+              <text>天</text>
             </view>
-            <text class="sign">签到</text>
-            <text class="num-2">18</text>
+            <text class="right-top-bot">我们已相爱</text>
           </view>
-          <view class="row-2">
-            <view class="block-10">
-              <view class="outer-2">
-                <view class="wrap-2">
-                  <image src="./images/img_17582_0_20.png" class="large-icon-2" />
-                  <image src="./images/img_17582_0_21.png" class="icon-14" />
-                  <image src="./images/img_17582_0_22.png" class="icon-15" />
-                </view>
-              </view>
+          <!-- 底部头像 -->
+          <view class="left-right-bot">
+			  <view  class="right-bot-left">
+			  	<open-data type="userAvatarUrl"></open-data> 
+			  </view>
+            <!-- <image class="right-bot-left" src="{{userInfo.avatarUrl}}" mode="aspectFit" /> -->
+            <image wx:if="{{hasLover}}" class="right-bot-right right-bot-right-btn" src="{{loverInfo.avatarUrl}}" mode="aspectFit" />
+			<button wx:if="{{!hasLover}}" open-type="share" class="right-bot-right right-bot-right-btn">
+				<image class="right-bot-right right-bot-right-img" src="/static/images/index/tx.png" mode="aspectFit" />
+			</button>
+          </view>
+        </view>
+      </view>
+      <!-- 右边 -->
+      <view class="conter-right">
+        <!-- 签到 -->
+        <view class="conter-right-item">
+          <!-- 左侧图标 -->
+          <view class="right-item-icon">
+            <image class="item-icon" src="/static/images/index/signIn.png" mode="aspectFit" />
+          </view>
+          <!-- 右侧内容 -->
+          <view class="right-item-right">
+            <text class="item-right-num">{{cardNum}}</text>
+            <text class="item-right-text">签到</text>
+          </view>
+        </view>
+        <!-- 恩爱值 -->
+        <view class="conter-right-item">
+          <!-- 左侧图标 -->
+          <view class="right-item-icon">
+            <image class="item-icon" src="/static/images/index/loveValue.png" mode="aspectFit" />
+          </view>
+          <!-- 右侧内容 -->
+          <view class="right-item-right">
+            <text class="item-right-num">{{loveValue}}</text>
+            <text class="item-right-text">恩爱值</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 底部功能 -->
+    <view class="index-bottom" hidden="{{index == 1}}">
+      <!-- 左侧功能 -->
+      <view class="bottom-left">
+        <!-- 第一排 -->
+        <view class="bottom-left-top">
+          <!-- 纪念日 -->
+          <view class="bottom-left-top-item item-l" bindtap="pageJumpHasLover" data-url="/pages/remday/list/list">
+            <image class="bottom-item-icon" src="/static/images/index/remday.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">纪念日</text>
+              <text>Anniversary</text>
             </view>
-            <text class="love-value">恩爱值</text>
-            <text class="num-3">128</text>
+          </view>
+          <!-- 土味情话 -->
+          <view class="bottom-left-top-item" bindtap="pageJump" data-url="/pages/earthyWords/detail/detail">
+            <image class="bottom-item-icon" src="/static/images/index/loveWord.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">土味情话</text>
+              <text>Love words</text>
+            </view>
+          </view>
+        </view>
+        <!-- 第二排 -->
+        <view class="bottom-left-center">
+          <text class="bottom-left-center-c"></text>
+        </view>
+        <!-- 第三排 -->
+        <view class="bottom-left-top">
+          <!-- 相册 -->
+          <view class="bottom-left-top-item  item-l" bindtap="pageJumpHasLover" data-url="/pages/photo/list/list1">
+            <image class="bottom-item-icon" src="/static/images/index/album.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">相册</text>
+              <text>Album</text>
+            </view>
+          </view>
+          <!-- 土味情话 -->
+          <view class="bottom-left-top-item" bindtap="pageJumpHasLover" data-url="/pages/secret/list/list1">
+            <image class="bottom-item-icon" src="/static/images/index/diary.png" mode="aspectFit" />
+            <view class="bottom-item-text">
+              <text class="bottom-item-text-title">小日记</text>
+              <text>diary</text>
+            </view>
           </view>
         </view>
       </view>
-    </view>
-    <view class="long-bg-wrap">
-      <image src="./images/img_17582_0_14.png" class="floor-bg" />
-      <image src="./images/img_17582_0_15.png" class="long-bg" />
-    </view>
-  </view>
-  <view class="bg-wrap">
-    <image src="./images/img_17582_0_16.png" class="bg" />
-    <view class="block-19">
-      <view class="block-15">
-        <view class="block-12">
-          <image src="./images/img_17582_0_37.png" class="mark-3" />
-          <image src="./images/img_17582_0_38.png" class="large-icon-3" />
-          <view class="group-4">
-            <text class="memorial-day">纪念日</text>
-            <text class="anniversary">Anniversary</text>
-          </view>
-        </view>
-        <view class="block-14">
-          <image src="./images/img_17582_0_41.png" class="icon-16" />
-          <image src="./images/img_17582_0_42.png" class="large-icon-4" />
-          <view class="block-13">
-            <text class="rustic-love-story">土味情话</text>
-            <text class="love-words">Love words</text>
-          </view>
-        </view>
-      </view>
-      <view class="view-4">
-        <view class="block-17">
-          <view class="group-5">
-            <image src="./images/img_17582_0_39.png" class="icon-17" />
-            <image src="./images/img_17582_0_40.png" class="icon-18" />
-          </view>
-          <view class="block-16">
-            <text class="photo-album">相册</text>
-            <text class="album">Album</text>
-          </view>
-        </view>
-        <view class="color-2" />
-        <view class="block-18">
-          <image src="./images/img_17582_0_43.png" class="icon-19" />
-          <image src="./images/img_17582_0_44.png" class="large-icon-5" />
-          <view class="group-6">
-            <text class="small-diary">小日记</text>
-            <text class="diary">diary</text>
-          </view>
-        </view>
+      <!-- 右侧占位 -->
+      <view class="bottom-right" bindtap="showMore">
+        <text class="bottom-right-text">更多</text>
       </view>
     </view>
-    <view class="view-5">
-      <image src="./images/img_17582_0_45.png" class="icon-20" />
-      <text class="more">更多</text>
+  </view>
+  <!-- 第二页 -->
+  <view class="two">
+    <!-- 右侧悬浮按钮 -->
+    <view class="two-float" bindtap="showMore">
+      <text class="two-float-text">我们</text>
+    </view>
+    <!-- 情侣 -->
+    <view class="two-menu">
+      <text class="menu-title">情侣</text>
+      <!-- 列表 -->
+      <view class="menu-item-list">
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+      </view>
+    </view>
+    <!-- 工具 -->
+    <view class="two-menu">
+      <text class="menu-title">情侣</text>
+      <!-- 列表 -->
+      <view class="menu-item-list">
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">纪念日</text>
+        </view>
+      </view>
+    </view>
+    <!-- 运势 -->
+    <view class="two-menu">
+      <text class="menu-title">运势</text>
+      <!-- 列表 -->
+      <view class="menu-item-list">
+        <!-- 单个 -->
+        <view class="menu-item">
+          <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
+          <text class="menu-item-text">星族运势</text>
+        </view>
+      </view>
     </view>
   </view>
-  <image src="./images/img_17582_0_17.png" class="pic" />
-  <image src="./images/img_17582_0_18.png" class="avator" />
-  <image src="./images/img_17582_0_28.png" class="icon-21" />
-  <view class="view-6">
-    <image src="./images/img_17582_0_29.png" class="icon-22" />
-    <image src="./images/img_17582_0_30.png" class="icon-23" />
-  </view>
-  <image src="./images/img_17582_0_31.png" class="icon-24" />
-  <image src="./images/img_17582_0_33.png" class="icon-25" />
 </view>
-<login bindlogin="loginDialog" showLogin="{{showLogin}}"></login> -->
+<!-- 登录弹框组件 -->
+<login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>
