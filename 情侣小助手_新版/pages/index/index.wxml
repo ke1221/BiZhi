@@ -31,8 +31,14 @@
               <open-data type="userAvatarUrl"></open-data>
             </view>
             <!-- <image class="right-bot-left" src="{{userInfo.avatarUrl}}" mode="aspectFit" /> -->
+			<!-- 有对象  对象头像 -->
             <image wx:if="{{hasLover}}" class="right-bot-right right-bot-right-btn" src="{{loverInfo.avatarUrl}}" mode="aspectFit" />
-            <button wx:if="{{!hasLover}}" open-type="share" class="right-bot-right right-bot-right-btn">
+			<!-- 没有对象  没有登录  需要登录 -->
+			<button wx:if="{{!hasLogin}}" bindtap="login" class="right-bot-right right-bot-right-btn">
+			  <image class="right-bot-right-img" src="/static/images/index/tx.png" mode="aspectFit" />
+			</button>
+			<!-- 没有对象  已登录 -->
+            <button wx:if="{{hasLogin && !hasLover}}" open-type="share" class="right-bot-right right-bot-right-btn">
               <image class="right-bot-right-img" src="/static/images/index/tx.png" mode="aspectFit" />
             </button>
           </view>
@@ -73,7 +79,7 @@
         <!-- 第一排 -->
         <view class="bottom-left-top">
           <!-- 纪念日 -->
-          <view class="bottom-left-top-item item-l" bindtap="pageJumpHasLover" data-url="/pages/remday/list/list">
+          <view class="bottom-left-top-item item-l" bindtap="pageJump" data-url="/pages/remday/list/list">
             <image class="bottom-item-icon" src="/static/images/index/remday.png" mode="aspectFit" />
             <view class="bottom-item-text">
               <text class="bottom-item-text-title">纪念日</text>

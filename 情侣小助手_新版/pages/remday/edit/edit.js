@@ -4,45 +4,40 @@ var util = require('../../../utils/util.js');
 var user = require('../../../utils/user.js');
 Page({
 	data: {
-		dayName: '',
-		date: '',
-		content: '',
-		key: '',
-		month_date: '',
 		// 类型
-		typeArr: [{
-				id: 1,
-				name: '在一起'
-			},
-			{
-				id: 2,
-				name: '生日'
-			},
-			{
-				id: 3,
-				name: '倒数日'
-			},
-			{
-				id: 99,
-				name: '其他'
-			}
+		typeArr: [
+			{id: 99,name: '普通纪念日'},
+			{id: 1,name: '在一起'},
+			{id: 2,name: '生日'},
+			{id: 3,name: '倒数日'}
 		],
+		dayName:'',
+		date:'',
+		content:'',
+		isTop:'2',
+		type:'99',
 		// 选择下标
-		index: 0,
+		index: 3,
 		// 置顶
 		checked: false,
 		// 多行
 		textarea: '',
 		// 加锁
 		locked: false,
+		startDate:'1900-01-01',
+		endDate:'2099-12-31',
+		nowDate:'',
 	},
 	onLoad(option) {
 		var _this = this
 		_this.setData({
 			oid: option.oid
 		})
+		var nowDate = util.formatDate(new Date(),'yyyy-MM-dd');
+		_this.setData({
+			nowDate:nowDate,
+		})
 		_this.getRemdayDetail()
-
 	},
 	getRemdayDetail: function() {
 		var _this = this
@@ -52,17 +47,24 @@ Page({
 			if (res.errno === 0) {
 				var checked = false;
 				var index = 0;
+				var type = res.data.type
 				if (res.data.isTop == 1) {
 					checked = true
 				}
 				for (var i = 0; i < _this.data.typeArr.length; i++) {
-					console.log(_this.data.typeArr[i].id)
-					console.log(res.data.type)
-					if (_this.data.typeArr[i].id == res.data.type) {
+					if (_this.data.typeArr[i].id == type) {
 						index = i
 					}
 				}
-				console.log(index)
+				var startDate = '';
+				var endDate = '';
+				if(type == 1 || type == 2 || type==99){
+					startDate = '1900-01-01',
+					endDate = _this.data.nowDate
+				}else if(type == 3){
+					startDate = _this.data.nowDate,
+					endDate = '2099-12-31'
+				}
 				_this.setData({
 					oid: _this.data.oid,
 					dayName: res.data.dayname,
@@ -71,20 +73,33 @@ Page({
 					checked: checked,
 					index: index,
 					isTop:res.data.isTop,
-					type:res.data.type,
+					type:type,
+					startDate:startDate,
+					endDate:endDate,
 				})
 			}
 		})
 	},
 	// 类型选择
 	onTypeChange(e) {
-		console.log(e)
+		var _this = this
 		let index = e.detail.value;
 		var type = this.data.typeArr[index].id
-		this.setData({
-			index: index,
-			type: type
-		})
+		if(type == 1 || type == 2 || type==99){
+			this.setData({
+				index: index,
+				type: type,
+				startDate: '1900-01-01',
+				endDate: _this.data.nowDate
+			})
+		}else if(type == 3){
+			this.setData({
+				index:index,
+				type:type,
+				startDate: _this.data.nowDate,
+				endDate: '2099-12-31'
+			})
+		}
 	},
 	// 置顶
 	onSwitch(e) {

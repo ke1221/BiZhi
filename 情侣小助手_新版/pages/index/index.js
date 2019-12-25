@@ -134,6 +134,12 @@ Page({
 	},
 	onShareAppMessage: function (res) {
 		var _this = this;
+		if(!_this.data.hasLogin){
+			_this.setData({
+				showLogin:true
+			})
+			return
+		}
 	    if (res.from === 'button') {
 	       return {
 		      	title: '余生有你',
@@ -185,6 +191,15 @@ Page({
 		wx.navigateTo({
 			url: t.url
 		});
+	},
+	login:function(){
+		var _this = this;
+		if(!_this.data.hasLogin){
+			_this.setData({
+				showLogin:true
+			})
+			return
+		}
 	},
 	// 关闭登录弹框用
 	loginDialog: function(t) {

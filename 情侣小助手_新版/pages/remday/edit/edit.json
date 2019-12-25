@@ -1,7 +1,3 @@
 {
-  "navigationBarBackgroundColor": "#ffcccc",
-  "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "纪念日",
-  "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light"
+  "navigationBarTitleText": "编辑纪念日"
 }

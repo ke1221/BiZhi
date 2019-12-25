@@ -24,7 +24,7 @@
 		<text class="item-label">日期</text>
 		<view class="item-right">
 			<!-- 时间选择 -->
-			<picker class="right-input" mode="date" value="{{date}}" bindchange="bindDateChange">
+			<picker class="right-input" mode="date" value="{{date}}" bindchange="bindDateChange" start="{{startDate}}" end="{{endDate}}">
 				<text class="right-input">{{date || '选择日期'}}</text>
 			</picker>
 			<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
