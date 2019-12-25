@@ -8,7 +8,7 @@ Page({
 		showLogin: false,
 		hasLogin: false,
 		pageNum: 1,
-		pageSize: 15,
+		pageSize: 10,
 		pageFlag: true,
 	},
 	onLoad(option) {
@@ -133,4 +133,14 @@ Page({
 			showLogin: !1
 		})
 	},
+	reLoad:function(){
+		var _this = this
+		_this.setData({
+		  remDay:[],
+		  pageNum:1,
+		  pageFlag:true
+		})
+		// 获取纪念日信息
+		_this.getList()
+	}
 })

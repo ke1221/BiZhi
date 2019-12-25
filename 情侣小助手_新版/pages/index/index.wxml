@@ -96,7 +96,7 @@
         <!-- 第三排 -->
         <view class="bottom-left-top">
           <!-- 相册 -->
-          <view class="bottom-left-top-item  item-l" bindtap="pageJumpHasLover" data-url="/pages/photo/list/list">
+          <view class="bottom-left-top-item  item-l" bindtap="pageJumpHasLover" data-url="/pages/photo/list/list1">
             <image class="bottom-item-icon" src="/static/images/index/album.png" mode="aspectFit" />
             <view class="bottom-item-text">
               <text class="bottom-item-text-title">相册</text>
@@ -104,7 +104,7 @@
             </view>
           </view>
           <!-- 土味情话 -->
-          <view class="bottom-left-top-item" bindtap="pageJumpHasLover" data-url="/pages/secret/list/list">
+          <view class="bottom-left-top-item" bindtap="pageJumpHasLover" data-url="/pages/secret/list/list1">
             <image class="bottom-item-icon" src="/static/images/index/diary.png" mode="aspectFit" />
             <view class="bottom-item-text">
               <text class="bottom-item-text-title">小日记</text>

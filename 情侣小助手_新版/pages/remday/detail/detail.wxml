@@ -1,14 +1,19 @@
 <view class="main">
-    <view bindtap="dateAction" class="{{dateCard}}">
-        <image binderror="backstyle" bindload="newStyle" class="bgimg" mode="aspectFill" src="{{imgurl}}{{cardbg}}{{bgImgend}}" wx:if="{{cardbg.length>1}}"></image>
-        <view class="{{cardTitle}}">
-            <text>纪念日</text>
+    <view bindtap="dateAction" class="date-card">
+        <image binderror="backstyle" bindload="newStyle" class="bgimg" mode="aspectFill" src="https://img.yuzktyu.top/imgLibrary/1577175052080008070.png" ></image>
+        <view class="card-title">
+            <text>{{dayname}}</text>
         </view>
+		<view class="target-date">
+		    <text>{{date}}</text>
+		</view>
+		<view class="date-day">
+		    <text class="date-total">{{dayDesc}}</text>
+			<text class="date-total day-text">{{total}}</text>
+			<text class="date-total">天</text>
+		</view>
         <view catchtap="tabNumber" class="date-aline">
-            <text>我们彻底搜索了课程目录并找到符合您兴趣的课程和专项课程。浏览以下推荐课程，今天就开始学习新的东西！</text>
-        </view>
-        <view class="target-date">
-            <text>2019-07-02</text>
+            <text>{{content}}</text>
         </view>
         <view class="tool-bar">
             <view catchtap="nothing" class="tool-left">
@@ -30,9 +35,8 @@
             </view>
         </view>
     </view>
-    <button bindgetuserinfo="btnCopyin" class="copybtn" disabled="{{copyed}}" id="btnshare" lang="zh_CN" openType="getUserInfo" wx:if="{{pageType=='share'&&dateType=='birthday'}}">
+    <!-- <button bindgetuserinfo="btnCopyin" class="copybtn" disabled="{{copyed}}" id="btnshare" lang="zh_CN" openType="getUserInfo" wx:if="{{pageType=='share'&&dateType=='birthday'}}">
    {{copyed?'已保存':'+保存生日'}}
-  </button>
-    
-    <canvas canvasId="canvas_pic" class="picCanvas" style="{{picCanvasSty}}" wx:if="{{cnvshow}}"></canvas>
+  </button> -->
+    <!-- <canvas canvas-id="canvas_pic" style="{{picCanvasSty}}" ></canvas> -->
 </view>

@@ -3,101 +3,160 @@ var api = require('../../../config/api.js');
 var util = require('../../../utils/util.js');
 var user = require('../../../utils/user.js');
 Page({
-	data:{
-		dayname:'',
-		date:'',
-		content:'',
-		oid:''
+	data: {
+		dayName: '',
+		date: '',
+		content: '',
+		key: '',
+		month_date: '',
+		// 类型
+		typeArr: [{
+				id: 1,
+				name: '在一起'
+			},
+			{
+				id: 2,
+				name: '生日'
+			},
+			{
+				id: 3,
+				name: '倒数日'
+			},
+			{
+				id: 99,
+				name: '其他'
+			}
+		],
+		// 选择下标
+		index: 0,
+		// 置顶
+		checked: false,
+		// 多行
+		textarea: '',
+		// 加锁
+		locked: false,
 	},
-	onLoad(option){
+	onLoad(option) {
 		var _this = this
-		var oid = option.oid
-		
-		util.request(api.getRemdayDetail,{oid:oid}).then(function(res) {
+		_this.setData({
+			oid: option.oid
+		})
+		_this.getRemdayDetail()
+
+	},
+	getRemdayDetail: function() {
+		var _this = this
+		util.request(api.getRemdayDetail, {
+			oid: _this.data.oid
+		}).then(function(res) {
 			if (res.errno === 0) {
+				var checked = false;
+				var index = 0;
+				if (res.data.isTop == 1) {
+					checked = true
+				}
+				for (var i = 0; i < _this.data.typeArr.length; i++) {
+					console.log(_this.data.typeArr[i].id)
+					console.log(res.data.type)
+					if (_this.data.typeArr[i].id == res.data.type) {
+						index = i
+					}
+				}
+				console.log(index)
 				_this.setData({
-					oid:oid,
-					dayname:res.data.dayname,
-					date:res.data.date,
-					content:res.data.content
+					oid: _this.data.oid,
+					dayName: res.data.dayname,
+					date: res.data.date,
+					content: res.data.content,
+					checked: checked,
+					index: index,
+					isTop:res.data.isTop,
+					type:res.data.type,
 				})
 			}
 		})
 	},
-	inputDayName:function(e){
+	// 类型选择
+	onTypeChange(e) {
+		console.log(e)
+		let index = e.detail.value;
+		var type = this.data.typeArr[index].id
 		this.setData({
-			dayname:e.detail.value
+			index: index,
+			type: type
 		})
 	},
-	inputContent:function(e){
+	// 置顶
+	onSwitch(e) {
+		let checked = e.detail.value;
+		if (checked) {
+			this.setData({
+				isTop: "1"
+			})
+		} else {
+			this.setData({
+				isTop: "2"
+			})
+		}
+	},
+	// 多行文本 确认
+	onConfirm(e) {
+		// console.log(e)
+	},
+	onTextArea(e) {
+		let textarea = e.detail.value;
 		this.setData({
-			content:e.detail.value
+			content: textarea
 		})
 	},
-    bindDateChange: function(e) {
+	inputDayName: function(e) {
 		this.setData({
-		  date: e.detail.value
+			dayName: e.detail.value
 		})
 	},
-    saveData:function(e){
-    	var _this=this
-    	var dayname = this.data.dayname
-    	var date = this.data.date
-    	var content = this.data.content
-    	var oid = this.data.oid
-    	if(dayname!='' && date!='' && content!=''){
-    		util.request(api.updateRemday,{oid:oid,dayname:dayname,date:date,content:content},'POST').then(function(res) {
-    		  if (res.errno === 0) {
-				util.showSuccessToast(res.errmsg)
-				setTimeout(function(){
-					wx.navigateBack({
-						delta:1
-					})
-					_this.getPrevData();
-				},500)
-    		  }else{
-				 util.showErrorToast(res.errmsg);
-    		  }
-    		});
-    	}
-    	else{
-    		wx.showToast({
-		    	title: '请输入...',
-		    })
-    	}
-    },
-    delData:function(e){
-    	var _this = this
-    	wx.showModal({
-		    title: '',
-		    confirmText:'狠心删除',
-		    cancelText:'放你一马',
-		    content: '你真的要删除我嘛？',
-		    success: function(res) {
-			    if (res.confirm) {
-					util.request(api.delRemday,{oid:_this.data.oid},'POST').then(function(res) {
-					  if (res.errno === 0) {
-						util.showSuccessToast(res.errmsg)
-						setTimeout(function(){
-							wx.navigateBack({
-								delta:1
-							})
-							_this.getPrevData();
-						},500)
-					  }else{
-						 util.showErrorToast(res.errmsg);
-					  }
-					});
-			    } else if (res.cancel) {
-			    	//console.log("不删除")	
-			    }
-		    }
+	bindDateChange: function(e) {
+		this.setData({
+			date: e.detail.value
 		})
-    },
-     // 从index页面获取纪念日数据
-    getPrevData:function(){
-    	var pages = getCurrentPages()
-		var prevPage = pages[pages.length-2]
-		prevPage.reLoad()
-    }
+	},
+	saveData: function(e) {
+		wx.showLoading({
+			title: '加载中',
+		})
+		var _this = this
+		var dayName = this.data.dayName
+		var date = this.data.date
+		var content = this.data.content
+		var isTop = this.data.isTop
+		var type = this.data.type
+		if (dayName != '' && date != '') {
+			util.request(api.updateRemday, {
+				oid: _this.data.oid,
+				dayname: dayName,
+				date: date,
+				isTop: isTop,
+				type: type,
+				content: content
+			}, 'GET').then(function(res) {
+				if (res.errno === 0) {
+					wx.hideLoading();
+					util.showSuccessToast("更新成功")
+					setTimeout(function() {
+						wx.navigateBack({
+							delta: 1
+						})
+						var pages = getCurrentPages()
+						var prevPage = pages[pages.length - 2]
+						prevPage.reLoad();
+					}, 500)
+				} else {
+					util.showErrorToast('更新失败');
+				}
+			});
+		} else {
+			wx.showToast({
+				title: '请输入...',
+			})
+		}
+	},
 })

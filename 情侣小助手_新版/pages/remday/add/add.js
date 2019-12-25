@@ -10,7 +10,7 @@ Page({
 		key:'',
 		month_date:'',
 		// 类型
-		type: [
+		typeArr: [
 			{
 				id: 1,
 				name: '在一起'
@@ -31,28 +31,40 @@ Page({
 		// 选择下标
 		index: 0,
 		// 置顶
-		checked: true,
+		checked: false,
 		// 多行
 		textarea: '',
 		// 加锁
 		locked: false,
+		isTop:'2',
+		type:'99',
 	},
 	onLoad(option){
 		var _this = this
-	
+		
 	},
 	// 类型选择
 	onTypeChange(e){
 		console.log(e)
 		let index = e.detail.value;
-	
+		var type = this.data.typeArr[index].id
+		this.setData({
+			index:index,
+			type:type
+		})
 	},
 	// 置顶
 	onSwitch(e){
 		let checked = e.detail.value;	
-		this.setData({
-			checked
-		})
+		if(checked){
+			this.setData({
+				isTop:"1"
+			})
+		}else{
+			this.setData({
+				isTop:"2"
+			})
+		}
 	},
 	// 多行文本 确认
 	onConfirm(e){
@@ -61,17 +73,12 @@ Page({
 	onTextArea(e){
 		let textarea = e.detail.value; 
 		this.setData({
-			textarea
+			content:textarea
 		})
 	},
 	inputDayName:function(e){
 		this.setData({
 			dayName:e.detail.value
-		})
-	},
-	inputContent:function(e){
-		this.setData({
-			content:e.detail.value
 		})
 	},
     bindDateChange: function(e) {
@@ -87,8 +94,10 @@ Page({
     	var dayName = this.data.dayName
     	var date = this.data.date
     	var content = this.data.content
+		var isTop = this.data.isTop
+		var type = this.data.type
     	if(dayName!='' && date!=''){
-			util.request(api.addRemday,{dayname:dayName,date:date,content:content},'POST').then(function(res) {
+			util.request(api.addRemday,{dayname:dayName,date:date,isTop:isTop,type:type,content:content},'GET').then(function(res) {
 			  if (res.errno === 0) {
 				  wx.hideLoading();
 				util.showSuccessToast("新增成功")

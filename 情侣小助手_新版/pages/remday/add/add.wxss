@@ -28,6 +28,7 @@
 	text-align: right;
 	font-size: 32rpx;
 	color: #C0C0C0;
+	width: 100%;
 }
 
 .right-icon {
