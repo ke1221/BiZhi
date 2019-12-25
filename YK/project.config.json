@@ -16,7 +16,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",
-	"appid": "wx1fb2e474ebe28eac",
+	"appid": "wx54d8b2e996c4d686",
 	"projectname": "YK",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -33,13 +33,35 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "纪念日",
+					"pathName": "pages/date/date",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"scene": null
+				}
+			]
 		}
 	}
 }

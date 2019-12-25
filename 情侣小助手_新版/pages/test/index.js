@@ -1,7 +1,7 @@
 Page({
   data: {
     scrollindex:0,  //当前页面的索引值
-    totalnum:2,  //总共页面数
+    totalnum:5,  //总共页面数
     starty:0,  //开始的位置x
     endy:0, //结束的位置y
     critical: 100, //触发翻页的临界值

@@ -1,12 +1,7 @@
-.bg-color1 {
-  background-color: #E84986;
+.bg-color {
+  background-color: #FF6CA4;
 }
-.bg-color2 {
-  background-color: #FFA40F ;
-}
-.bg-color3 {
-  background-color: #AF0FFF;
-}
+
 .content {
   width: 750rpx;
   padding: 0 38rpx;
@@ -72,23 +67,4 @@
 .right-info {
   font-size: 28rpx;
   color: #fff;
-}
-
-.add {
-  position: fixed;
-  bottom: 80rpx;
-  right: 30rpx;
-  width: 80rpx;
-  height: 80rpx;
-  padding: 10rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.add-icon {
-  width: 80%;
-  height: 80%;
 }

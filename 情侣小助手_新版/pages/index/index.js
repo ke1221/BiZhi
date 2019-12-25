@@ -9,6 +9,10 @@ Page({
 		hasLogin: false,
 		hasLover: false,
 		showLogin: false,
+		index: 0,
+		cardNum:0,
+		lover:null,
+		loveValue:0,
 	},
 	onLoad() {
 		var _this = this;
@@ -19,10 +23,12 @@ Page({
 				hasLogin: app.globalData.hasLogin,
 				userInfo: app.globalData.userInfo
 			})
-			// 获取情侣信息
+			// 获取对象信息
 			_this.getLoverInfo();
 			// 绑定情侣
 			_this.bindingLover();
+			// 获取首页信息
+			_this.getIndexInfo();
 		} else {
 			app.userInfoReadyCallback = res => {
 				// 从本地缓存取userInfo
@@ -31,15 +37,17 @@ Page({
 					hasLogin: app.globalData.hasLogin,
 					userInfo: app.globalData.userInfo
 				})
-				// 获取情侣信息
+				// 获取对象信息
 				_this.getLoverInfo();
+				// 获取首页信息
+				_this.getIndexInfo();
 				// 绑定情侣
 				_this.bindingLover();
 			}
 		}
 	},
 	onShow(){
-		console.log("bbb")
+		
 	},
 	reLoad() {
 
@@ -47,6 +55,7 @@ Page({
 	getLoverInfo: function() {
 		var _this = this
 		util.request(api.getLoverInfo).then(function(res) {
+			console.log(res)
 			if (res.errno === 0) {
 				app.globalData.loverInfo = res.data;
 				app.globalData.hasLover = true;
@@ -56,9 +65,28 @@ Page({
 				util.showErrorToast("请重启再试")
 			}
 			_this.setData({
-				hasLover: app.globalData.hasLover
+				hasLover: app.globalData.hasLover,
+				loverInfo: app.globalData.loverInfo,
 			})
 
+		})
+	},
+	getIndexInfo: function() {
+		var _this = this
+		util.request(api.getIndexInfo).then(function(res) {
+			console.log(res)
+			if (res.errno === 0) {
+				var loveValue = 0;
+				if(res.data.lover!= null){
+					loveValue = res.data.lover.loveValue
+				}
+				_this.setData({
+					cardNum:res.data.cardNum,
+					loveValue:loveValue,
+				})
+			}else {
+				util.showErrorToast("请重启再试")
+			}
 		})
 	},
 	/**
@@ -129,6 +157,7 @@ Page({
 		});
 	},
 	pageJumpHasLover: function(e) {
+		var _this = this
 		if(!_this.data.hasLogin){
 			_this.setData({
 				showLogin:true
@@ -137,6 +166,7 @@ Page({
 		}
 		if(!_this.data.hasLover){
 			util.showErrorToast(app.globalData.noLoverTitle)
+			return 
 		}
 		var t = e.currentTarget.dataset;
 		wx.navigateTo({
@@ -162,5 +192,12 @@ Page({
 			hasLogin: t.detail.value,
 			showLogin: !1
 		})
+	},
+	// 查看更多
+	showMore(){
+	  console.log(this.data.index)
+	  this.setData({
+	    index: this.data.index == 0? 1 : 0
+	  })
 	},
 })

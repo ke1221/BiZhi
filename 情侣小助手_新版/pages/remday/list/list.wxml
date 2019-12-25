@@ -1,5 +1,27 @@
+<view class="content">
+  <block wx:for="{{remDay}}" wx:key="index">
+    <!-- 单个 -->
+    <view bindtap="pageJump" data-url="/pages/remday/detail/detail?oid={{item.oid}}"
+		class="item {{index%3==0 ? 'bg-color1':''}} {{index%3==1 ? 'bg-color2':''}} {{index%3==2 ? 'bg-color3':''}}">
+      <!-- 左侧 -->
+      <view class="item-left">
+        <image class="left-icon" src="/images/index/tx.png" mode="aspectFill" />
+        <view class="left-right">
+          <text class="left-title">{{item.dayname}}</text>
+          <text class="left-date">{{item.date}}</text>
+        </view>
+      </view>
+      <!-- 右侧 -->
+      <view class="item-right">
+        <text class="right-title">{{item.timeLen}}</text>
+        <text class="right-info">{{item.title}}</text>
+      </view>
+    </view>
+  </block>
+</view>
 
-
-
-
+<!-- 添加按钮 -->
+<view class="add" bindtap="pageJump" data-url="/pages/remday/add/add">
+  <image class="add-icon" src="/static/images/icon/add.png" mode="aspectFill" />
+</view>
 <login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>

@@ -45,7 +45,7 @@
 		"pages/questions/ask/ask",
 		"pages/questions/answer/answer",
 
-		"pages/we/index",
+		"pages/mine/index",
 
 		"pages/relation/relation",
 
@@ -57,26 +57,26 @@
 	],
 	"window": {
 		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#ffcccc",
+		"navigationBarBackgroundColor": "#fff",
 		"navigationBarTitleText": "我们的时间",
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"onReachBottomDistance": 50
 	},
 	"tabBar": {
-		"color": "#B9B7B7",
-		"selectedColor": "#ffcccc",
+		"color": "#888888",
+		"selectedColor": "#FF6CA4",
 		"backgroundColor": "white",
 		"list": [{
 				"pagePath": "pages/index/index",
-				"text": "时光",
-				"iconPath": "static/images/tiemIc.png",
-				"selectedIconPath": "static/images/timeIc-act.png"
+				"text": "我们",
+				"iconPath": "static/images/tabbar/index.png",
+				"selectedIconPath": "static/images/tabbar/index-act.png"
 			},
 			{
-				"pagePath": "pages/we/index",
-				"text": "我们",
-				"iconPath": "static/images/hert.png",
-				"selectedIconPath": "static/images/hert-act.png"
+				"pagePath": "pages/mine/index",
+				"text": "我的",
+				"iconPath": "static/images/tabbar/me.png",
+				"selectedIconPath": "static/images/tabbar/me-act.png"
 			}
 		]
 	},
