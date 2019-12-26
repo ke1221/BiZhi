@@ -1,6 +1,6 @@
 <view class="main">
     <view bindtap="dateAction" class="date-card">
-        <image binderror="backstyle" bindload="newStyle" class="bgimg" mode="aspectFill" src="https://img.yuzktyu.top/imgLibrary/1577175052080008070.png" ></image>
+        <image binderror="backstyle" bindload="newStyle" class="bgimg" mode="aspectFill" src="{{backImg}}" ></image>
         <view class="card-title">
             <text>{{dayname}}</text>
         </view>
@@ -19,12 +19,12 @@
             <view catchtap="nothing" class="tool-left">
             </view>
             <view class="tool-right">
-                <button catchtap="getBgimg" class="btn" >
-                    <image class="btn-icon" src="/image/icon/picture.png"></image>
+                <!-- <button catchtap="getBgimg" class="btn" >
+                    <image class="btn-icon" src="/static/images/AQ.png"></image>
                 </button>
                 <button catchtap="hidelist" class="btn" id="share" openType="share" >
-                    <image class="btn-icon" src="/image/icon/mshare.png"></image>
-                </button>
+                    <image class="btn-icon" src="/static/images/AQ.png"></image>
+                </button> -->
                 <view class="btn" >
                     <view catchtap="dateAction" class="btn-do">
                         <view class="do-point"></view>

@@ -5,7 +5,10 @@
 		class="item {{index%3==0 ? 'bg-color1':''}} {{index%3==1 ? 'bg-color2':''}} {{index%3==2 ? 'bg-color3':''}}">
       <!-- 左侧 -->
       <view class="item-left">
-        <image class="left-icon" src="/images/index/tx.png" mode="aspectFill" />
+        <image class="left-icon" wx:if="{{item.type==1}}" src="/static/images/icon/together.png" mode="aspectFill" />
+		<image class="left-icon" wx:if="{{item.type==2}}" src="/static/images/icon/birthday.png" mode="aspectFill" />
+		<image class="left-icon" wx:if="{{item.type==3}}" src="/static/images/icon/count_down.png" mode="aspectFill" />
+		<image class="left-icon" wx:if="{{item.type==99}}" src="/static/images/icon/other.png" mode="aspectFill" />
         <view class="left-right">
           <text class="left-title">{{item.dayname}}</text>
           <text class="left-date">{{item.date}}</text>

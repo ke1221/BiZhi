@@ -55,7 +55,6 @@ Page({
 	getLoverInfo: function() {
 		var _this = this
 		util.request(api.getLoverInfo).then(function(res) {
-			console.log(res)
 			if (res.errno === 0) {
 				app.globalData.loverInfo = res.data;
 				app.globalData.hasLover = true;
@@ -74,7 +73,6 @@ Page({
 	getIndexInfo: function() {
 		var _this = this
 		util.request(api.getIndexInfo).then(function(res) {
-			console.log(res)
 			if (res.errno === 0) {
 				var loveValue = 0;
 				if(res.data.lover!= null){

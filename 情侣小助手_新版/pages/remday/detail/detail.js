@@ -8,7 +8,8 @@ Page({
 		oid:0,
 		dayname:'',
 		content:'',
-		dayDesc:'第'
+		dayDesc:'第',
+		backImg:'https://img.yuzktyu.top/list/1577341522869179027.jpg',
     },
     onLoad: function(t) {
 		var _this = this
@@ -38,7 +39,8 @@ Page({
 					date:res.data.date,
 					content:res.data.content,
 					total:total,
-					dayDesc:dayDesc
+					dayDesc:dayDesc,
+					backImg:res.data.backImg,
 				})
 			}
 		})
@@ -178,7 +180,7 @@ Page({
     },
     dateAction: function(t) {
 		var _this = this;
-		var n = [ "更换背景图", "生成海报", "编辑", "删除" ];
+		var n = [ "更换背景图", "编辑", "删除" ];
 		wx.showActionSheet({
 			itemList: n,
 			success: function(t) {
@@ -194,13 +196,13 @@ Page({
 						}
 					});
 					break;
+				 //  case 1:
+					// _this.getBgimg();
+					// break;
 				  case 1:
-					_this.getBgimg();
-					break;
-				  case 2:
 					_this.edit();
 					break;
-				  case 3:
+				  case 2:
 					_this.btnDelet();
 					break;
 				  default:

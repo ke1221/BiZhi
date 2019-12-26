@@ -1,5 +1,5 @@
 <!-- 底部背景图片 -->
-<image class="index-bg" src="https://img.yuzktyu.top/imgLibrary/1577175052080008070.png" mode="aspectFill" />
+<image class="index-bg" src="https://img.yuzktyu.top/list/1577341522869179027.jpg" mode="aspectFill" />
 <view class="index" style="transform:translateY(-{{index*80}}%);">
   <!-- 第一页 -->
   <view class="one">

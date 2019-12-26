@@ -40,7 +40,7 @@
 	<!-- 备注 -->
 	<view class="textarea-cont">
 		<text class="item-label">备注</text>
-		<textarea class="textarea" placeholder="这里写备注" placeholder-class="textarea-placeholder" maxlength="140" focus="false"
+		<textarea class="textarea" placeholder="这里写备注" placeholder-class="textarea-placeholder" maxlength="140"
 		 bindinput="onTextArea" bindconfirm="onConfirm" />
 		</view>
 </view>

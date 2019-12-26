@@ -42,7 +42,6 @@ Page({
 					var yaer = res.data.list[i].date.substring(0,4);
 					var yearNew = parseInt(yearNum)+parseInt(yaer)
 					var dateNew = yearNew+res.data.list[i].date.substring(4,10)
-					console.log(dateNew)
 					if(res.data.list[i].type == '1'){
 						res.data.list[i].timeLen = "第"+total+"天";
 						if(total==100){

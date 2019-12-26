@@ -17,7 +17,7 @@ Page({
 		isTop:'2',
 		type:'99',
 		// 选择下标
-		index: 3,
+		index: 0,
 		// 置顶
 		checked: false,
 		// 多行
@@ -162,7 +162,7 @@ Page({
 						})
 						var pages = getCurrentPages()
 						var prevPage = pages[pages.length - 2]
-						prevPage.reLoad();
+						prevPage.getRemdayDetail();
 					}, 500)
 				} else {
 					util.showErrorToast('更新失败');
