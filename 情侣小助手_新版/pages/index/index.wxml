@@ -1,5 +1,5 @@
 <!-- 底部背景图片 -->
-<image class="index-bg" src="https://img.yuzktyu.top/list/1577341522869179027.jpg" mode="aspectFill"/>
+<image class="index-bg" src="{{indexBackImg}}" mode="aspectFill"/>
 <view class="index" style="transform:translateY(-{{index*80}}%);">
   <!-- 第一页 -->
   <view class="one">
@@ -207,7 +207,7 @@
 <!-- 登录弹框组件 -->
 <login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>
 <view class="date-back {{showChangeDate?'show-view':'hidder-view'}}" catchtap="cancelChangeDate">
-	<view class="date-wrap">
+	<view class="date-wrap" catchtap="none">
 	    <!-- <image class="login-img" lazyLoad="true" src="https://shp.qpic.cn/zero/0/6f38e5b582493018.png/0"></image> -->
 	    <!-- <view class="login-text">该功能需登录后使用</view> -->
 		<picker class="right-input" mode="date" value="{{loveDate}}" bindchange="bindDateChange" start="{{startDate}}" end="{{endDate}}">

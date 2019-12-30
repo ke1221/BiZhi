@@ -11,7 +11,7 @@
     <!-- 循环体 -->
     <block wx:for="{{imgList}}" wx:key="{{index}}">
       <!-- 单个图片 -->
-      <image class="list-img" mode="aspectFill" src="{{item.thumb}}" data-url="/pages/paper/detail/detail?id={{item.id}}" bindtap="pageJump"/>
+      <image class="list-img" mode="aspectFill" src="{{item}}" data-url="{{item}}" bindtap='setBackImg' />
     </block>
   </view>
 	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">{{noMore}}</view>

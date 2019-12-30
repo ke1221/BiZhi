@@ -55,6 +55,34 @@ Page({
 			}
 		});
 	},
+	setBackImg:function(e){
+		var _this = this
+		var url = e.target.dataset.url
+		var n = ["试用", "设置"];
+		wx.showActionSheet({
+			itemList: n,
+			success: function(t) {
+				var pages = getCurrentPages()
+				var prevPage = pages[pages.length-2]
+				switch (t.tapIndex) {
+					case 0:
+						prevPage.setIndexBackImg(0,url);
+						break;
+					case 1:
+						prevPage.setIndexBackImg(1,url);
+						break;
+					default:
+						console.log("操作越界：", t);
+				}
+				wx.navigateBack({
+					delta:1
+				})
+			},
+			fail: function(e) {
+				console.log("操作失败", e.errMsg);
+			}
+		});
+	},
 	// 上拉加载
 	onReachBottom() {
 		var _this = this

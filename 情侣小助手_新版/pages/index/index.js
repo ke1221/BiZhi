@@ -18,13 +18,15 @@ Page({
 		showChangeDate: false,
 		loveDays: 0,
 		startDate: '1900-01-01',
-		endDate: '2099-12-31'
+		endDate: '2099-12-31',
+		indexBackImg:'',
 	},
 	onLoad() {
 		var _this = this;
 		var nowDate = util.formatDate(new Date(), 'yyyy-MM-dd');
 		_this.setData({
-			endDate: nowDate
+			endDate: nowDate,
+			indexBackImg:app.globalData.indexBackImg,
 		})
 		if (app.globalData.appFlag) {
 			// 从本地缓存取userInfo
@@ -57,7 +59,7 @@ Page({
 		}
 	},
 	onShow() {
-
+		var _this = this
 	},
 	reLoad() {
 
@@ -254,7 +256,8 @@ Page({
 			loveDate: e.detail.value
 		})
 	},
-	cancelChangeDate: function() {
+	cancelChangeDate: function(e) {
+		console.log(e)
 		this.setData({
 			showChangeDate: false
 		})
@@ -287,7 +290,6 @@ Page({
 		})
 	},
 	changeBackImg: function() {
-		console.log("aaaa")
 		var _this = this;
 		var n = ["使用默认背景", "从背景图库选择"];
 		wx.showActionSheet({
@@ -310,6 +312,17 @@ Page({
 				console.log("操作失败", e.errMsg);
 			}
 		});
+	},
+	// type = 0 试用 type = 1 设置
+	setIndexBackImg:function(type,url){
+		var _this = this
+		if(type == 1){
+			
+		}
+		app.globalData.indexBackImg = url
+		_this.setData({
+			indexBackImg:app.globalData.indexBackImg,
+		})
 	},
 	// 啥也不干   阻止冒泡
 	none: function() {}

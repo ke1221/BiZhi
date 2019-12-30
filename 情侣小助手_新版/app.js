@@ -14,6 +14,7 @@ App({
 		forwardType: '', // lover:绑定情侣 
 		noMore: "讨厌~ 把人家看光了~",
 		noLoverTitle: "么得对象",
+		indexBackImg:'https://img.yuzktyu.top/list/1577341522869179027.jpg',
 	},
 	onLaunch: function(opt) {
 		var _this = this
