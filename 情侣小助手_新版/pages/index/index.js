@@ -10,12 +10,22 @@ Page({
 		hasLover: false,
 		showLogin: false,
 		index: 0,
-		cardNum:0,
-		lover:null,
-		loveValue:0,
+		cardNum: 0,
+		lover: null,
+		loveValue: 0,
+		isShowDate: false,
+		loveDate: "",
+		showChangeDate: false,
+		loveDays: 0,
+		startDate: '1900-01-01',
+		endDate: '2099-12-31'
 	},
 	onLoad() {
 		var _this = this;
+		var nowDate = util.formatDate(new Date(), 'yyyy-MM-dd');
+		_this.setData({
+			endDate: nowDate
+		})
 		if (app.globalData.appFlag) {
 			// 从本地缓存取userInfo
 			app.globalData.userInfo = wx.getStorageSync('userInfo')
@@ -46,12 +56,13 @@ Page({
 			}
 		}
 	},
-	onShow(){
-		
+	onShow() {
+
 	},
 	reLoad() {
 
 	},
+	// 获取对象的信息
 	getLoverInfo: function() {
 		var _this = this
 		util.request(api.getLoverInfo).then(function(res) {
@@ -75,14 +86,23 @@ Page({
 		util.request(api.getIndexInfo).then(function(res) {
 			if (res.errno === 0) {
 				var loveValue = 0;
-				if(res.data.lover!= null){
+				var loveDate = '';
+				var loveDays = 0;
+				if (res.data.lover != null) {
 					loveValue = res.data.lover.loveValue
+					loveDate = res.data.lover.loveDate
+					var dateNow = new Date((new Date()).toLocaleDateString())
+					var dateOld = new Date(loveDate)
+					loveDays = Math.round((dateNow.getTime() - dateOld.getTime()) / (1000 * 60 * 60 * 24))
 				}
+
 				_this.setData({
-					cardNum:res.data.cardNum,
-					loveValue:loveValue,
+					cardNum: res.data.cardNum,
+					loveValue: loveValue,
+					loveDate: loveDate,
+					loveDays: loveDays,
 				})
-			}else {
+			} else {
 				util.showErrorToast("请重启再试")
 			}
 		})
@@ -92,11 +112,11 @@ Page({
 	 * 是    后续绑定情侣  
 	 * 不是  直接结束
 	 */
-	
+
 	bindingLover: function() {
 		var _this = this
 		// 如果是自己点开自己发的邀请  则不绑定情侣
-		if(_this.data.userInfo.userId == app.globalData.loverUserId){
+		if (_this.data.userInfo.userId == app.globalData.loverUserId) {
 			return
 		}
 		if (app.globalData.forwardFlag == true && app.globalData.forwardType == 'lover') {
@@ -109,7 +129,7 @@ Page({
 					if (res.confirm) {
 						_this.addLovers()
 					} else if (res.cancel) {
-						
+
 					}
 				}
 			})
@@ -125,34 +145,35 @@ Page({
 					title: "绑定成功"
 				})
 				_this.getLoverInfo();
-			}else{
+				_this.getIndexInfo();
+			} else {
 				util.showErrorToast(res.errmsg)
 			}
 		});
 	},
-	onShareAppMessage: function (res) {
+	onShareAppMessage: function(res) {
 		var _this = this;
-		if(!_this.data.hasLogin){
+		if (!_this.data.hasLogin) {
 			_this.setData({
-				showLogin:true
+				showLogin: true
 			})
 			return
 		}
-	    if (res.from === 'button') {
-	       return {
-		      	title: '余生有你',
-			  	path: '/pages/index/index?forwardType=bindLover&userId='+_this.data.userInfo.userId,
-			  	imageUrl:"https://img.yuzktyu.top/SHARE.jpg",        //转发图片
-			  	success: function(res) {
-		       		console.log("转发成功。。"+_this.data.userInfo.userId)
-		     	},
-		     	fail: function(res) {
-		        	console.log("转发失败。。")
-		        }
-		    }
-	    }
+		if (res.from === 'button') {
+			return {
+				title: '余生有你',
+				path: '/pages/index/index?forwardType=bindLover&userId=' + _this.data.userInfo.userId,
+				imageUrl: "https://img.yuzktyu.top/SHARE.jpg", //转发图片
+				success: function(res) {
+					console.log("转发成功。。" + _this.data.userInfo.userId)
+				},
+				fail: function(res) {
+					console.log("转发失败。。")
+				}
+			}
+		}
 	},
-	
+
 	// 跳页用
 	pageJump: function(a) {
 		var t = a.currentTarget.dataset;
@@ -162,15 +183,15 @@ Page({
 	},
 	pageJumpHasLover: function(e) {
 		var _this = this
-		if(!_this.data.hasLogin){
+		if (!_this.data.hasLogin) {
 			_this.setData({
-				showLogin:true
+				showLogin: true
 			})
 			return
 		}
-		if(!_this.data.hasLover){
+		if (!_this.data.hasLover) {
 			util.showErrorToast(app.globalData.noLoverTitle)
-			return 
+			return
 		}
 		var t = e.currentTarget.dataset;
 		wx.navigateTo({
@@ -179,9 +200,9 @@ Page({
 	},
 	pageJumpHasLogin: function(e) {
 		var _this = this;
-		if(!_this.data.hasLogin){
+		if (!_this.data.hasLogin) {
 			_this.setData({
-				showLogin:true
+				showLogin: true
 			})
 			return
 		}
@@ -190,11 +211,11 @@ Page({
 			url: t.url
 		});
 	},
-	login:function(){
+	login: function() {
 		var _this = this;
-		if(!_this.data.hasLogin){
+		if (!_this.data.hasLogin) {
 			_this.setData({
-				showLogin:true
+				showLogin: true
 			})
 			return
 		}
@@ -207,10 +228,89 @@ Page({
 		})
 	},
 	// 查看更多
-	showMore(){
-	  console.log(this.data.index)
-	  this.setData({
-	    index: this.data.index == 0? 1 : 0
-	  })
+	showMore: function() {
+		console.log(this.data.index)
+		this.setData({
+			index: this.data.index == 0 ? 1 : 0
+		})
 	},
+	changeLoveDate: function() {
+		var _this = this
+		if (!_this.data.hasLogin) {
+			_this.setData({
+				showLogin: true
+			})
+			return
+		}
+		if (!_this.data.hasLover) {
+			return
+		}
+		this.setData({
+			showChangeDate: true
+		})
+	},
+	bindDateChange: function(e) {
+		this.setData({
+			loveDate: e.detail.value
+		})
+	},
+	cancelChangeDate: function() {
+		this.setData({
+			showChangeDate: false
+		})
+	},
+	confirmChangeDate: function() {
+		var _this = this
+		util.request(api.updateLoverDate, {
+			loveDate: _this.data.loveDate
+		}).then(function(res) {
+			if (res.errno === 0) {
+				//获取两人绑定的信息
+				util.request(api.getLoveInfo).then(function(res) {
+					if (res.errno === 0) {
+						var dateNow = new Date((new Date()).toLocaleDateString())
+						var dateOld = new Date(res.data.loveDate)
+						var loveDays = Math.round((dateNow.getTime() - dateOld.getTime()) / (1000 * 60 * 60 * 24))
+						_this.setData({
+							loveValue: res.data.loveValue,
+							loveDate: res.data.loveDate,
+							loveDays: loveDays,
+							showChangeDate: false,
+						})
+					} else {
+						util.showErrorToast("请重试")
+					}
+				})
+			} else {
+				util.showErrorToast("请重启再试")
+			}
+		})
+	},
+	changeBackImg: function() {
+		console.log("aaaa")
+		var _this = this;
+		var n = ["使用默认背景", "从背景图库选择"];
+		wx.showActionSheet({
+			itemList: n,
+			success: function(t) {
+				switch (t.tapIndex) {
+					case 0:
+						console.log("00")
+						break;
+					case 1:
+						wx.navigateTo({
+							url: '/pages/backImgs/indexImg/list'
+						});
+						break;
+					default:
+						console.log("操作越界：", t);
+				}
+			},
+			fail: function(e) {
+				console.log("操作失败", e.errMsg);
+			}
+		});
+	},
+	// 啥也不干   阻止冒泡
+	none: function() {}
 })

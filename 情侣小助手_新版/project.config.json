@@ -119,6 +119,13 @@
 					"pathName": "pages/remday/detail/detail",
 					"query": "oid=4805",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页背景图",
+					"pathName": "pages/backImgs/indexImg/list",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

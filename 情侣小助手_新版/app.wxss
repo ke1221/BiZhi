@@ -6,9 +6,9 @@ view,button,text,textarea {
   box-sizing: border-box;
 }
 
-image {
+/* image {
   display: block;
-}
+} */
 /* .body {
 font-family:"PingFangSC-Light",sans-serif,"Source Sans Pro","Helvetica Neue",Helvetica,Arial;
 font-size:28rpx;

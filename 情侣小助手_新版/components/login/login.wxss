@@ -37,8 +37,8 @@
     line-height: 80rpx;
     border-radius: 40rpx;
     text-align: center;
-    border: 1rpx solid #EE704E;
-    color: #EE704E;
+    border: 1rpx solid #FF6CA4;
+    color: #FF6CA4;
     margin-right: 36rpx;
 }
 
@@ -54,10 +54,10 @@
     border-radius: 40rpx;
     text-align: center;
     border: 1rpx solid transparent;
-    background: #EE704E;
+    background: #FF6CA4;
     color: #fff;
 }
 
 .login-btn:active {
-    background: #EE704E;
+     opacity: .6;
 }

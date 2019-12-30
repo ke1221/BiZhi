@@ -1,12 +1,12 @@
 <!-- 底部背景图片 -->
-<image class="index-bg" src="https://img.yuzktyu.top/list/1577341522869179027.jpg" mode="aspectFill" />
+<image class="index-bg" src="https://img.yuzktyu.top/list/1577341522869179027.jpg" mode="aspectFill"/>
 <view class="index" style="transform:translateY(-{{index*80}}%);">
   <!-- 第一页 -->
   <view class="one">
     <!-- 顶部空白 -->
-    <view class="index-top"></view>
+    <view class="index-top" bindtap="changeBackImg"></view>
     <!-- 内容区域 -->
-    <view class="index-conter">
+    <view class="index-conter" catchtap="changeBackImg">
       <!-- 底部背景图片 -->
       <image class="index-conter-bg" src="/static/images/index/bgImg.png" mode="aspectFit" />
       <!-- 左边 -->
@@ -16,17 +16,17 @@
         <!-- 右侧内容 -->
         <view class="conter-left-right">
           <!-- 顶部 -->
-          <view class="left-right-top">
+          <view class="left-right-top" catchtap="changeLoveDate">
             <!-- 天数 -->
             <view class="right-top-t">
               <block wx:if="{{!hasLover}}">0</block>
-              <block wx:if="{{hasLover}}">0</block>
+              <block wx:if="{{hasLover}}">{{loveDays}}</block>
               <text>天</text>
             </view>
             <text class="right-top-bot">我们已相爱</text>
           </view>
           <!-- 底部头像 -->
-          <view class="left-right-bot">
+          <view class="left-right-bot" catchtap="none">
             <view class="right-bot-left">
               <open-data type="userAvatarUrl"></open-data>
             </view>
@@ -34,7 +34,7 @@
 			<!-- 有对象  对象头像 -->
             <image wx:if="{{hasLover}}" class="right-bot-right right-bot-right-btn" src="{{loverInfo.avatarUrl}}" mode="aspectFit" />
 			<!-- 没有对象  没有登录  需要登录 -->
-			<button wx:if="{{!hasLogin}}" bindtap="login" class="right-bot-right right-bot-right-btn">
+			<button wx:if="{{!hasLogin && !hasLover }}" bindtap="login" class="right-bot-right right-bot-right-btn">
 			  <image class="right-bot-right-img" src="/static/images/index/tx.png" mode="aspectFit" />
 			</button>
 			<!-- 没有对象  已登录 -->
@@ -45,7 +45,7 @@
         </view>
       </view>
       <!-- 右边 -->
-      <view class="conter-right">
+      <view class="conter-right" catchtap="none">
         <!-- 签到 -->
         <view class="conter-right-item">
           <!-- 左侧图标 -->
@@ -206,3 +206,16 @@
 </view>
 <!-- 登录弹框组件 -->
 <login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>
+<view class="date-back {{showChangeDate?'show-view':'hidder-view'}}" catchtap="cancelChangeDate">
+	<view class="date-wrap">
+	    <!-- <image class="login-img" lazyLoad="true" src="https://shp.qpic.cn/zero/0/6f38e5b582493018.png/0"></image> -->
+	    <!-- <view class="login-text">该功能需登录后使用</view> -->
+		<picker class="right-input" mode="date" value="{{loveDate}}" bindchange="bindDateChange" start="{{startDate}}" end="{{endDate}}">
+			<text class="right-input">我们相爱日 :  {{loveDate}}</text>
+		</picker>
+	    <view class="date-btn-wrap">
+	        <view catchtap="cancelChangeDate" class="date-cancel">取消</view>
+			<view catchtap="confirmChangeDate" class="date-btn">确定</view>
+	    </view>
+	</view>
+</view>

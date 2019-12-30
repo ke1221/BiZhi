@@ -67,11 +67,12 @@ page {
 }
 
 .left-right-top {
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
+  margin-left: 50rpx;
 }
 
 .right-top-t {
@@ -323,4 +324,78 @@ page {
   text-align: center;
   font-size: 22rpx;
   color: #fff;
+}
+
+.date-back{
+	background-color: rgba(0,0,0,0.2);
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.date-wrap {
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 650rpx;
+    height: 300rpx;
+    border-radius: 50rpx;
+    background: #fff;
+    text-align: center;
+	padding-top: 50rpx;
+}
+
+
+.date-btn-wrap {
+    display: flex;
+    margin-top: 74rpx;
+    padding: 0 66rpx;
+    font-size: 32rpx;
+}
+
+.date-cancel {
+    flex: 1;
+    width: 240rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    border: 1rpx solid #FF6CA4;
+    color: #FF6CA4;
+    margin-right: 36rpx;
+}
+
+.date-cancel:active {
+    opacity: .6;
+}
+
+.date-btn {
+    flex: 1;
+    width: 240rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    border: 1rpx solid transparent;
+    background: #FF6CA4;
+    color: #fff;
+}
+
+.date-btn:active {
+    opacity: .6;
+}
+
+.right-input {
+	font-size: 36rpx;
+	color: #333;
+	width: 100%;
+}
+.show-view{
+	display: block;
+}
+.hidder-view{
+	display: none;
 }

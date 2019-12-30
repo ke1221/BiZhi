@@ -1,0 +1,18 @@
+<!-- 外层容器 -->
+<view class="hot-detail">
+  <!-- 顶部大图 -->
+  <!-- <image class="hot-img" mode="center" src="{{catDetail.coverImg}}" mode="aspectFill" /> -->
+  <!-- 标题 -->
+  <!-- <view class="title">{{catDetail.name}}</view> -->
+  <!-- 简介 -->
+  <!-- <text class="title info">{{catDetail.title}}</text> -->
+  <!-- 循环列表 -->
+  <view class="imgs">
+    <!-- 循环体 -->
+    <block wx:for="{{imgList}}" wx:key="{{index}}">
+      <!-- 单个图片 -->
+      <image class="list-img" mode="aspectFill" src="{{item.thumb}}" data-url="/pages/paper/detail/detail?id={{item.id}}" bindtap="pageJump"/>
+    </block>
+  </view>
+	<view wx:if="{{!pageFlag}}" class="tapTxt" style="font-size:24rpx;color:#999">{{noMore}}</view>
+</view>

@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-// var WxApiRoot = 'http://localhost:9090/';
+var WxApiRoot = 'http://192.168.1.157:9090/';
 // 测试
-var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
+// var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
 // 局域网测试使用
 //var WxApiRoot = 'http://192.168.1.105:8088/lovers-wx/';
@@ -16,6 +16,8 @@ module.exports = {
 	authLoginByCode:  WxApiRoot + 'loginByCode', //微信登录
 	getQiniuUptoken: WxApiRoot + 'getUptoken', //七牛上传token
 	indexImgList: WxApiRoot + 'image/getImg', //首页图片
+	updateLoverDate:WxApiRoot+'index/updateUserLoverDate', // 更新在一起的日期
+	getLoveInfo:WxApiRoot+'index/queryLoveInfo', // 情侣绑定信息查询
 	
 	getIndexInfo: WxApiRoot + 'index/queryIndexInfo',
 	
@@ -79,6 +81,10 @@ module.exports = {
 
 	UserIndex: WxApiRoot + 'user/index', //个人页面用户相关信息
 	IssueList: WxApiRoot + 'issue/list', //帮助信息
+	
+	
+	getIndexImgList: WxApiRoot + 'index/queryIndexImgList', // 首页背景图列表
+	
 	publicKey_pkcs1: '-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCR+f9M5i/qzefzUM4CKltliQTEV38KQN5zhG4RAQ16xBYOwlaZI7G7lXwhFfV+UcaKENujQc+FgT9dx4x7aK0w/fpiCg2bwxTsDIGQTtWP4ns1Y82gYIKaE/Q9k98L6RHhZXEbcC4C+WKINaeST58ceZJYf+HNna3MY7CKr1yBIQIDAQAB-----END PUBLIC KEY-----'
 
 };
