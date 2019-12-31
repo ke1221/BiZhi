@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-var WxApiRoot = 'http://192.168.1.105:9090/';
+// var WxApiRoot = 'http://192.168.1.157:9090/';
 // 测试
-// var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
+var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
 // 局域网测试使用
 //var WxApiRoot = 'http://192.168.1.105:8088/lovers-wx/';
@@ -18,8 +18,10 @@ module.exports = {
 	indexImgList: WxApiRoot + 'image/getImg', //首页图片
 	updateLoverDate:WxApiRoot+'index/updateUserLoverDate', // 更新在一起的日期
 	getLoveInfo:WxApiRoot+'index/queryLoveInfo', // 情侣绑定信息查询
+	getIndexInfo: WxApiRoot + 'index/queryIndexInfo', // 获取首页信息
 	
-	getIndexInfo: WxApiRoot + 'index/queryIndexInfo',
+	getUserSet:WxApiRoot+'user/queryUserSetDetail', // 获取用户配置信息
+	updateUserSet:WxApiRoot+'user/updateUserSet', // 更新用户配置信息
 	
 	getLoverInfo: WxApiRoot + 'user/queryLoverInfo', //获取情侣信息
 	addLover: WxApiRoot + 'user/addLover', //添加情侣

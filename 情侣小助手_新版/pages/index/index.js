@@ -23,10 +23,17 @@ Page({
 	},
 	onLoad() {
 		var _this = this;
+		// 当前时间  在一起的日期最晚到今天
 		var nowDate = util.formatDate(new Date(), 'yyyy-MM-dd');
+		// 从本地缓存取用户设置信息
+		var indexBackImg = app.globalData.indexBackImg
+		var userSet = wx.getStorageSync('userSet')
+		if(userSet){
+			indexBackImg = userSet.indexBackImg
+		}
 		_this.setData({
 			endDate: nowDate,
-			indexBackImg:app.globalData.indexBackImg,
+			indexBackImg:indexBackImg,
 		})
 		if (app.globalData.appFlag) {
 			// 从本地缓存取userInfo
@@ -97,7 +104,14 @@ Page({
 					var dateOld = new Date(loveDate)
 					loveDays = Math.round((dateNow.getTime() - dateOld.getTime()) / (1000 * 60 * 60 * 24))
 				}
-
+				if(res.data.userSet != null){
+					app.globalData.indexBackImg = res.data.userSet.indexBackImg
+					_this.setData({
+						indexBackImg:app.globalData.indexBackImg,
+					})
+					// 用户设置信息缓存到本地
+					wx.setStorageSync('userSet', res.data.userSet);
+				}
 				_this.setData({
 					cardNum: res.data.cardNum,
 					loveValue: loveValue,
@@ -297,7 +311,18 @@ Page({
 			success: function(t) {
 				switch (t.tapIndex) {
 					case 0:
-						console.log("00")
+						util.request(api.updateUserSet,{indexBackImg:''}).then(function(res) {
+							if (res.errno === 0) {
+								app.globalData.indexBackImg = res.data.indexBackImg
+								_this.setData({
+									indexBackImg:app.globalData.indexBackImg,
+								})
+								// 缓存用户设置到本地
+								wx.setStorageSync('userSet', res.data.userSet);
+							} else {
+								util.showErrorToast("请重试")
+							}
+						})
 						break;
 					case 1:
 						wx.navigateTo({
@@ -316,13 +341,27 @@ Page({
 	// type = 0 试用 type = 1 设置
 	setIndexBackImg:function(type,url){
 		var _this = this
+		// 1 设置  0  试用
 		if(type == 1){
-			
+			util.request(api.updateUserSet,{indexBackImg:url}).then(function(res) {
+				if (res.errno === 0) {
+					app.globalData.indexBackImg = url
+					_this.setData({
+						indexBackImg:app.globalData.indexBackImg,
+					})
+					// 用户设置信息缓存到本地
+					wx.setStorageSync('userSet', res.data);
+				} else {
+					util.showErrorToast("请重试")
+				}
+			})
 		}
-		app.globalData.indexBackImg = url
-		_this.setData({
-			indexBackImg:app.globalData.indexBackImg,
-		})
+		if(type == 0){
+			app.globalData.indexBackImg = url
+			_this.setData({
+				indexBackImg:app.globalData.indexBackImg,
+			})
+		}
 	},
 	// 啥也不干   阻止冒泡
 	none: function() {}
