@@ -51,7 +51,7 @@ function loginByWeixin(userInfo) {
   return new Promise(function(resolve, reject) {
     return login().then((res) => {
       //登录远程服务器
-      util.request(api.AuthLoginByWeixin, {
+      util.request(api.authLoginByWeixin, {
         code: res.code,
         userInfo: userInfo
       }, 'POST').then(res => {

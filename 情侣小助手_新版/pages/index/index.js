@@ -67,6 +67,9 @@ Page({
 	},
 	onShow() {
 		var _this = this
+		if(!_this.data.hasLover && app.globalData.isGetLover){
+			_this.getLoverInfo();
+		}
 	},
 	reLoad() {
 
@@ -176,6 +179,7 @@ Page({
 			return
 		}
 		if (res.from === 'button') {
+			app.globalData.isGetLover = true;
 			return {
 				title: '余生有你',
 				path: '/pages/index/index?forwardType=bindLover&userId=' + _this.data.userInfo.userId,

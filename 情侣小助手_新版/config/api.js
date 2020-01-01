@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-// var WxApiRoot = 'http://192.168.1.157:9090/';
+var WxApiRoot = 'http://192.168.1.105:9090/';
 // 测试
-var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
+// var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
 // 局域网测试使用
 //var WxApiRoot = 'http://192.168.1.105:8088/lovers-wx/';
@@ -12,7 +12,7 @@ var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 // var WxApiRoot = 'https://mp.yuzkyut.top/';
 
 module.exports = {
-	AuthLoginByWeixin: WxApiRoot + 'loginByWx', //微信登录
+	authLoginByWeixin: WxApiRoot + 'loginByWx', //微信登录
 	authLoginByCode:  WxApiRoot + 'loginByCode', //微信登录
 	getQiniuUptoken: WxApiRoot + 'getUptoken', //七牛上传token
 	indexImgList: WxApiRoot + 'image/getImg', //首页图片

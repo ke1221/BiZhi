@@ -15,6 +15,7 @@ App({
 		noMore: "讨厌~ 把人家看光了~",
 		noLoverTitle: "么得对象",
 		indexBackImg:'https://img.yuzktyu.top/list/1577341522869179027.jpg',
+		isGetLover:false, // 用于分享给对象绑定的时候  请求对象信息
 	},
 	onLaunch: function(opt) {
 		var _this = this
