@@ -126,6 +126,12 @@
 					"pathName": "pages/backImgs/indexImg/list",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "打卡",
+					"pathName": "pages/card/card",
+					"scene": null
 				}
 			]
 		}

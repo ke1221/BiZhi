@@ -47,7 +47,7 @@
       <!-- 右边 -->
       <view class="conter-right" catchtap="none">
         <!-- 签到 -->
-        <view class="conter-right-item">
+        <view class="conter-right-item" bindtap="pageJumpHasLogin" data-url="/pages/card/card">
           <!-- 左侧图标 -->
           <view class="right-item-icon">
             <image class="item-icon" src="/static/images/index/signIn.png" mode="aspectFit" />
@@ -79,7 +79,7 @@
         <!-- 第一排 -->
         <view class="bottom-left-top">
           <!-- 纪念日 -->
-          <view class="bottom-left-top-item item-l" bindtap="pageJump" data-url="/pages/remday/list/list">
+          <view class="bottom-left-top-item item-l" bindtap="pageJumpHasLogin" data-url="/pages/remday/list/list">
             <image class="bottom-item-icon" src="/static/images/index/remday.png" mode="aspectFit" />
             <view class="bottom-item-text">
               <text class="bottom-item-text-title">纪念日</text>

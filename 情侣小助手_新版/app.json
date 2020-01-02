@@ -53,7 +53,9 @@
 		"pages/earthyWords/list/list",
 		
 		"pages/test/index",
-		"pages/backImgs/indexImg/list"
+		"pages/backImgs/indexImg/list",
+		
+		"pages/card/card"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

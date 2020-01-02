@@ -193,67 +193,7 @@ Page({
 			}
 		}
 	},
-
-	// 跳页用
-	pageJump: function(a) {
-		var t = a.currentTarget.dataset;
-		wx.navigateTo({
-			url: t.url
-		});
-	},
-	pageJumpHasLover: function(e) {
-		var _this = this
-		if (!_this.data.hasLogin) {
-			_this.setData({
-				showLogin: true
-			})
-			return
-		}
-		if (!_this.data.hasLover) {
-			util.showErrorToast(app.globalData.noLoverTitle)
-			return
-		}
-		var t = e.currentTarget.dataset;
-		wx.navigateTo({
-			url: t.url
-		});
-	},
-	pageJumpHasLogin: function(e) {
-		var _this = this;
-		if (!_this.data.hasLogin) {
-			_this.setData({
-				showLogin: true
-			})
-			return
-		}
-		var t = e.currentTarget.dataset;
-		wx.navigateTo({
-			url: t.url
-		});
-	},
-	login: function() {
-		var _this = this;
-		if (!_this.data.hasLogin) {
-			_this.setData({
-				showLogin: true
-			})
-			return
-		}
-	},
-	// 关闭登录弹框用
-	loginDialog: function(t) {
-		this.setData({
-			hasLogin: t.detail.value,
-			showLogin: !1
-		})
-	},
-	// 查看更多
-	showMore: function() {
-		console.log(this.data.index)
-		this.setData({
-			index: this.data.index == 0 ? 1 : 0
-		})
-	},
+	
 	changeLoveDate: function() {
 		var _this = this
 		if (!_this.data.hasLogin) {
@@ -366,6 +306,66 @@ Page({
 				indexBackImg:app.globalData.indexBackImg,
 			})
 		}
+	},
+	// 跳页用
+	pageJump: function(a) {
+		var t = a.currentTarget.dataset;
+		wx.navigateTo({
+			url: t.url
+		});
+	},
+	pageJumpHasLover: function(e) {
+		var _this = this
+		if (!_this.data.hasLogin) {
+			_this.setData({
+				showLogin: true
+			})
+			return
+		}
+		if (!_this.data.hasLover) {
+			util.showErrorToast(app.globalData.noLoverTitle)
+			return
+		}
+		var t = e.currentTarget.dataset;
+		wx.navigateTo({
+			url: t.url
+		});
+	},
+	pageJumpHasLogin: function(e) {
+		var _this = this;
+		if (!_this.data.hasLogin) {
+			_this.setData({
+				showLogin: true
+			})
+			return
+		}
+		var t = e.currentTarget.dataset;
+		wx.navigateTo({
+			url: t.url
+		});
+	},
+	login: function() {
+		var _this = this;
+		if (!_this.data.hasLogin) {
+			_this.setData({
+				showLogin: true
+			})
+			return
+		}
+	},
+	// 关闭登录弹框用
+	loginDialog: function(t) {
+		this.setData({
+			hasLogin: t.detail.value,
+			showLogin: !1
+		})
+	},
+	// 查看更多
+	showMore: function() {
+		console.log(this.data.index)
+		this.setData({
+			index: this.data.index == 0 ? 1 : 0
+		})
 	},
 	// 啥也不干   阻止冒泡
 	none: function() {}

@@ -18,14 +18,14 @@ Page({
 	}
 
 	// 在页面onLoad回调事件中创建插屏广告实例
-	if (wx.createInterstitialAd) {
-	  interstitialAd = wx.createInterstitialAd({
-		adUnitId: 'adunit-a3cc8ce0d9b29fc5'
-	  })
-	  interstitialAd.onLoad(() => {})
-	  interstitialAd.onError((err) => {})
-	  interstitialAd.onClose(() => {})
-	}
+	// if (wx.createInterstitialAd) {
+	//   interstitialAd = wx.createInterstitialAd({
+	// 	adUnitId: 'adunit-a3cc8ce0d9b29fc5'
+	//   })
+	//   interstitialAd.onLoad(() => {})
+	//   interstitialAd.onError((err) => {})
+	//   interstitialAd.onClose(() => {})
+	// }
   },
   onShow(){
   },

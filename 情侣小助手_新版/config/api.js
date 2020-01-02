@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-var WxApiRoot = 'http://192.168.1.105:9090/';
+// var WxApiRoot = 'http://192.168.1.105:9090/';
 // 测试
-// var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
+var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
 // 局域网测试使用
 //var WxApiRoot = 'http://192.168.1.105:8088/lovers-wx/';
