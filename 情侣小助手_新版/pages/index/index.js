@@ -70,6 +70,9 @@ Page({
 		if(!_this.data.hasLover && app.globalData.isGetLover){
 			_this.getLoverInfo();
 		}
+		_this.setData({
+			cardNum:app.globalData.cardNum,
+		})
 	},
 	reLoad() {
 
@@ -115,6 +118,8 @@ Page({
 					// 用户设置信息缓存到本地
 					wx.setStorageSync('userSet', res.data.userSet);
 				}
+				// 全局打卡天数 
+				app.globalData.cardNum=res.data.cardNum;
 				_this.setData({
 					cardNum: res.data.cardNum,
 					loveValue: loveValue,

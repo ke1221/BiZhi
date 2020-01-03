@@ -1,9 +1,9 @@
-// pages/Calendar/Calendar.js
-//打卡日历页面
+var app = getApp()
+var api = require('../../config/api.js');
 var util = require('../../utils/util.js');
-// var Bmob = require('../../utils/bmob.js');
+var user = require('../../utils/user.js');
 Page({
-
+	//isSign  0  未到日期  1 我打卡  对方没打 2 当天对方打卡  我没打卡  3 两人都打卡   4 过去的日期  自己没打卡  需要补签
 	/**
 	 * 页面的初始数据
 	 */
@@ -12,7 +12,8 @@ Page({
 		signUp: [],
 		cur_year: 0,
 		cur_month: 0,
-		count: 0
+		cur_day:0,
+		cardNum:0,
 	},
 
 	/**
@@ -23,57 +24,25 @@ Page({
 		const date = new Date();
 		const cur_year = date.getFullYear();
 		const cur_month = date.getMonth() + 1;
+		const cur_day = date.getDate();
 		const weeks_ch = ['日', '一', '二', '三', '四', '五', '六'];
 		this.calculateEmptyGrids(cur_year, cur_month);
 		this.calculateDays(cur_year, cur_month);
 		this.setData({
 			cur_year:cur_year,
 			cur_month:cur_month,
-			weeks_ch:weeks_ch
+			cur_day:cur_day,
+			weeks_ch:weeks_ch,
+			cardNum:app.globalData.cardNum
 		})
 		//获取当前用户当前任务的签到状态
 		this.onGetSignUp();
 	},
 
 	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function() {
-
-	},
-
-	/**
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function() {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function() {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function() {
-
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function() {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function() {
 
 	},
 
@@ -127,7 +96,7 @@ Page({
 		for (let i = 1; i <= thisMonthDays; i++) {
 			var obj = {
 				date: i,
-				isSign: false
+				isSign: 0
 			}
 			that.data.days.push(obj);
 		}
@@ -138,30 +107,64 @@ Page({
 
 	//匹配判断当月与当月哪些日子签到打卡
 	onJudgeSign: function() {
-		var that = this;
-		var signs = that.data.signUp;
-		var daysArr = that.data.days;
-		for (var i = 0; i < signs.length; i++) {
-			var current = new Date(signs[i].date);
+		var _this = this;
+		var signs = _this.data.signUp;
+		var listMyCard = _this.data.listMyCard;
+		var listTaCard = _this.data.listTaCard;
+		
+		var daysArr = _this.data.days;
+		for (var i = 0; i < listMyCard.length; i++) {
+			console.log(i)
+			var current = new Date(listMyCard[i].cardDate);
 			var year = current.getFullYear();
 			var month = current.getMonth() + 1;
 			var day = current.getDate();
-			console.log(year)
-			console.log(month)
-			console.log(day)
-			console.log(that.data.cur_year)
-			console.log(that.data.cur_month)
-			console.log(daysArr)
+			day = parseInt(day);
+			for (var j = 0; j < daysArr.length; j++) {
+				//年月日相同并且已打卡
+				if (year == _this.data.cur_year && month == _this.data.cur_month ) {
+					if( daysArr[j].date == day){
+						console.log("a"+ daysArr[j].date)
+						daysArr[j].isSign = 1;
+					}
+				}
+			}
+		}
+		console.log(daysArr)
+		for (var i = 0; i < listTaCard.length; i++) {
+			var current = new Date(listTaCard[i].cardDate);
+			var year = current.getFullYear();
+			var month = current.getMonth() + 1;
+			var day = current.getDate();
 			
 			day = parseInt(day);
 			for (var j = 0; j < daysArr.length; j++) {
 				//年月日相同并且已打卡
-				if (year == that.data.cur_year && month == that.data.cur_month && daysArr[j].date == day ) {
-					daysArr[j].isSign = true;
+				if (year == _this.data.cur_year && month == _this.data.cur_month ) {
+					if( daysArr[j].date == day){
+						if(daysArr[j].isSign == 1){
+							daysArr[j].isSign = 3
+						}
+					}else{
+						if(daysArr[j].date == _this.data.cur_day){
+							if(daysArr[j].isSign == 0){
+								daysArr[j].isSign = 2
+							}
+						}
+					}
 				}
 			}
 		}
-		that.setData({
+		for (var j = 0; j < daysArr.length; j++) {
+			//年月日相同并且已打卡
+			if (year == _this.data.cur_year && month == _this.data.cur_month ) {
+				if(daysArr[j].date < _this.data.cur_day && daysArr[j].isSign == 0){
+					daysArr[j].isSign = 4;
+				}
+			}
+		}
+		
+		_this.setData({
 			days: daysArr
 		});
 	},
@@ -204,27 +207,40 @@ Page({
 
 	//获取当前用户该任务的签到数组
 	onGetSignUp: function() {
-		var that = this;
-		that.setData({
-			signUp:[{date:'2020-01-01'}],
-			count: '3'
-		});
-		//获取后就判断签到情况
-		that.onJudgeSign();
-		// var that = this;
-		// var Task_User = Bmob.Object.extend("task_user");
-		// var q = new Bmob.Query(Task_User);
-		// q.get(that.data.objectId, {
-		//   success: function (result) {
-		//     that.setData({
-		//       signUp : result.get("signUp"),
-		//       count : result.get("score")
-		//     });
-		//     //获取后就判断签到情况
-		//     that.onJudgeSign();
-		//   },
-		//   error: function (object, error) {
-		//   }
-		// });   
+		var _this = this;
+		util.request(api.getUserCardList).then(function(res) {
+			if (res.errno === 0) {
+				app.globalData.cardNum = res.data.cardNum;
+				_this.setData({
+					cardNum:res.data.cardNum,
+					listMyCard:res.data.listMyCard,
+					listTaCard:res.data.listTaCard
+				})
+			} else {
+				util.showErrorToast(res.errmsg)
+			}
+			//获取后就判断签到情况
+			_this.onJudgeSign();
+		})
+	},
+	card:function(){
+		util.request(api.insertUserCard).then(function(res) {
+			if (res.errno === 0) {
+				util.showSuccessToast("打卡成功")
+			} else {
+				util.showErrorToast(res.errmsg)
+			}
+		})
+	},
+	repairCard:function(e){
+		var date = e.target.dataset.date
+		console.log(e)
+		util.request(api.insertUserCard).then(function(res) {
+			if (res.errno === 0) {
+				util.showSuccessToast("打卡成功")
+			} else {
+				util.showErrorToast(res.errmsg)
+			}
+		})
 	}
 })

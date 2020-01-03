@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-// var WxApiRoot = 'http://192.168.1.105:9090/';
+var WxApiRoot = 'http://192.168.1.157:9090/';
 // 测试
-var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
+// var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
 // 局域网测试使用
 //var WxApiRoot = 'http://192.168.1.105:8088/lovers-wx/';
@@ -86,6 +86,10 @@ module.exports = {
 	
 	
 	getIndexImgList: WxApiRoot + 'index/queryIndexImgList', // 首页背景图列表
+	
+	getCardNum: WxApiRoot + 'card/queryCardNum',    // 获取打卡天数
+	getUserCardList: WxApiRoot + 'card/queryUserCardList',   // 获取打卡记录
+	insertUserCard: WxApiRoot + 'card/insertUserCard',    // 打卡
 	
 	publicKey_pkcs1: '-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCR+f9M5i/qzefzUM4CKltliQTEV38KQN5zhG4RAQ16xBYOwlaZI7G7lXwhFfV+UcaKENujQc+FgT9dx4x7aK0w/fpiCg2bwxTsDIGQTtWP4ns1Y82gYIKaE/Q9k98L6RHhZXEbcC4C+WKINaeST58ceZJYf+HNna3MY7CKr1yBIQIDAQAB-----END PUBLIC KEY-----'
 
