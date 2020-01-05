@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -100,20 +100,6 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "test",
-					"pathName": "pages/test/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "添加纪念日",
-					"pathName": "pages/remday/add/add",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": 11,
 					"name": "纪念日详情",
 					"pathName": "pages/remday/detail/detail",
@@ -121,16 +107,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "首页背景图",
-					"pathName": "pages/backImgs/indexImg/list",
+					"id": 10,
+					"name": "我的",
+					"pathName": "pages/mine/mine/mine",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "打卡",
-					"pathName": "pages/card/card",
 					"scene": null
 				}
 			]

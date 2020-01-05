@@ -1,6 +1,6 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-var WxApiRoot = 'http://192.168.1.157:9090/';
+var WxApiRoot = 'http://192.168.1.105:9090/';
 // 测试
 // var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
@@ -15,7 +15,7 @@ module.exports = {
 	authLoginByWeixin: WxApiRoot + 'loginByWx', //微信登录
 	authLoginByCode:  WxApiRoot + 'loginByCode', //微信登录
 	getQiniuUptoken: WxApiRoot + 'getUptoken', //七牛上传token
-	indexImgList: WxApiRoot + 'image/getImg', //首页图片
+	indexImgList: WxApiRoot + 'image/getImg', // 从图片库获取图片 （type 图片类型）
 	updateLoverDate:WxApiRoot+'index/updateUserLoverDate', // 更新在一起的日期
 	getLoveInfo:WxApiRoot+'index/queryLoveInfo', // 情侣绑定信息查询
 	getIndexInfo: WxApiRoot + 'index/queryIndexInfo', // 获取首页信息

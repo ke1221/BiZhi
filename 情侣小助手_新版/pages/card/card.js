@@ -114,7 +114,6 @@ Page({
 		
 		var daysArr = _this.data.days;
 		for (var i = 0; i < listMyCard.length; i++) {
-			console.log(i)
 			var current = new Date(listMyCard[i].cardDate);
 			var year = current.getFullYear();
 			var month = current.getMonth() + 1;
@@ -124,13 +123,11 @@ Page({
 				//年月日相同并且已打卡
 				if (year == _this.data.cur_year && month == _this.data.cur_month ) {
 					if( daysArr[j].date == day){
-						console.log("a"+ daysArr[j].date)
 						daysArr[j].isSign = 1;
 					}
 				}
 			}
 		}
-		console.log(daysArr)
 		for (var i = 0; i < listTaCard.length; i++) {
 			var current = new Date(listTaCard[i].cardDate);
 			var year = current.getFullYear();
@@ -144,11 +141,11 @@ Page({
 					if( daysArr[j].date == day){
 						if(daysArr[j].isSign == 1){
 							daysArr[j].isSign = 3
-						}
-					}else{
-						if(daysArr[j].date == _this.data.cur_day){
-							if(daysArr[j].isSign == 0){
-								daysArr[j].isSign = 2
+						}else{
+							if(daysArr[j].date == _this.data.cur_day){
+								if(daysArr[j].isSign == 0){
+									daysArr[j].isSign = 2
+								}
 							}
 						}
 					}
@@ -224,20 +221,34 @@ Page({
 		})
 	},
 	card:function(){
+		var _this = this
 		util.request(api.insertUserCard).then(function(res) {
 			if (res.errno === 0) {
 				util.showSuccessToast("打卡成功")
+				_this.onGetSignUp()
 			} else {
 				util.showErrorToast(res.errmsg)
 			}
 		})
 	},
 	repairCard:function(e){
+		var _this = this
 		var date = e.target.dataset.date
-		console.log(e)
-		util.request(api.insertUserCard).then(function(res) {
+		var currentDate = _this.data.cur_year+'-';
+		if(_this.data.cur_month<10){
+			currentDate = currentDate+'0'+_this.data.cur_month+'-'
+		}else{
+			currentDate = currentDate+_this.data.cur_month+'-'
+		}
+		if(date<10){
+			currentDate = currentDate+'0'+date
+		}else{
+			currentDate = currentDate+date
+		}
+		util.request(api.insertUserCard,{cardDate:currentDate}).then(function(res) {
 			if (res.errno === 0) {
 				util.showSuccessToast("打卡成功")
+				_this.onGetSignUp()
 			} else {
 				util.showErrorToast(res.errmsg)
 			}

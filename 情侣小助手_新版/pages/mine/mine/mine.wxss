@@ -1,0 +1,154 @@
+.contain {
+	background-color: fff;
+}
+
+.user {
+	background-color: #FF6CA4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	border-bottom-left-radius: 120rpx;
+}
+
+.user-head {
+	width: 310rpx;
+	padding: 30rpx;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.head-warp {
+	width: 130rpx;
+	height: 130rpx;
+	padding: 10rpx;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.head-img {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.head-name {
+	color: #FFFFFF;
+	font-size: 32rpx;
+	font-weight: bold;
+	padding-top: 20rpx;
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.statistics {
+	flex: 1;
+	padding: 20rpx 0;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	flex-direction: column;
+}
+
+.statis-item {
+	text-align: right;
+	height: 90rpx;
+	border-radius: 45rpx 0 0 45rpx;
+	margin: 10rpx 0;
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 0 58rpx;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.statis-item-left {
+	font-size: 28rpx;
+	margin-right: 40rpx;
+}
+
+.statis-item-right {
+	font-size: 42rpx;
+	font-weight: bold;
+	transform: skew(-10deg);
+}
+
+.status {
+	width: 100%;
+	padding: 10rpx;
+	padding-left: 106rpx;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.status-item {
+	color: #FFFFFF;
+	margin-right: 48rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.status-text {
+	font-size: 22rpx;
+	margin-right: 5rpx;
+}
+
+.status-num {
+	font-size: 32rpx;
+	font-weight: bold;
+	transform: skew(-10deg);
+}
+
+.menu {
+	width: 100%;
+	padding: 30rpx;
+}
+
+.menu-item {
+	width: 100%;
+	padding: 24rpx 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #c0c4cc;
+}
+
+/* .menu-item:last-child {
+	border: none;
+} */
+
+.menu-text {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #242424;
+}
+
+.menu-img {
+	width: 40rpx;
+	height: 40rpx;
+}
+
+.button-view {
+	background-color: #fff;
+	font-size: 28rpx;
+	border-radius: 0;
+	color: white;
+	margin-left: 0rpx;
+	padding-left: 0rpx;
+	/* height: 60rpx; */
+	line-height: 0rpx;
+}
+
+.button-view::after {
+	border: none;
+	border-radius: 0;
+}

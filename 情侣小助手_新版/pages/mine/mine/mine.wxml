@@ -1,0 +1,86 @@
+<view class="contain">
+
+	<view class="user">
+		<!-- 头像 昵称 -->
+		<view class="user-head">
+			<view class="head-warp">
+				<view class="head-img">
+					<open-data type="userAvatarUrl"></open-data>
+				</view>
+				<!-- <image class="head-img" src="{{userInfo.avatarUrl}}" mode="aspectFill" /> -->
+			</view>
+			<view class="head-name">
+				<open-data type="userNickName"></open-data>
+			</view>
+			<!-- <text class="head-name">{{userInfo.nickName}}</text> -->
+		</view>
+		<!-- 统计 -->
+		<view class="statistics">
+			<!-- 金币 -->
+			<view class="statis-item">
+				<text class="statis-item-left">金币</text>
+				<text class="statis-item-right">25</text>
+			</view>
+			<!-- 签到 -->
+			<view class="statis-item" bindtap='pageJump' data-url='/pages/card/card'>
+				<text class="statis-item-left">签到</text>
+				<text class="statis-item-right">{{cardNum}}</text>
+			</view>
+			<!-- 恩爱 -->
+			<view class="statis-item">
+				<text class="statis-item-left">恩爱值</text>
+				<text class="statis-item-right">1125</text>
+			</view>
+		</view>
+		<!-- 状态 -->
+		<!-- <view class="status">
+    <view class="status-item">
+      <text class="status-text">动态</text>
+      <text class="status-num">18</text>
+    </view>
+    <view class="status-item">
+      <text class="status-text">粉丝</text>
+      <text class="status-num">18</text>
+    </view>
+    <view class="status-item">
+      <text class="status-text">关注</text>
+      <text class="status-num">18</text>
+    </view>
+  </view> -->
+	</view>
+
+	<!-- 菜单 -->
+	<view class="menu">
+		<view class="menu-item" bindtap='pageJumpHasLogin' data-url='/pages/mine/mineInfo/mineInfo'>
+			<text class="menu-text">个人资料</text>
+			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		</view>
+
+		<view class="menu-item" bindtap='pageJumpHasLover' data-url='/pages/loveInfo/loveInfo'>
+			<text class="menu-text">另一半</text>
+			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		</view>
+
+		<view class="menu-item">
+			<text class="menu-text">个性设置</text>
+			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		</view>
+
+		<button class="menu-item button-view" open-type="share">
+			<text class="menu-text">推荐给好友</text>
+			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		</button>
+
+		<button class="menu-item button-view" open-type="contact">
+			<text class="menu-text">意见反馈</text>
+			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		</button>
+
+		<view class="menu-item">
+			<text class="menu-text">关于我们</text>
+			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		</view>
+	</view>
+</view>
+<!-- 登录弹框组件 -->
+<login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>

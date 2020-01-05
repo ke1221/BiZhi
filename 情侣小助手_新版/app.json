@@ -45,7 +45,8 @@
 		"pages/questions/ask/ask",
 		"pages/questions/answer/answer",
 
-		"pages/mine/index",
+		"pages/mine/mine/mine",
+		"pages/mine/mineInfo/mineInfo",
 
 		"pages/relation/relation",
 
@@ -75,7 +76,7 @@
 				"selectedIconPath": "static/images/tabbar/index-act.png"
 			},
 			{
-				"pagePath": "pages/mine/index",
+				"pagePath": "pages/mine/mine/mine",
 				"text": "我的",
 				"iconPath": "static/images/tabbar/me.png",
 				"selectedIconPath": "static/images/tabbar/me-act.png"
