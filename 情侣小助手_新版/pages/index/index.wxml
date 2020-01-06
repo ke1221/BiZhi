@@ -162,9 +162,9 @@
           <text class="menu-item-text">纪念日</text>
         </view>
         <!-- 单个 -->
-        <view class="menu-item">
+        <view class="menu-item" bindtap="pageJumpHasLover" data-url="/pages/questions/index/index">
           <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
-          <text class="menu-item-text">纪念日</text>
+          <text class="menu-item-text">情侣问答</text>
         </view>
       </view>
     </view>
@@ -196,9 +196,9 @@
       <!-- 列表 -->
       <view class="menu-item-list">
         <!-- 单个 -->
-        <view class="menu-item">
+        <view class="menu-item" bindtap="pageJump" data-url="/pages/constellation/list/list">
           <image class="menu-item-icon" src="/static/images/index/tx.png" mode="aspectFit" />
-          <text class="menu-item-text">星族运势</text>
+          <text class="menu-item-text">星座运势</text>
         </view>
       </view>
     </view>

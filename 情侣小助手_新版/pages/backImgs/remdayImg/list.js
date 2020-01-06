@@ -16,12 +16,10 @@ Page({
 	onLoad(e) {
 		var _this = this
 		_this.setData({
-			noMore: app.globalData.noMore
-		})
-		_this.setData({
 			imgList: [],
 			pageNum: 1,
-			pageFlag: true
+			pageFlag: true,
+			noMore: app.globalData.noMore
 		})
 		_this.getImgList();
 	},
@@ -30,7 +28,7 @@ Page({
 		wx.showLoading({
 			title: '加载中',
 		})
-		util.request(api.getIndexImgList, {
+		util.request(api.getRemdayImgList, {
 			pageNum: _this.data.pageNum,
 			pageSize: _this.data.pageSize
 		}).then(function(res) {
@@ -66,10 +64,10 @@ Page({
 				var prevPage = pages[pages.length-2]
 				switch (t.tapIndex) {
 					case 0:
-						prevPage.setIndexBackImg(0,url);
+						prevPage.setRemdayBackImg(0,url);
 						break;
 					case 1:
-						prevPage.setIndexBackImg(1,url);
+						prevPage.setRemdayBackImg(1,url);
 						break;
 					default:
 						console.log("操作越界：", t);

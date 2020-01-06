@@ -50,6 +50,31 @@ Page({
             url: "/pages/remday/edit/edit?oid=" + this.data.oid
         });
     },
+	setRemdayBackImg: function(type,backImg) {
+		var _this = this
+		
+		if(type == 0){
+			_this.setData({
+				backImg:backImg
+			})
+			return;
+		}
+		if(type == 1){
+			util.request(api.updateRemday, {
+				oid: _this.data.oid,
+				backImg:backImg
+			}, 'GET').then(function(res) {
+				if (res.errno === 0) {
+					util.showSuccessToast("设置成功")
+					_this.setData({
+						backImg:backImg
+					})
+				} else {
+					util.showErrorToast('设置失败');
+				}
+			});
+		}
+	},
     getBgimg: function() {
         var t, a = this;
         a.setData({
@@ -186,15 +211,18 @@ Page({
 			success: function(t) {
 				switch (t.tapIndex) {
 				  case 0:
-					wx.chooseImage({
-						count: 1,
-						sizeType: [ "compressed" ],
-						sourceType: [ "album" ],
-						success: function(t) {
-							var i = t.tempFilePaths[0];
-							_this.upbgimg(e, i);
-						}
+					wx.navigateTo({
+						url: '/pages/backImgs/remdayImg/list'
 					});
+					// wx.chooseImage({
+					// 	count: 1,
+					// 	sizeType: [ "compressed" ],
+					// 	sourceType: [ "album" ],
+					// 	success: function(t) {
+					// 		var i = t.tempFilePaths[0];
+					// 		_this.upbgimg(e, i);
+					// 	}
+					// });
 					break;
 				 //  case 1:
 					// _this.getBgimg();

@@ -1,6 +1,6 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-var WxApiRoot = 'http://192.168.1.105:9090/';
+var WxApiRoot = 'http://192.168.1.157:9090/';
 // 测试
 // var WxApiRoot = 'https://www.tutuzm.cn/lover_wx/';
 
@@ -32,7 +32,8 @@ module.exports = {
 	getRemdayDetail: WxApiRoot + 'remday/queryRemdayDetail', //查询纪念日详情
 	updateRemday: WxApiRoot + 'remday/updateRemday', //更新
 	delRemday: WxApiRoot + 'remday/updateRemdayDelete', //删除
-
+	getRemdayImgList: WxApiRoot + 'remday/queryRemdayBackImgList', //获取纪念日背景图片
+	
 	getAlbumList: WxApiRoot + 'album/queryAlbumList', //查询相册列表
 	getPhotoLoverList: WxApiRoot + 'photo/queryPhotoLoverList', //查询图片列表  按日期查所有
 	queryAlbumDetail: WxApiRoot + 'album/queryAlbumDetail', //查询相册详细信息
