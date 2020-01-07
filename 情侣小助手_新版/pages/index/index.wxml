@@ -215,7 +215,7 @@
 		</picker>
 	    <view class="date-btn-wrap">
 	        <view catchtap="cancelChangeDate" class="date-cancel">取消</view>
-			<view catchtap="confirmChangeDate" class="date-btn">确定</view>
+			<view catchtap="confirmChangeDate" data-oid="{{oid}}" class="date-btn">确定</view>
 	    </view>
 	</view>
 </view>

@@ -20,6 +20,7 @@ Page({
 		startDate: '1900-01-01',
 		endDate: '2099-12-31',
 		indexBackImg:'',
+		oid:0,
 	},
 	onLoad() {
 		var _this = this;
@@ -103,9 +104,11 @@ Page({
 				var loveValue = 0;
 				var loveDate = '';
 				var loveDays = 0;
+				var oid;
 				if (res.data.lover != null) {
 					loveValue = res.data.lover.loveValue
-					loveDate = res.data.lover.loveDate
+					loveDate = res.data.remDay.date
+					oid = res.data.remDay.oid
 					var dateNow = new Date((new Date()).toLocaleDateString())
 					var dateOld = new Date(loveDate)
 					loveDays = Math.round((dateNow.getTime() - dateOld.getTime()) / (1000 * 60 * 60 * 24))
@@ -125,6 +128,7 @@ Page({
 					loveValue: loveValue,
 					loveDate: loveDate,
 					loveDays: loveDays,
+					oid:oid,
 				})
 			} else {
 				util.showErrorToast("请重启再试")
@@ -225,27 +229,20 @@ Page({
 			showChangeDate: false
 		})
 	},
-	confirmChangeDate: function() {
+	confirmChangeDate: function(e) {
+		var oid = e.target.dataset.oid;
 		var _this = this
-		util.request(api.updateLoverDate, {
-			loveDate: _this.data.loveDate
+		util.request(api.updateRemday, {
+			oid: _this.data.oid,
+			date: _this.data.loveDate
 		}).then(function(res) {
 			if (res.errno === 0) {
-				//获取两人绑定的信息
-				util.request(api.getLoveInfo).then(function(res) {
-					if (res.errno === 0) {
-						var dateNow = new Date((new Date()).toLocaleDateString())
-						var dateOld = new Date(res.data.loveDate)
-						var loveDays = Math.round((dateNow.getTime() - dateOld.getTime()) / (1000 * 60 * 60 * 24))
-						_this.setData({
-							loveValue: res.data.loveValue,
-							loveDate: res.data.loveDate,
-							loveDays: loveDays,
-							showChangeDate: false,
-						})
-					} else {
-						util.showErrorToast("请重试")
-					}
+				var dateNow = new Date((new Date()).toLocaleDateString())
+				var dateOld = new Date(_this.data.loveDate)
+				var loveDays = Math.round((dateNow.getTime() - dateOld.getTime()) / (1000 * 60 * 60 * 24))
+				_this.setData({
+					loveDays: loveDays,
+					showChangeDate: false,
 				})
 			} else {
 				util.showErrorToast("请重启再试")

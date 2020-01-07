@@ -7,7 +7,7 @@ Page({
 		// 类型
 		typeArr: [
 			{id: 99,name: '普通纪念日'},
-			{id: 1,name: '在一起'},
+			// {id: 1,name: '在一起'},
 			{id: 2,name: '生日'},
 			{id: 3,name: '倒数日'}
 		],
@@ -64,6 +64,14 @@ Page({
 				}else if(type == 3){
 					startDate = _this.data.nowDate,
 					endDate = '2099-12-31'
+				}
+				// 在一起的纪念日不能改变类型
+				if(type == 1){
+					_this.setData({
+						typeArr: [
+							{id: 1,name: '在一起'}
+						],
+					})
 				}
 				_this.setData({
 					oid: _this.data.oid,
@@ -161,8 +169,9 @@ Page({
 							delta: 1
 						})
 						var pages = getCurrentPages()
-						var prevPage = pages[pages.length - 2]
-						prevPage.getRemdayDetail();
+						pages[0].getIndexInfo();
+						pages[pages.length - 3].onPullDownRefresh();
+						pages[pages.length - 2].getRemdayDetail()
 					}, 500)
 				} else {
 					util.showErrorToast('更新失败');

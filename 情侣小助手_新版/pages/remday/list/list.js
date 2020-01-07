@@ -126,6 +126,15 @@ Page({
 			})
 		}
 	},
+	onPullDownRefresh(){
+		 var _this = this
+		 _this.setData({
+			 remDay:[],
+			 pageNum: 1,
+			 pageFlag: true,
+		 })
+		 _this.getList()
+	 },
 	loginDialog: function(t) {
 		this.setData({
 			hasLogin: t.detail.value,

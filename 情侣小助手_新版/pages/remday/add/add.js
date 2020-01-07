@@ -7,7 +7,7 @@ Page({
 		// 类型
 		typeArr: [
 			{id: 99,name: '普通纪念日'},
-			{id: 1,name: '在一起'},
+			// {id: 1,name: '在一起'},
 			{id: 2,name: '生日'},
 			{id: 3,name: '倒数日'}
 		],

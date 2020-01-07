@@ -10,6 +10,7 @@ Page({
 		content:'',
 		dayDesc:'第',
 		backImg:'https://img.yuzktyu.top/list/1577341522869179027.jpg',
+		type:1,
     },
     onLoad: function(t) {
 		var _this = this
@@ -41,6 +42,7 @@ Page({
 					total:total,
 					dayDesc:dayDesc,
 					backImg:res.data.backImg,
+					type:res.data.type,
 				})
 			}
 		})
@@ -205,7 +207,12 @@ Page({
     },
     dateAction: function(t) {
 		var _this = this;
-		var n = [ "更换背景图", "编辑", "删除" ];
+		var n;
+		if(_this.data.type == 1){
+			n = [ "更换背景图", "编辑" ];
+		}else{
+			n = [ "更换背景图", "编辑", "删除" ];
+		}
 		wx.showActionSheet({
 			itemList: n,
 			success: function(t) {
@@ -214,19 +221,7 @@ Page({
 					wx.navigateTo({
 						url: '/pages/backImgs/remdayImg/list'
 					});
-					// wx.chooseImage({
-					// 	count: 1,
-					// 	sizeType: [ "compressed" ],
-					// 	sourceType: [ "album" ],
-					// 	success: function(t) {
-					// 		var i = t.tempFilePaths[0];
-					// 		_this.upbgimg(e, i);
-					// 	}
-					// });
 					break;
-				 //  case 1:
-					// _this.getBgimg();
-					// break;
 				  case 1:
 					_this.edit();
 					break;

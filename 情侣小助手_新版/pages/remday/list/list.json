@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "纪念日",
+  "enablePullDownRefresh": true,
   "usingComponents": {
       "login": "../../../components/login/login"
   }
