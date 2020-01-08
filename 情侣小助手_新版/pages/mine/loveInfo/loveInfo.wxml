@@ -1,0 +1,69 @@
+<view class="contain">
+
+	<view class="user">
+		<!-- 头像 昵称 -->
+		<view class="user-head">
+			<view class="head-warp">
+				<!-- <view class="head-img">
+					<open-data type="userAvatarUrl"></open-data>
+				</view> -->
+				<image class="head-img" src="{{loverInfo.avatarUrl}}" mode="aspectFill" />
+			</view>
+			<!-- <view class="head-name">
+				<open-data type="userNickName"></open-data>
+			</view> -->
+			<text class="head-name">{{loverInfo.nickName}}</text>
+		</view>
+		<!-- 统计 -->
+		<view class="statistics">
+			<!-- 签到 -->
+			<view class="statis-item" bindtap='pageJump' data-url='/pages/card/card'>
+				<text class="statis-item-left">签到</text>
+				<text class="statis-item-right">{{cardNum}}</text>
+			</view>
+			<!-- 恩爱 -->
+			<view class="statis-item">
+				<text class="statis-item-left">恩爱值</text>
+				<text class="statis-item-right">{{loveValue}}</text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 菜单 -->
+	<view class="menu">
+		<view class="menu-item">
+			<text class="menu-text">在一起</text>
+			<text class="menu-day">{{loveDays}}</text>
+			<text class="menu-text">天</text>
+		</view>
+		<view class="menu-item">
+			<text class="menu-text">纪念日</text>
+			<text class="menu-day">{{remdayCount}}</text>
+			<text class="menu-text">个</text>
+		</view>
+		<view class="menu-item">
+			<text class="menu-text">照片</text>
+			<text class="menu-day">{{photoCount}}</text>
+			<text class="menu-text">张</text>
+		</view>
+		<view class="menu-item">
+			<text class="menu-text">小日记</text>
+			<text class="menu-day">{{secretCount}}</text>
+			<text class="menu-text">篇</text>
+		</view>
+		<view class="menu-button" bindtap="showRemove">
+			<text class="button-text">解除绑定</text>
+		</view>
+	</view>
+</view>
+<view class="date-back {{isShowRemove?'show-view':'hidder-view'}}" catchtap="cancelRemove">
+	<view class="date-wrap" catchtap="none">
+	    <!-- <image class="login-img" lazyLoad="true" src="https://shp.qpic.cn/zero/0/6f38e5b582493018.png/0"></image> -->
+	    <!-- <view class="login-text">该功能需登录后使用</view> -->
+		<text class="right-input">确定要解除绑定么？</text>
+	    <view class="date-btn-wrap">
+	        <view catchtap="cancelRemove" class="date-cancel">取消</view>
+			<view catchtap="confirmRemove" data-oid="{{oid}}" class="date-btn">确定</view>
+	    </view>
+	</view>
+</view>

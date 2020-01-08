@@ -1,0 +1,43 @@
+.warp{
+  width: 100%;
+  padding: 30rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.paper{
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background: rgba(0, 0, 0, 0.2); */
+  border-radius: 8rpx;
+}
+
+.paper .avatar-warp{
+	overflow:hidden; 
+  width: 150rpx;
+  height: 150rpx;
+  box-shadow: 0 0 20rpx #666;
+  /* color: #fff; */
+  color: #333;
+}
+.avatar{
+	width: 150rpx;
+	height: 150rpx;
+}
+.paper .name{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #555;
+  margin-top: 30rpx;
+}
+
+.navs {
+  width: 100%;
+  padding: 0rpx 50rpx;
+  /* color: #fff; */
+  color: #333;
+}

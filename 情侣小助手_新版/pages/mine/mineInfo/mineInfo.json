@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "我",
-	"usingComponents": {
-	    "login": "../../../components/login/login"
-	}
+    "navigationBarTitleText": "个人资料"
 }

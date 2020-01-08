@@ -29,7 +29,7 @@
 			<!-- 恩爱 -->
 			<view class="statis-item">
 				<text class="statis-item-left">恩爱值</text>
-				<text class="statis-item-right">1125</text>
+				<text class="statis-item-right">{{loveValue}}</text>
 			</view>
 		</view>
 		<!-- 状态 -->
@@ -56,7 +56,7 @@
 			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
 		</view>
 
-		<view class="menu-item" bindtap='pageJumpHasLover' data-url='/pages/loveInfo/loveInfo'>
+		<view class="menu-item" bindtap='pageJumpHasLover' data-url='/pages/mine/loveInfo/loveInfo'>
 			<text class="menu-text">另一半</text>
 			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
 		</view>
@@ -76,7 +76,7 @@
 			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
 		</button>
 
-		<view class="menu-item">
+		<view class="menu-item"bindtap='pageJump' data-url='/pages/mine/aboutMe/aboutMe'>
 			<text class="menu-text">关于我们</text>
 			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
 		</view>

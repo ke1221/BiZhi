@@ -4,29 +4,10 @@ var util = require('../../../utils/util.js');
 var user = require('../../../utils/user.js');
 Page({
 	data:{
-		hiddenmodalput: true,
-		userInfo:{},
-		loverInfo:{},
-		userName:'',
-		pageUrl:'',
-		hasLogin: false,
-		hasLover: false,
-		cardNum:0,
 	},
 	onLoad(){
-		wx.setNavigationBarTitle({
-		    title: '我'
-		})
 	},
 	onShow(){
-		var _this = this
-		_this.setData({
-			userInfo: app.globalData.userInfo,
-			hasLogin: app.globalData.hasLogin,
-			hasLover: app.globalData.hasLover,
-			loverInfo: app.globalData.loverInfo,
-			cardNum:app.globalData.cardNum
-		})
 	},
 	onShareAppMessage: function (res) {
 		var _this = this;
@@ -41,57 +22,5 @@ Page({
 				console.log("转发失败。。")
 			}
 		}
-	},
-	pageJump: function(a) {
-		var t = a.currentTarget.dataset;
-		wx.navigateTo({
-			url: t.url
-		});
-	},
-	pageJumpHasLover: function(e) {
-		var _this = this
-		if (!_this.data.hasLogin) {
-			_this.setData({
-				showLogin: true
-			})
-			return
-		}
-		if (!_this.data.hasLover) {
-			util.showErrorToast(app.globalData.noLoverTitle)
-			return
-		}
-		var t = e.currentTarget.dataset;
-		wx.navigateTo({
-			url: t.url
-		});
-	},
-	pageJumpHasLogin: function(e) {
-		var _this = this;
-		if (!_this.data.hasLogin) {
-			_this.setData({
-				showLogin: true
-			})
-			return
-		}
-		var t = e.currentTarget.dataset;
-		wx.navigateTo({
-			url: t.url
-		});
-	},
-	login: function() {
-		var _this = this;
-		if (!_this.data.hasLogin) {
-			_this.setData({
-				showLogin: true
-			})
-			return
-		}
-	},
-	// 关闭登录弹框用
-	loginDialog: function(t) {
-		this.setData({
-			hasLogin: t.detail.value,
-			showLogin: !1
-		})
 	},
 })

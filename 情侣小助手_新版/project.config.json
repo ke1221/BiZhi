@@ -112,6 +112,12 @@
 					"pathName": "pages/mine/mine/mine",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "情侣",
+					"pathName": "pages/mine/loveInfo/loveInfo",
+					"scene": null
 				}
 			]
 		}

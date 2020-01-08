@@ -1,0 +1,20 @@
+
+<view class="warp">
+  <!-- 空白高度 -->
+  <!-- <view class="kb"></view> -->
+  <!-- 信息 -->
+  <view class="paper">
+	<view  class="avatar-warp">
+		<image class="avatar" src="http://paper.img.yuzktyu.top/portrait/1571019176410572662.png" mode="scaleToFill"></image> 
+	</view>
+    <view class="name">
+		<text>情侣小助手</text> 
+	</view>
+  </view>
+  <view class="navs">
+    <text>
+    	{{aboutMe}}
+    </text>
+  </view>
+  
+</view>

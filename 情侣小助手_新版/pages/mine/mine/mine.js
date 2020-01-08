@@ -14,9 +14,7 @@ Page({
 		cardNum:0,
 	},
 	onLoad(){
-		wx.setNavigationBarTitle({
-		    title: '我'
-		})
+		
 	},
 	onShow(){
 		var _this = this
@@ -25,7 +23,8 @@ Page({
 			hasLogin: app.globalData.hasLogin,
 			hasLover: app.globalData.hasLover,
 			loverInfo: app.globalData.loverInfo,
-			cardNum:app.globalData.cardNum
+			cardNum:app.globalData.cardNum,
+			loveValue:app.globalData.loveValue,
 		})
 	},
 	onShareAppMessage: function (res) {

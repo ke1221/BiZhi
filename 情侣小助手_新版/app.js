@@ -17,6 +17,8 @@ App({
 		indexBackImg:'https://img.yuzktyu.top/list/1577341522869179027.jpg',
 		isGetLover:false, // 用于分享给对象绑定的时候  判断是否请求对象信息
 		cardNum:0,
+		loveValue:0,
+		loveDays:0,
 	},
 	onLaunch: function(opt) {
 		var _this = this

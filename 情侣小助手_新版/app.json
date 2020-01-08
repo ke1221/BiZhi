@@ -18,13 +18,8 @@
 		"pages/portrait/groupList/groupList",
 		"pages/portrait/portraitList/portraitList",
 
-		"pages/loversLife/topicInfo/topicInfo",
-		"pages/loversLife/topicList/topicList",
-
 		"pages/constellation/list/list",
 		"pages/constellation/detail/detail",
-
-		"pages/removeLover/removeLover",
 
 		"pages/money/money",
 		"pages/secret/add/add",
@@ -47,6 +42,8 @@
 
 		"pages/mine/mine/mine",
 		"pages/mine/mineInfo/mineInfo",
+		"pages/mine/loveInfo/loveInfo",
+		"pages/mine/aboutMe/aboutMe",
 
 		"pages/relation/relation",
 

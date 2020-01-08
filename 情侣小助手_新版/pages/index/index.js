@@ -11,12 +11,11 @@ Page({
 		showLogin: false,
 		index: 0,
 		cardNum: 0,
-		lover: null,
 		loveValue: 0,
+		loveDays: 0,
 		isShowDate: false,
 		loveDate: "",
 		showChangeDate: false,
-		loveDays: 0,
 		startDate: '1900-01-01',
 		endDate: '2099-12-31',
 		indexBackImg:'',
@@ -73,6 +72,10 @@ Page({
 		}
 		_this.setData({
 			cardNum:app.globalData.cardNum,
+			loveDays:app.globalData.loveDays,
+			loveValue:app.globalData.loveValue,
+			loverInfo:app.globalData.loverInfo,
+			hasLover:app.globalData.hasLover,
 		})
 	},
 	reLoad() {
@@ -104,7 +107,7 @@ Page({
 				var loveValue = 0;
 				var loveDate = '';
 				var loveDays = 0;
-				var oid;
+				var oid = 0;
 				if (res.data.lover != null) {
 					loveValue = res.data.lover.loveValue
 					loveDate = res.data.remDay.date
@@ -121,8 +124,10 @@ Page({
 					// 用户设置信息缓存到本地
 					wx.setStorageSync('userSet', res.data.userSet);
 				}
-				// 全局打卡天数 
+				// 全局打卡天数  恩爱值  在一起天数
 				app.globalData.cardNum=res.data.cardNum;
+				app.globalData.loveValue=loveValue;
+				app.globalData.loveDays=loveDays;
 				_this.setData({
 					cardNum: res.data.cardNum,
 					loveValue: loveValue,
@@ -224,7 +229,6 @@ Page({
 		})
 	},
 	cancelChangeDate: function(e) {
-		console.log(e)
 		this.setData({
 			showChangeDate: false
 		})
@@ -364,7 +368,6 @@ Page({
 	},
 	// 查看更多
 	showMore: function() {
-		console.log(this.data.index)
 		this.setData({
 			index: this.data.index == 0 ? 1 : 0
 		})

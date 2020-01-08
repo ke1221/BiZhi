@@ -19,6 +19,7 @@ module.exports = {
 	updateLoverDate:WxApiRoot+'index/updateUserLoverDate', // 更新在一起的日期
 	getLoveInfo:WxApiRoot+'index/queryLoveInfo', // 情侣绑定信息查询
 	getIndexInfo: WxApiRoot + 'index/queryIndexInfo', // 获取首页信息
+	getLoveCountInfo: WxApiRoot + 'index/queryLoveCountInfo', // 获取情侣统计信息
 	
 	getUserSet:WxApiRoot+'user/queryUserSetDetail', // 获取用户配置信息
 	updateUserSet:WxApiRoot+'user/updateUserSet', // 更新用户配置信息
@@ -92,6 +93,7 @@ module.exports = {
 	getUserCardList: WxApiRoot + 'card/queryUserCardList',   // 获取打卡记录
 	insertUserCard: WxApiRoot + 'card/insertUserCard',    // 打卡
 	
+	getBasicDataList:WxApiRoot + 'queryBasicDataList',    // 获取基础数据
 	publicKey_pkcs1: '-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCR+f9M5i/qzefzUM4CKltliQTEV38KQN5zhG4RAQ16xBYOwlaZI7G7lXwhFfV+UcaKENujQc+FgT9dx4x7aK0w/fpiCg2bwxTsDIGQTtWP4ns1Y82gYIKaE/Q9k98L6RHhZXEbcC4C+WKINaeST58ceZJYf+HNna3MY7CKr1yBIQIDAQAB-----END PUBLIC KEY-----'
 
 };

@@ -1,4 +1,0 @@
-<view class="contain">
-	<image src="{{img}}" class="back_img" mode="scaleToFill"/>
-	<button class="removeBtn" bindtap="removeBtn">解除绑定</button>
-</view>
