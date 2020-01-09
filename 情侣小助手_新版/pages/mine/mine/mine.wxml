@@ -61,10 +61,10 @@
 			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
 		</view>
 
-		<view class="menu-item">
+	<!-- 	<view class="menu-item">
 			<text class="menu-text">个性设置</text>
 			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
-		</view>
+		</view> -->
 
 		<button class="menu-item button-view" open-type="share">
 			<text class="menu-text">推荐给好友</text>

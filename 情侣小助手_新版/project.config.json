@@ -108,8 +108,8 @@
 				},
 				{
 					"id": 10,
-					"name": "我的",
-					"pathName": "pages/mine/mine/mine",
+					"name": "个人资料",
+					"pathName": "pages/mine/mineInfo/mineInfo",
 					"query": "",
 					"scene": null
 				},
@@ -117,6 +117,7 @@
 					"id": -1,
 					"name": "情侣",
 					"pathName": "pages/mine/loveInfo/loveInfo",
+					"query": "",
 					"scene": null
 				}
 			]

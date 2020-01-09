@@ -13,36 +13,66 @@
 
 	<!-- 菜单 -->
 	<view class="menu">
-		<view class="menu-item" bindtap='pageJumpHasLogin' data-url='/pages/mine/mineInfo/mineInfo'>
-			<text class="menu-text">个人资料</text>
-			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		<view class="add-cont">
+			<!-- 类型 -->
+			<view class="cont-item">
+				<text class="item-label">昵称</text>
+				<view class="item-right">
+					<input class="right-input" disabled="true" maxlength="10" placeholder-class="right-input" placeholder="昵称" bindinput="inputDayName"
+					 value="{{ nickName }}" />
+					<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
+				</view>
+			</view>
+			<!-- 名称 -->
+			<view class="cont-item">
+				<text class="item-label">性别</text>
+				<view class="item-right">
+					<!-- 时间选择 -->
+					<picker disabled="{{isEdit}}" class="right-input" mode="selector" value="{{index}}" range-key="value" range="{{genderArr}}" bindchange="bindGenderChange" >
+						<text class="right-input">{{date || '选择性别'}}</text>
+					</picker>
+					<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
+				</view>
+			</view>
+			<!-- 日期 -->
+			<view class="cont-item">
+				<text class="item-label">生日</text>
+				<view class="item-right">
+					<!-- 时间选择 -->
+					<picker disabled="{{isEdit}}" class="right-input" mode="date" value="{{date}}" bindchange="bindDateChange" start="{{startDate}}" end="{{endDate}}">
+						<text class="right-input">{{date || '选择日期'}}</text>
+					</picker>
+					<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
+				</view>
+			</view>
+			<view class="cont-item">
+				<text class="item-label">城市</text>
+				<view class="item-right">
+					 <picker disabled="{{isEdit}}" mode="region" class="right-input" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+					      <text class="right-input">{{region[0]}}{{region[1]}}{{region[2] || '选择城市'}} </text>
+					  </picker>
+					<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
+				</view>
+			</view>
+			<view class="cont-item">
+				<text class="item-label">职业</text>
+				<view class="item-right">
+					<!-- 单选 -->
+					<picker disabled="{{isEdit}}" class="right-input" mode="selector" range="{{professionArr}}" range-key="dataName" value="{{professionIndex}}" bindchange="bindProfessionChange">
+						<text class="right-input"> {{professionArr[professionIndex].dataName || '选择职业' }} </text>
+					</picker>
+					<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
+				</view>
+			</view>
 		</view>
-
-		<view class="menu-item" bindtap='pageJumpHasLover' data-url='/pages/loveInfo/loveInfo'>
-			<text class="menu-text">另一半</text>
-			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		<view wx:if="{{isEdit}}" class="button edit-button" bindtap="edit">
+			<text class="button-text">编辑</text>
 		</view>
-
-		<view class="menu-item">
-			<text class="menu-text">个性设置</text>
-			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
-		</view>
-
-		<button class="menu-item button-view" open-type="share">
-			<text class="menu-text">推荐给好友</text>
-			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
-		</button>
-
-		<button class="menu-item button-view" open-type="contact">
-			<text class="menu-text">意见反馈</text>
-			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
-		</button>
-
-		<view class="menu-item">
-			<text class="menu-text">关于我们</text>
-			<image class="menu-img" src="/static/images/icon/right.png" mode="aspectFill" />
+		<view wx:if="{{!isEdit}}" class="button save-button" bindtap="save">
+			<text class="button-text">保存</text>
 		</view>
 	</view>
+		
 </view>
 <!-- 登录弹框组件 -->
 <login bindlogin="loginDialog" showLogin="{{showLogin}}"></login>
