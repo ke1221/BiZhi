@@ -35,6 +35,7 @@ Page({
 			constellation:userInfo.constellation,
 			birthday:userInfo.birthday,
 			genderIndex:userInfo.gender,
+			gender:userInfo.gender,
 			nickName:userInfo.nickName,
 			region:[userInfo.province,userInfo.city,userInfo.area]
 		})
@@ -58,14 +59,22 @@ Page({
 			region: e.detail.value
 		})
 	},
-	bindDateChange: function(e) {
+	bindBirthdayChange: function(e) {
 		this.setData({
 		  birthday: e.detail.value
 		})
+		this.updateUser();
 	},
 	bindProfessionChange:function(e){
 		this.setData({
-			professionIndex: e.detail.value
+			professionIndex: e.detail.value,
+			professionId:_this.data.professionArr[e.detail.value].dataId
+		})
+	},
+	bindGenderChange:function(e){
+		this.setData({
+			genderIndex: e.detail.value,
+			gender:e.detail.value,
 		})
 	},
 	getProfession:function(){
@@ -86,7 +95,29 @@ Page({
 			} else {
 				util.showErrorToast("请重试")
 			}
-		
+		})
+	},
+	updateUser:function(){
+		var _this = this
+		util.request(api.updateUser,{province:_this.data.region[0],city:_this.data.region[1],
+				area:_this.data.region[2],gender:_this.data.gender,birthday:_this.data.birthday,
+				constellation:_this.data.constellation,age:_this.data.age,
+				professionId:_this.data.professionId}).then(function(res) {
+			if (res.errno === 0) {
+				var professionIndex = 0;
+				for(var i=0;i<res.data.length;i++){
+					if(_this.data.professionId == res.data.professionId){
+						professionIndex = i;
+						break
+					}
+				}
+				_this.setData({
+					professionArr:res.data,
+					professionIndex:professionIndex
+				})
+			} else {
+				util.showErrorToast("请重试")
+			}
 		})
 	},
 	onShareAppMessage: function(res) {

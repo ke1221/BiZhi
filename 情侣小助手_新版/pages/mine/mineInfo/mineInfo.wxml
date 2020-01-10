@@ -39,8 +39,8 @@
 				<text class="item-label">生日</text>
 				<view class="item-right">
 					<!-- 时间选择 -->
-					<picker disabled="{{isEdit}}" class="right-input" mode="date" value="{{date}}" bindchange="bindDateChange" start="{{startDate}}" end="{{endDate}}">
-						<text class="right-input">{{date || '选择日期'}}</text>
+					<picker disabled="{{isEdit}}" class="right-input" mode="date" value="{{birthday}}" bindchange="bindBirthdayChange" start="{{startDate}}" end="{{endDate}}">
+						<text class="right-input">{{birthday || '选择日期'}}</text>
 					</picker>
 					<image class="right-icon" src="/static/images/icon/right.png" mode="aspectFill" />
 				</view>

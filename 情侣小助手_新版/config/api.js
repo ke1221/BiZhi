@@ -21,6 +21,7 @@ module.exports = {
 	getIndexInfo: WxApiRoot + 'index/queryIndexInfo', // 获取首页信息
 	getLoveCountInfo: WxApiRoot + 'index/queryLoveCountInfo', // 获取情侣统计信息
 	
+	updateUser:WxApiRoot+'user/updateUser', // 更新用户配置信息
 	getUserSet:WxApiRoot+'user/queryUserSetDetail', // 获取用户配置信息
 	updateUserSet:WxApiRoot+'user/updateUserSet', // 更新用户配置信息
 	
